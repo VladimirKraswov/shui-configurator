@@ -1,4 +1,4 @@
-import {ReactNode, useState, Fragment, useEffect} from 'react'
+import React, {ReactNode, useState, Fragment, useEffect} from 'react'
 
 import Stepper from '@mui/material/Stepper'
 import Box from '@mui/material/Box'
@@ -28,7 +28,9 @@ function StepperWindow() {
       //   await saveConfig(config, `${filePath}/${backupFolder}/CFGBKP.GCO`)
       //   setActiveStep((prevActiveStep: any) => prevActiveStep + 1)
       // }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const handleOpenConfig = async () => {
@@ -48,7 +50,9 @@ function StepperWindow() {
       //   setConfig(parseCommands ?? {});
       //   setActiveStep((prevActiveStep: any) => prevActiveStep + 1);
       // }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   function handleChangeConfig(commandName: string, parameterLetter: string, newValue: number) {

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import Box from '@mui/material/Box'
 import {Button, Fade, FormControl, MenuItem, Select, Typography} from '@mui/material'
 
@@ -27,8 +29,7 @@ function SelectProfileScreen({onOpenConfig}: ISelectProfileScreen) {
             id="demo-simple-select"
             value={profile}
             label="Ваш принтер"
-            onChange={handleSelectProfile}
-          >
+            onChange={handleSelectProfile}>
             <MenuItem value={Profile.FlyingBearGhost5}>{Profile.FlyingBearGhost5}</MenuItem>
           </Select>
           <Button style={{marginTop: 20}} size="large" variant="contained" onClick={onOpenConfig}>

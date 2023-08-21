@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -66,8 +66,7 @@ function SaveScreen({onChangeMotherboard}: ISaveScreen) {
             id="demo-simple-select"
             value={motherboard}
             label="Вид кинематики"
-            onChange={handleMotherboard}
-          >
+            onChange={handleMotherboard}>
             <MenuItem value={Motherboard.MKS_Robin_Nano_1_1}>{Motherboard.MKS_Robin_Nano_1_1}</MenuItem>
             <MenuItem value={Motherboard.MKS_Robin_Nano_1_2}>{Motherboard.MKS_Robin_Nano_1_2}</MenuItem>
             <MenuItem value={Motherboard.MKS_Robin_Nano_v1_3}>{Motherboard.MKS_Robin_Nano_v1_3}</MenuItem>

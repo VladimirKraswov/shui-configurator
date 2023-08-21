@@ -1,3 +1,4 @@
+import React from 'react'
 import {Dispatch, useEffect, useState} from 'react'
 
 import Box from '@mui/material/Box'
@@ -9,6 +10,7 @@ import {EditConfigScreen} from './screens/edit-config-screen'
 import {SaveScreen} from './screens/save-screen'
 import {IntroScreen} from './screens/intro-screen'
 import {SelectProfileScreen} from './screens/select-profile-screen'
+import {GCodeUiConstructor} from './modules/g-code-ui-constructor/GCodeUiConstructor'
 
 export enum Step {
   Intro,
@@ -28,7 +30,8 @@ interface INavigator {
 function Navigator({config, activeStep, handleChangeConfig, changeBackupFolder, onOpenConfig}: INavigator) {
   return (
     <Box sx={{display: 'flex', flex: 1, height: '100%'}}>
-      {activeStep === Step.Intro && <IntroScreen />}
+      {/* {activeStep === Step.Intro && <IntroScreen />} */}
+      {activeStep === Step.Intro && <GCodeUiConstructor />}
       {activeStep === Step.SelectProfile && <SelectProfileScreen onOpenConfig={onOpenConfig} />}
       {activeStep === Step.Configuration && <EditConfigScreen config={config} onChangeConfig={handleChangeConfig} />}
       {activeStep === Step.Save && <SaveScreen onChangeMotherboard={changeBackupFolder} />}

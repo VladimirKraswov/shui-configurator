@@ -91,30 +91,30 @@ export function setParameterValue(
   }
 
   const updatedCommand = command.map((parameters) => {
-    if (parameters.hasOwnProperty(parameterLetter)) {
-      return {...parameters, [parameterLetter]: newValue}
-    }
-    return parameters
+    // if (parameters.hasOwnProperty(parameterLetter)) {
+    //   return {...parameters, [parameterLetter]: newValue}
+    // }
+    // return parameters
   })
 
-  updatedCommands[commandName] = updatedCommand
+  // updatedCommands[commandName] = updatedCommand
   return updatedCommands
 }
 
 function convertObjectToString(parsedObject: any): string {
-  let result = ''
+  const result = ''
 
   for (const index in parsedObject) {
-    if (parsedObject.hasOwnProperty(index)) {
-      const parameters = parsedObject[index]
-      if (parameters) {
-        const parameterStrings = Object.keys(parameters).map((parameter) => {
-          const p = isNaN(parameters[parameter]) ? '' : parameters[parameter]
-          return `${parameter}${p} `
-        })
-        result += `${parameterStrings}`
-      }
-    }
+    // if (parsedObject.hasOwnProperty(index)) {
+    //   const parameters = parsedObject[index]
+    //   if (parameters) {
+    //     const parameterStrings = Object.keys(parameters).map((parameter) => {
+    //       const p = isNaN(parameters[parameter]) ? '' : parameters[parameter]
+    //       return `${parameter}${p} `
+    //     })
+    //     result += `${parameterStrings}`
+    //   }
+    // }
   }
 
   return result

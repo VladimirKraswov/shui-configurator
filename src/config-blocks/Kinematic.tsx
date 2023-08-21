@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import React, {useMemo} from 'react'
 import {
   Box,
   FormControl,
@@ -80,8 +80,7 @@ function KinematicBlock({config, onChangeConfig}: IKinematicBlock) {
         Кинематика CoreXZ: Использует два независимых двигателя на осях X и Z.
         Принтеры Markforged: Используют усиленные материалы, такие как углепластик и стеклопластик.
         Принтер Markforged M: Применяются в промышленности для производства функциональных металлических деталей.
-      `}
-      >
+      `}>
         <InputLabel id="demo-simple-select-label">Тип кинематики</InputLabel>
       </CustomWidthTooltip>
       <Select
@@ -89,8 +88,7 @@ function KinematicBlock({config, onChangeConfig}: IKinematicBlock) {
         id="demo-simple-select"
         value={kinematic}
         label="Вид кинематики"
-        onChange={changeKinematic}
-      >
+        onChange={changeKinematic}>
         <MenuItem value={0}>XYZ</MenuItem>
         <MenuItem value={1}>CoreXY</MenuItem>
         <MenuItem value={4}>CoreXZ</MenuItem>

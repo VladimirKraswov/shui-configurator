@@ -7,14 +7,14 @@ import {NumberInput} from './NumberInput'
 import {IParam} from '../commands'
 
 interface IParamOptions {
-  commandName: string
+  commandId: string
   param: IParam
-  onChange?: (commandName: string, paramName: string, value: any, isActive?: boolean) => void
+  onChange?: (commandId: string, paramName: string, value: any, isActive?: boolean) => void
 }
 
-export const ParamOptions = ({commandName, param, onChange}: IParamOptions) => {
+export const ParamOptions = ({commandId, param, onChange}: IParamOptions) => {
   const handleChange = useCallback((value: any, isActive?: boolean) => {
-    onChange?.(commandName, param.name, value, isActive)
+    onChange?.(commandId, param.name, value, isActive)
   }, [])
 
   if (param.selectableValues?.length) {

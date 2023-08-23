@@ -52,7 +52,7 @@ export interface ICommand {
 
 export const commands: ICommand[] = [
   {
-    id: 'c1',
+    id: '1',
     name: 'M414',
     description: 'Выбор языка интерфейса',
     details: {
@@ -76,7 +76,7 @@ export const commands: ICommand[] = [
     isNotDuplicate: true,
   },
   {
-    id: 'c2',
+    id: '2',
     name: 'M81',
     description: 'Отключить питание',
     details: {
@@ -115,12 +115,22 @@ export const commands: ICommand[] = [
     ],
   },
   {
-    id: 'c3',
+    id: '3',
     name: 'M851',
     description: 'Смещение датчика XYZ',
     details: {
       text: 'Установите расстояние XYZ от сопла до точки срабатывания датчика. Эти смещения необходимы для того, чтобы прошивка знала, как измерять слой и где находятся измеряемые точки по отношению к соплу, и наоборот.',
       url: 'https://marlinfw.org/docs/gcode/M851.html',
     },
+    params: [
+      {name: 'X', label: '', description: '', hint: '', value: 0},
+      {name: 'Y', label: '', description: '', hint: '', value: 0},
+      {name: 'Z', label: '', description: '', hint: '', value: 0},
+      {name: 'C', label: '', description: '', hint: '', value: 0},
+      {name: 'L', label: '', description: '', hint: '', value: 0},
+      {name: 'N', label: '', description: '', hint: '', value: 0},
+      {name: 'B', label: '', description: '', hint: '', value: 0},
+      {name: 'I', label: '', description: '', hint: '', value: 0},
+    ],
   },
 ]

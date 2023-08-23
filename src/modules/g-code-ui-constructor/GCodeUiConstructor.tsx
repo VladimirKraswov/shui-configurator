@@ -1,11 +1,12 @@
 import React, {useCallback, useReducer, useState} from 'react'
 
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
-
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import {TCommand, commands} from './commands'
-import {Button} from '@mui/material'
+import {ICommand, commands} from './commands'
+
+import {CommandCard} from './components/CommandCard'
+import {CommandDetails, EditCommandCard} from './components'
+import {Typography} from '@mui/material'
 
 const initialState = {
   selectedCommands: [],
@@ -35,133 +36,75 @@ const dragReducer = (state: any, action: any) => {
         ...state,
         selectedCommands: updatedCommands,
       }
+    case 'SET_IS_ACTIVE_PARAM':
+      return {
+        ...state,
+        selectedCommands: state.selectedCommands.map((cmd: ICommand) => {
+          if (cmd.name === action.payload.commandName) {
+            return action.payload.isActive
+              ? {
+                  ...cmd,
+                  params: cmd.params?.map((param) =>
+                    param.name === action.payload.paramName ? {...param, isActive: action.payload.value} : param,
+                  ),
+                }
+              : {
+                  ...cmd,
+                  params: cmd.params?.map((param) =>
+                    param.name === action.payload.paramName ? {...param, value: action.payload.value} : param,
+                  ),
+                }
+          } else {
+            return cmd
+          }
+        }),
+      }
     default:
       return state
   }
 }
 
-interface ICommandCard {
-  style?: any
-  command: TCommand
-  onClick?: () => void
-  onAdd?: () => void
-  onDelete?: () => void
-}
+const convertToGCode = (commands: ICommand[]) => {
+  let result = ''
 
-const CommandCard = ({style, command, onClick, onAdd, onDelete, ...rest}: ICommandCard) => {
-  return (
-    <Box
-      style={{
-        display: 'flex',
-        flex: 1,
-        flexDirection: 'row',
-        borderRadius: 5,
-        backgroundColor: '#606065',
-        color: '#fff',
-        padding: 10,
-        cursor: 'pointer',
-      }}
-      justifyContent="space-between"
-      onClick={onClick}
-      {...rest}>
-      <Box display="flex" alignItems="center">
-        <Typography mr={1}>{command.name}</Typography>
-        {'-'}
-        <Typography ml={1}>{command.description}</Typography>
-      </Box>
-      <Button
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
-          onAdd?.()
-        }}>
-        <Typography variant="h5">+</Typography>
-      </Button>
-    </Box>
-  )
-}
+  commands.forEach((command) => {
+    result += command.name
+    command.params?.forEach((param) => {
+      if (param.isActive) {
+        result += ` ${param.name}${param.value}`
+      }
 
-const EditCommandCard = ({style, command, onClick, onAdd, onDelete, ...rest}: ICommandCard) => {
-  return (
-    <Box
-      style={{
-        display: 'flex',
-        flex: 1,
-        flexDirection: 'row',
-        borderRadius: 5,
-        backgroundColor: '#606065',
-        color: '#fff',
-        padding: 10,
-      }}
-      justifyContent="space-between"
-      onClick={onClick}
-      {...rest}>
-      <Box display="flex" alignItems="center">
-        <Typography mr={1}>{command.name}</Typography>
-        {'-'}
-        <Typography ml={1}>{command.description}</Typography>
-      </Box>
-      <Button
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
-          onDelete?.()
-        }}>
-        <Typography variant="h5">-</Typography>
-      </Button>
-    </Box>
-  )
-}
+      if (typeof param.value === 'boolean' && param.value) {
+        result += ` ${param.name}`
+      }
+    })
+    result += '\n'
+  })
 
-interface IDetails {
-  command: TCommand
-}
-
-const Details = ({command}: IDetails) => {
-  return (
-    <Box display="flex" flexDirection="column" color="#fff" justifyContent="space-between">
-      <Box
-        style={{
-          overflowY: 'auto',
-          overflowX: 'hidden',
-        }}>
-        <Typography variant="h4">{command.name}</Typography>
-        <Typography>{command.details}</Typography>
-      </Box>
-      <Box display="flex" flexDirection="row" width="100%" justifyContent="flex-end">
-        {!!command.url && (
-          <a href={command.url} target="_blank" rel="noreferrer">
-            Документация
-          </a>
-        )}
-      </Box>
-    </Box>
-  )
+  return result
 }
 
 const GCodeUiConstructor = () => {
-  const [selectedViewCommand, setSelectedViewCommand] = useState<TCommand | null>(null)
+  const [selectedViewCommand, setSelectedViewCommand] = useState<ICommand | null>(null)
   const [state, dispatch] = useReducer(dragReducer, initialState) // Используйте useReducer
 
+  console.log('STATE', state)
+
   const addCommand = useCallback(
-    (command: TCommand) => () => {
+    (command: ICommand) => () => {
       dispatch({type: 'ADD_COMMAND', payload: command})
     },
     [],
   )
 
   const deleteCommand = useCallback(
-    (command: TCommand) => () => {
+    (command: ICommand) => () => {
       console.log(command)
 
       dispatch({type: 'DELETE_COMMAND', payload: command})
     },
     [],
   )
-
-  console.log(state)
 
   const onDragEnd = useCallback((result: any) => {
     if (!result.destination) {
@@ -171,6 +114,10 @@ const GCodeUiConstructor = () => {
       type: 'REORDER_COMMANDS',
       payload: {sourceIndex: result.source.index, destinationIndex: result.destination.index},
     })
+  }, [])
+
+  const handleChange = useCallback((commandName: string, paramName: string, value: any, isActive?: boolean) => {
+    dispatch({type: 'SET_IS_ACTIVE_PARAM', payload: {commandName, paramName, value, isActive}})
   }, [])
 
   return (
@@ -191,7 +138,7 @@ const GCodeUiConstructor = () => {
         border={1}
         borderRadius={5}
         borderColor={'#3b3b3b'}>
-        {commands.map((command: TCommand, index) => (
+        {commands.map((command: ICommand, index) => (
           <Box
             style={{
               overflowY: 'auto',
@@ -225,7 +172,7 @@ const GCodeUiConstructor = () => {
                 overflowX: 'hidden',
               }}
               {...provided.droppableProps}>
-              {state.selectedCommands.map((command: TCommand, index: number) => (
+              {state.selectedCommands.map((command: ICommand, index: number) => (
                 <Draggable draggableId={`${command.name}${index}`} key={`${command.name}${index}`} index={index}>
                   {(provided) => (
                     <Box
@@ -233,7 +180,12 @@ const GCodeUiConstructor = () => {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}>
-                      <EditCommandCard key={command.name} command={command} onDelete={deleteCommand(command)} />
+                      <EditCommandCard
+                        key={command.name}
+                        command={command}
+                        onDelete={deleteCommand(command)}
+                        onChange={handleChange}
+                      />
                     </Box>
                   )}
                 </Draggable>
@@ -252,7 +204,10 @@ const GCodeUiConstructor = () => {
           border={1}
           borderRadius={5}
           borderColor={'#3b3b3b'}>
-          {selectedViewCommand && <Details command={selectedViewCommand} />}
+          {selectedViewCommand && <CommandDetails command={selectedViewCommand} />}
+          <Typography whiteSpace="pre-wrap" color="white">
+            {convertToGCode(state.selectedCommands)}
+          </Typography>
         </Box>
       </DragDropContext>
     </Box>

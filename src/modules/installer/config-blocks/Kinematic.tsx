@@ -1,33 +1,8 @@
 import React, {useMemo} from 'react'
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  TextField,
-  Tooltip,
-  TooltipProps,
-  styled,
-  tooltipClasses,
-} from '@mui/material'
+import {Box, FormControl, FormLabel, InputLabel, MenuItem, Select, SelectChangeEvent, TextField} from '@mui/material'
 
 import {ParsedCommands, getParameterValue} from '../gcode-parse'
-
-const CustomWidthTooltip = styled(({className, ...props}: TooltipProps) => (
-  <Tooltip {...props} classes={{popper: className}} />
-))({
-  [`& .${tooltipClasses.tooltip}`]: {
-    maxWidth: 800,
-    fontSize: '14px',
-    backgroundColor: '#0d1116',
-    color: '#eaeaeb',
-    whiteSpace: 'pre-line',
-  },
-})
-
+import {Hint} from '../../../components/Hint'
 interface IKinematicBlock {
   config: ParsedCommands
   onChangeConfig: (commandName: string, parameterLetter: string, newValue: number) => void
@@ -72,7 +47,7 @@ function KinematicBlock({config, onChangeConfig}: IKinematicBlock) {
 
   return (
     <FormControl>
-      <CustomWidthTooltip
+      <Hint
         sx={{m: 1}}
         arrow
         title={`Кинематика XYZ: Использует два независимых двигателя на осях X и Y. Подходит для начинающих.
@@ -82,7 +57,7 @@ function KinematicBlock({config, onChangeConfig}: IKinematicBlock) {
         Принтер Markforged M: Применяются в промышленности для производства функциональных металлических деталей.
       `}>
         <InputLabel id="demo-simple-select-label">Тип кинематики</InputLabel>
-      </CustomWidthTooltip>
+      </Hint>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"

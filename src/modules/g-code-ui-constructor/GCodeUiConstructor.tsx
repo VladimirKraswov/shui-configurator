@@ -1,4 +1,4 @@
-import React, {useCallback, useReducer, useState} from 'react'
+import React, {useCallback, useEffect, useReducer, useState} from 'react'
 
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
 import * as uuid from 'uuid'
@@ -13,6 +13,25 @@ import {CommandCard} from './components/CommandCard'
 import {CommandDetails, EditCommandCard} from './components'
 import {Button, Typography} from '@mui/material'
 import {convertToGCode} from './utils/convert-to-gcode'
+import {saveTotFile} from '../../utils/save-to-file'
+
+function saveTextToFile(text: string, ext?: string) {
+  const a = document.createElement('a')
+  const blob = new Blob([new Uint8Array([0xef, 0xbb, 0xbf]), text], {type: 'text/plain;charset=utf-8'})
+  a.href = URL.createObjectURL(blob)
+  const currentDate = new Date().toISOString().replace(/:/g, '-')
+  a.download = 'my_text_' + currentDate + ext ?? '.txt'
+  a.click()
+  URL.revokeObjectURL(a.href)
+}
+
+function handleDirectorySelect(event: any) {
+  const selectedText = prompt('Введите текст для сохранения в файл:')
+
+  if (selectedText !== null) {
+    saveTextToFile(selectedText)
+  }
+}
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -43,7 +62,7 @@ function a11yProps(index: number) {
   }
 }
 
-export default function FullWidthTabs({selectedViewCommand, selectedCommands}: any) {
+export default function FullWidthTabs({selectedViewCommand, gcode}: any) {
   const [value, setValue] = React.useState(1)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -58,10 +77,10 @@ export default function FullWidthTabs({selectedViewCommand, selectedCommands}: a
     <Box flex={1}>
       <AppBar position="static">
         <Tabs
-          style={{backgroundColor: '#262626', borderColor: '#fff'}}
+          // style={{backgroundColor: '#262626', borderColor: '#fff'}}
           TabIndicatorProps={{
             style: {
-              backgroundColor: '#fff',
+              // backgroundColor: '#fff',
             },
           }}
           value={value}
@@ -77,7 +96,7 @@ export default function FullWidthTabs({selectedViewCommand, selectedCommands}: a
       <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
         <TabPanel value={value} index={0}>
           <Box>
-            <Typography whiteSpace="pre-wrap">{convertToGCode(selectedCommands)}</Typography>
+            <Typography whiteSpace="pre-wrap">{gcode}</Typography>
           </Box>
         </TabPanel>
         <TabPanel value={value} index={1}>
@@ -147,8 +166,7 @@ const dragReducer = (state: any, action: any) => {
 const GCodeUiConstructor = () => {
   const [selectedViewCommand, setSelectedViewCommand] = useState<ICommand | null>(null)
   const [state, dispatch] = useReducer(dragReducer, initialState) // Используйте useReducer
-
-  console.log('STATE', state)
+  const [gcode, setGCode] = useState('')
 
   const addCommand = useCallback(
     (command: ICommand) => () => {
@@ -180,6 +198,10 @@ const GCodeUiConstructor = () => {
     dispatch({type: 'SET_IS_ACTIVE_PARAM', payload: {id, paramName, value, isActive}})
   }, [])
 
+  useEffect(() => {
+    setGCode(convertToGCode(state.selectedCommands))
+  }, [state.selectedCommands])
+
   return (
     <Box display="flex" flex={1} flexDirection="column" p={2}>
       <Box display="flex" flexDirection="row" mb={2}>
@@ -187,13 +209,12 @@ const GCodeUiConstructor = () => {
         <Button style={{marginTop: 20}} size="large" variant="contained" onClick={() => {}}>
           Открыть
         </Button>
-        {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-        <Button style={{marginTop: 20, marginLeft: 10}} size="large" variant="contained" onClick={() => {}}>
+        <Button
+          style={{marginTop: 20, marginLeft: 10}}
+          size="large"
+          variant="contained"
+          onClick={() => saveTextToFile(gcode, 'gcode')}>
           Сохранить
-        </Button>
-        {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-        <Button style={{marginTop: 20, marginLeft: 10}} size="large" variant="contained" onClick={() => {}}>
-          Сохранить GCode
         </Button>
       </Box>
 
@@ -235,7 +256,7 @@ const GCodeUiConstructor = () => {
                     {(provided) => (
                       <Box
                         // mb={index < state.selectedCommands.length ? 1 : 0}
-                        mt={index < commands.length ? 1 : 0}
+                        mt={index < state.selectedCommands.length ? 1 : 0}
                         ml={2}
                         mr={2}
                         ref={provided.innerRef}
@@ -258,7 +279,7 @@ const GCodeUiConstructor = () => {
           </Droppable>
           <Box width={10} />
           <Box p={1} display="flex" width={'40%'} height={'100%'} border={1} borderRadius={5} borderColor={'#3b3b3b'}>
-            <FullWidthTabs selectedViewCommand={selectedViewCommand} selectedCommands={state.selectedCommands} />
+            <FullWidthTabs selectedViewCommand={selectedViewCommand} gcode={gcode} />
           </Box>
         </DragDropContext>
       </Box>

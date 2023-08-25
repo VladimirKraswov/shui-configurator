@@ -5,6 +5,7 @@ import {Box, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Sele
 import {NumberInput} from './NumberInput'
 
 import {IParam} from '../commands'
+import {Hint} from '../../../components/Hint'
 
 interface IParamOptions {
   commandId: string
@@ -20,7 +21,10 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
   if (param.selectableValues?.length) {
     return (
       <FormControl disabled={!param.isActive} fullWidth>
-        <InputLabel id="demo-simple-select-label">{param.label}</InputLabel>
+        <Hint title={param.hint}>
+          <InputLabel id="demo-simple-select-label">{param.label}</InputLabel>
+        </Hint>
+
         <Select
           style={{backgroundColor: 'white'}}
           labelId="demo-simple-select-label"
@@ -41,11 +45,13 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
   if (typeof param.value === 'boolean') {
     return (
       <FormControl fullWidth>
-        <FormControlLabel
-          required
-          control={<Checkbox checked={param.value} onChange={(e, checked) => handleChange(checked)} />}
-          label={param.label}
-        />
+        <Hint title={param.hint}>
+          <FormControlLabel
+            required
+            control={<Checkbox checked={param.value} onChange={(e, checked) => handleChange(checked)} />}
+            label={param.label}
+          />
+        </Hint>
       </FormControl>
     )
   }
@@ -53,7 +59,9 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
   if (typeof param.value === 'number') {
     return (
       <Box>
-        <InputLabel id="demo-simple-select-label">{param.label}</InputLabel>
+        <Hint title={param.hint}>
+          <InputLabel>{param.label}</InputLabel>
+        </Hint>
 
         <Box display="inline-flex">
           <Checkbox
@@ -66,7 +74,6 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
             aria-label="Demo number input"
             placeholder="Type a number…"
             value={param.value}
-            label={param.label}
             min={param.min}
             max={param.max}
             //@ts-ignore

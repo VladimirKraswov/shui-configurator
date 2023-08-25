@@ -41,6 +41,7 @@ export const commands: ICommand[] = [
       {
         name: 'S',
         description: 'Выбор языка интерфейса',
+        hint: 'Выберете язык',
         label: 'Язык интерфейса',
         value: 0,
         selectableValues: [

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-gh-pages/static/css/main.a3dcda68.css",
-    "main.js": "/react-gh-pages/static/js/main.b6ce1135.js",
+    "main.js": "/react-gh-pages/static/js/main.58be27ad.js",
     "static/js/787.9dc1b04e.chunk.js": "/react-gh-pages/static/js/787.9dc1b04e.chunk.js",
     "static/media/roboto-latin-500-normal.woff2": "/react-gh-pages/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/react-gh-pages/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -61,11 +61,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/react-gh-pages/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/react-gh-pages/index.html",
     "main.a3dcda68.css.map": "/react-gh-pages/static/css/main.a3dcda68.css.map",
-    "main.b6ce1135.js.map": "/react-gh-pages/static/js/main.b6ce1135.js.map",
+    "main.58be27ad.js.map": "/react-gh-pages/static/js/main.58be27ad.js.map",
     "787.9dc1b04e.chunk.js.map": "/react-gh-pages/static/js/787.9dc1b04e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a3dcda68.css",
-    "static/js/main.b6ce1135.js"
+    "static/js/main.58be27ad.js"
   ]
 }

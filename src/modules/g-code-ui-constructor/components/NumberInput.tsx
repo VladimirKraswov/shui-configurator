@@ -5,6 +5,7 @@ import {useForkRef} from '@mui/material'
 import styled from '@emotion/styled'
 import {useNumberInput} from '@mui/base/unstable_useNumberInput/useNumberInput'
 import {UseNumberInputParameters} from '@mui/base'
+import {COLORS} from '../../../theme/colors'
 
 export const NumberInput = forwardRef(function CustomNumberInput(
   props: UseNumberInputParameters & React.InputHTMLAttributes<HTMLInputElement>,
@@ -36,27 +37,6 @@ export const NumberInput = forwardRef(function CustomNumberInput(
   )
 })
 
-const blue = {
-  100: '#DAECFF',
-  200: '#b6daff',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-}
-
-const grey = {
-  50: '#f6f8fa',
-  100: '#eaeef2',
-  200: '#d0d7de',
-  300: '#afb8c1',
-  400: '#8c959f',
-  500: '#6e7781',
-  600: '#57606a',
-  700: '#424a53',
-  800: '#32383f',
-  900: '#24292f',
-}
-
 const StyledInputRoot: React.ElementType = styled('div')(
   ({theme}) => `
     font-family: IBM Plex Sans, sans-serif;
@@ -74,20 +54,20 @@ const StyledInputRoot: React.ElementType = styled('div')(
     border-style: solid;
     border-width: 1px;
 
-    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+    color: ${theme.palette.mode === 'dark' ? COLORS.grey[300] : COLORS.grey[900]};
+    background: ${theme.palette.mode === 'dark' ? COLORS.grey[900] : COLORS.grey[50]};
 
-    border-color: ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+    border-color: ${theme.palette.mode === 'dark' ? COLORS.grey[700] : COLORS.grey[200]};
+    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? COLORS.grey[900] : COLORS.grey[50]};
 
     &.focused {
-      border-color: ${blue[400]};
+      border-color: ${COLORS.blue[400]};
       box-shadow:
-        inset 0 0 0 1px ${blue[400]},
-        0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+        inset 0 0 0 1px ${COLORS.blue[400]},
+        0px 2px 2px ${theme.palette.mode === 'dark' ? COLORS.grey[900] : COLORS.grey[50]};
 
       & button:hover {
-        background: ${blue[400]};
+        background: ${COLORS.blue[400]};
       }
     }
   `,
@@ -123,12 +103,12 @@ const StyledStepperButton = styled('button')(
     &.decrement {
       &:hover {
         cursor: pointer;
-        background: ${blue[400]};
-        color: ${grey[50]};
+        background: ${COLORS.blue[400]};
+        color: ${COLORS.grey[50]};
       }
 
-      background: ${grey[600]};
-      color: ${grey[200]};
+      background: ${COLORS.grey[600]};
+      color: ${COLORS.grey[200]};
     }
 
     &.increment {

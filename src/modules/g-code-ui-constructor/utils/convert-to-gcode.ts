@@ -1,4 +1,4 @@
-import {ICommand} from './commands'
+import {ICommand} from '../commands'
 
 export const convertToGCode = (commands: ICommand[]) => {
   let result = ''

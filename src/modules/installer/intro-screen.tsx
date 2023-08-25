@@ -3,7 +3,7 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import {Fade} from '@mui/material'
-import {info} from '../assets/info'
+import {info} from '../../assets/info'
 
 const IntroScreen = () => {
   return (

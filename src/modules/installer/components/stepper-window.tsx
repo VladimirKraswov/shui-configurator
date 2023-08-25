@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import {Step, StepLabel, Typography} from '@mui/material'
 
-import {Navigator} from '../navigator'
+import {Navigator} from '../../../navigator'
 import {FooterSwitchStep} from './footer-switch-step'
 import {ParsedCommands, loadConfig, saveConfig, setParameterValue} from '../gcode-parse'
 

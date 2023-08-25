@@ -5,7 +5,7 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import './App.css'
-import {StepperWindow} from './components/stepper-window'
+import {StepperWindow} from './modules/installer/components/stepper-window'
 import {GCodeUiConstructor} from './modules/g-code-ui-constructor/GCodeUiConstructor'
 
 function App() {

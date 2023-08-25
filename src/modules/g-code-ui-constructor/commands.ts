@@ -29,27 +29,6 @@ export interface ICommand {
   isNotDuplicate?: boolean
 }
 
-// // Добавлена в backup
-// export interface IM851 {
-//   id: string
-//   name: string
-//   description?: string
-//   params?: {
-//     X?: number
-//     Y?: number
-//     Z?: number
-//     C?: number // clearance
-//     L?: number // z probe low point
-//     N?: number // number of failed probes
-//     B?: number // bltouch (0/1)
-//     I?: number // inaccuracy
-//   }
-//   details?: string
-//   url?: string
-// }
-
-// export type TCommand = IM414 | IM81 | IM851
-
 export const commands: ICommand[] = [
   {
     id: '1',
@@ -62,7 +41,7 @@ export const commands: ICommand[] = [
       {
         name: 'S',
         description: 'Выбор языка интерфейса',
-        label: 'Язык',
+        label: 'Язык интерфейса',
         value: 0,
         selectableValues: [
           {label: 'English', value: 0},
@@ -93,6 +72,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'D',
+        label: 'Задержка выключения',
         description: '',
         hint: '(delay) задержка выключения [0..255] секунд',
         value: 0,
@@ -101,6 +81,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'T',
+        label: 'Ожидание охлаждения хотэнда',
         description: '',
         hint: '(temperature) - ожидание охлаждения хотэнда',
         value: 0,

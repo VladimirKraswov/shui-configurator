@@ -12,7 +12,7 @@ interface IParamOptions {
   onChange?: (commandId: string, paramName: string, value: any, isActive?: boolean) => void
 }
 
-export const ParamOptions = ({commandId, param, onChange}: IParamOptions) => {
+export const Param = ({commandId, param, onChange}: IParamOptions) => {
   const handleChange = useCallback((value: any, isActive?: boolean) => {
     onChange?.(commandId, param.name, value, isActive)
   }, [])
@@ -20,8 +20,11 @@ export const ParamOptions = ({commandId, param, onChange}: IParamOptions) => {
   if (param.selectableValues?.length) {
     return (
       <FormControl disabled={!param.isActive} fullWidth>
-        <InputLabel id="demo-simple-select-label">Материнская плата</InputLabel>
+        <InputLabel style={{color: 'white'}} id="demo-simple-select-label">
+          {param.label}
+        </InputLabel>
         <Select
+          style={{color: 'white', borderColor: 'white'}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={param.value}
@@ -51,21 +54,30 @@ export const ParamOptions = ({commandId, param, onChange}: IParamOptions) => {
 
   if (typeof param.value === 'number') {
     return (
-      <Box width="100%" display="inline-flex">
-        <Checkbox checked={param.isActive} onChange={(e, checked) => handleChange(checked, true)} />
-        <NumberInput
-          disabled={!param.isActive}
-          aria-label="Demo number input"
-          placeholder="Type a number…"
-          value={param.value}
-          min={param.min}
-          max={param.max}
-          //@ts-ignore
-          onChange={(e, value) => handleChange(value)}
-        />
+      <Box>
+        <InputLabel id="demo-simple-select-label">{param.label}</InputLabel>
+
+        <Box display="inline-flex">
+          <Checkbox
+            style={{padding: 0, marginRight: 10}}
+            checked={param.isActive}
+            onChange={(e, checked) => handleChange(checked, true)}
+          />
+          <NumberInput
+            disabled={!param.isActive}
+            aria-label="Demo number input"
+            placeholder="Type a number…"
+            value={param.value}
+            label={param.label}
+            min={param.min}
+            max={param.max}
+            //@ts-ignore
+            onChange={(e, value) => handleChange(value)}
+          />
+        </Box>
       </Box>
     )
   }
 
-  return <Box>{param.isActive}</Box>
+  return null
 }

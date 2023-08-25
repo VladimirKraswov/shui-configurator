@@ -3,13 +3,13 @@ import {Dispatch, useEffect, useState} from 'react'
 
 import Box from '@mui/material/Box'
 
-import {setParameterValue, loadConfig, ParsedCommands, saveConfig} from './gcode-parse'
+import {setParameterValue, loadConfig, ParsedCommands, saveConfig} from './modules/installer/gcode-parse'
 
-import {EditConfigScreen} from './screens/edit-config-screen'
+import {EditConfigScreen} from './modules/installer/edit-config-screen'
 
-import {SaveScreen} from './screens/save-screen'
-import {IntroScreen} from './screens/intro-screen'
-import {SelectProfileScreen} from './screens/select-profile-screen'
+import {SaveScreen} from './modules/installer/save-screen'
+import {IntroScreen} from './modules/installer/intro-screen'
+import {SelectProfileScreen} from './modules/installer/select-profile-screen'
 import {GCodeUiConstructor} from './modules/g-code-ui-constructor/GCodeUiConstructor'
 
 export enum Step {

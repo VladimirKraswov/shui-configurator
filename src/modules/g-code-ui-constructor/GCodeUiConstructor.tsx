@@ -12,7 +12,7 @@ import {ICommand, commands} from './commands'
 import {CommandCard} from './components/CommandCard'
 import {CommandDetails, EditCommandCard} from './components'
 import {Button, Typography} from '@mui/material'
-import {convertToGCode} from './convert-to-gcommands'
+import {convertToGCode} from './utils/convert-to-gcode'
 
 interface TabPanelProps {
   children?: React.ReactNode

@@ -3,8 +3,8 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import {Fade} from '@mui/material'
 
-import {ParsedCommands} from '../gcode-parse'
-import {KinematicBlock} from '../config-blocks/Kinematic'
+import {ParsedCommands} from './gcode-parse'
+import {KinematicBlock} from './config-blocks/Kinematic'
 
 interface IEditConfigScreen {
   config: ParsedCommands

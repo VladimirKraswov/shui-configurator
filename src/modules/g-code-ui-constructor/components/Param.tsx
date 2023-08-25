@@ -20,11 +20,9 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
   if (param.selectableValues?.length) {
     return (
       <FormControl disabled={!param.isActive} fullWidth>
-        <InputLabel style={{color: 'white'}} id="demo-simple-select-label">
-          {param.label}
-        </InputLabel>
+        <InputLabel id="demo-simple-select-label">{param.label}</InputLabel>
         <Select
-          style={{color: 'white', borderColor: 'white'}}
+          style={{backgroundColor: 'white'}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={param.value}

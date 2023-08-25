@@ -3,26 +3,30 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import {ICommand} from '../commands'
 import {Button} from '@mui/material'
+import {COLORS} from '../../../theme/colors'
 
 interface ICommandCard {
-  style?: any
   command: ICommand
   onClick?: () => void
   onAdd?: () => void
 }
 
-export const CommandCard = ({style, command, onClick, onAdd, ...rest}: ICommandCard) => {
+export const CommandCard = ({command, onClick, onAdd, ...rest}: ICommandCard) => {
   return (
     <Box
+      ml={2}
+      mr={2}
       style={{
         display: 'flex',
         flex: 1,
         flexDirection: 'row',
         borderRadius: 5,
-        backgroundColor: '#606065',
-        color: '#fff',
+        borderColor: '#606065',
+        backgroundColor: COLORS.grey[100],
+        borderWidth: 1,
         padding: 10,
         cursor: 'pointer',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
       }}
       justifyContent="space-between"
       onClick={onClick}

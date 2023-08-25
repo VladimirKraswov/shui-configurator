@@ -11,7 +11,7 @@ interface ICommandDetails {
 
 export const CommandDetails = ({command}: ICommandDetails) => {
   return (
-    <Box height="100%" flexDirection="column" color="#fff" justifyContent="space-between">
+    <Box height="100%" flexDirection="column" justifyContent="space-between">
       <Box
         style={{
           overflowY: 'auto',

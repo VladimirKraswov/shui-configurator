@@ -77,9 +77,7 @@ export default function FullWidthTabs({selectedViewCommand, selectedCommands}: a
       <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
         <TabPanel value={value} index={0}>
           <Box>
-            <Typography whiteSpace="pre-wrap" color="white">
-              {convertToGCode(selectedCommands)}
-            </Typography>
+            <Typography whiteSpace="pre-wrap">{convertToGCode(selectedCommands)}</Typography>
           </Box>
         </TabPanel>
         <TabPanel value={value} index={1}>
@@ -183,7 +181,7 @@ const GCodeUiConstructor = () => {
   }, [])
 
   return (
-    <Box display="flex" flex={1} flexDirection="column" p={2} bgcolor="#262626">
+    <Box display="flex" flex={1} flexDirection="column" p={2}>
       <Box display="flex" flexDirection="row" mb={2}>
         {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
         <Button style={{marginTop: 20}} size="large" variant="contained" onClick={() => {}}>
@@ -204,25 +202,10 @@ const GCodeUiConstructor = () => {
           display: 'flex',
           flex: 1,
           flexDirection: 'row',
-          backgroundColor: '#262626',
         }}>
-        <Box
-          p={2}
-          flexDirection="column"
-          width={'25rem'}
-          height={'100%'}
-          bgcolor={'#1e1e1e'}
-          border={1}
-          borderRadius={5}
-          borderColor={'#3b3b3b'}>
+        <Box flexDirection="column" width={'25rem'} height={'100%'} border={1} borderRadius={5} borderColor={'#3b3b3b'}>
           {commands.map((command: ICommand, index) => (
-            <Box
-              style={{
-                overflowY: 'auto',
-                overflowX: 'hidden',
-              }}
-              mb={index < commands.length ? 1 : 0}
-              key={command.name}>
+            <Box mt={index < commands.length ? 1 : 0} key={command.name}>
               <CommandCard
                 command={command}
                 onClick={() => setSelectedViewCommand(command)}
@@ -237,10 +220,8 @@ const GCodeUiConstructor = () => {
             {(provided, snapshot) => (
               <Box
                 ref={provided.innerRef}
-                p={2}
                 width={'30%'}
                 height={'100%'}
-                bgcolor={'#1e1e1e'}
                 border={1}
                 borderRadius={5}
                 borderColor={'#3b3b3b'}
@@ -253,7 +234,10 @@ const GCodeUiConstructor = () => {
                   <Draggable draggableId={command.id} key={command.id} index={index}>
                     {(provided) => (
                       <Box
-                        mb={index < state.selectedCommands.length ? 1 : 0}
+                        // mb={index < state.selectedCommands.length ? 1 : 0}
+                        mt={index < commands.length ? 1 : 0}
+                        ml={2}
+                        mr={2}
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}>
@@ -273,15 +257,7 @@ const GCodeUiConstructor = () => {
             )}
           </Droppable>
           <Box width={10} />
-          <Box
-            p={2}
-            display="flex"
-            width={'40%'}
-            height={'100%'}
-            bgcolor={'#1e1e1e'}
-            border={1}
-            borderRadius={5}
-            borderColor={'#3b3b3b'}>
+          <Box p={1} display="flex" width={'40%'} height={'100%'} border={1} borderRadius={5} borderColor={'#3b3b3b'}>
             <FullWidthTabs selectedViewCommand={selectedViewCommand} selectedCommands={state.selectedCommands} />
           </Box>
         </DragDropContext>

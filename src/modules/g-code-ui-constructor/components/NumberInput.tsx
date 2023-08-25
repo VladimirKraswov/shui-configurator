@@ -11,7 +11,8 @@ export const NumberInput = forwardRef(function CustomNumberInput(
   props: UseNumberInputParameters & React.InputHTMLAttributes<HTMLInputElement>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {
-  const {getRootProps, getInputProps, getIncrementButtonProps, getDecrementButtonProps, focused} = useNumberInput(props)
+  const {getRootProps, getInputProps, getIncrementButtonProps, getDecrementButtonProps, focused, disabled} =
+    useNumberInput(props)
 
   const inputProps = getInputProps()
 
@@ -19,7 +20,7 @@ export const NumberInput = forwardRef(function CustomNumberInput(
   inputProps.ref = useForkRef(inputProps.ref, ref)
 
   return (
-    <StyledInputRoot {...getRootProps()} className={focused ? 'focused' : null}>
+    <StyledInputRoot {...getRootProps()} disabled={disabled} className={focused ? 'focused' : null}>
       <StyledStepperButton {...getIncrementButtonProps()} className="increment">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
           <path d="M0 0h24v24H0z" fill="none" />
@@ -32,13 +33,14 @@ export const NumberInput = forwardRef(function CustomNumberInput(
           <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor" />
         </svg>
       </StyledStepperButton>
+
       <StyledInputElement {...inputProps} />
     </StyledInputRoot>
   )
 })
 
 const StyledInputRoot: React.ElementType = styled('div')(
-  ({theme}) => `
+  ({theme, disabled}) => `
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
@@ -55,7 +57,7 @@ const StyledInputRoot: React.ElementType = styled('div')(
     border-width: 1px;
 
     color: ${theme.palette.mode === 'dark' ? COLORS.grey[300] : COLORS.grey[900]};
-    background: ${theme.palette.mode === 'dark' ? COLORS.grey[900] : COLORS.grey[50]};
+    background: ${disabled ? COLORS.grey[100] : 'white'};
 
     border-color: ${theme.palette.mode === 'dark' ? COLORS.grey[700] : COLORS.grey[200]};
     box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? COLORS.grey[900] : COLORS.grey[50]};
@@ -80,6 +82,8 @@ const StyledInputElement = styled('input')`
   border: 0;
   outline: 0;
   padding: 0;
+
+  background-color: ${(props) => (props.disabled ? COLORS.grey[100] : 'white')};
 `
 
 const StyledStepperButton = styled('button')(

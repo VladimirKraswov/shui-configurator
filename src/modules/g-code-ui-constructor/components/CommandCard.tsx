@@ -30,8 +30,9 @@ export const CommandCard = ({command, onClick, onAdd, ...rest}: ICommandCard) =>
       onClick={onClick}
       {...rest}>
       <Box display="flex" alignItems="center">
-        <Typography mr={1}>{command.name}</Typography>
-        {'-'}
+        <Typography variant="h6" mr={1}>
+          {command.name}
+        </Typography>
         <Typography ml={1}>{command.description}</Typography>
       </Box>
       <Button

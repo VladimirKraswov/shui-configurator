@@ -2083,7 +2083,7 @@ export const commands: ICommand[] = [
   {
     id: 'G11',
     name: 'G11',
-    description: 'DELETE',
+    description: '',
     details: {
       url: 'https://marlinfw.org/docs/gcode/G011.html',
     },
@@ -3041,7 +3041,7 @@ export const commands: ICommand[] = [
   {
     id: 'M208',
     name: 'M208',
-    description: 'DELETE',
+    description: '',
     details: {
       url: 'https://marlinfw.org/docs/gcode/M208.html',
     },

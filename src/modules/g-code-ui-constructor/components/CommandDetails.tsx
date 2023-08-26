@@ -19,6 +19,7 @@ export const CommandDetails = ({command}: ICommandDetails) => {
         style={{
           overflowY: 'auto',
           overflowX: 'hidden',
+          height: '75vh',
         }}>
         <Typography variant="h4">{command.name}</Typography>
         <Typography whiteSpace="pre-wrap">{command.details?.text}</Typography>

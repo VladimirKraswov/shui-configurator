@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useReducer, useState} from 'react'
+import React, {useCallback, useEffect, useReducer, useRef, useState} from 'react'
 
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
 import * as uuid from 'uuid'
@@ -13,25 +13,8 @@ import {CommandCard} from './components/CommandCard'
 import {CommandDetails, EditCommandCard} from './components'
 import {Button, Typography} from '@mui/material'
 import {convertToGCode} from './utils/convert-to-gcode'
-import {saveTotFile} from '../../utils/save-to-file'
-
-function saveTextToFile(text: string, ext?: string) {
-  const a = document.createElement('a')
-  const blob = new Blob([new Uint8Array([0xef, 0xbb, 0xbf]), text], {type: 'text/plain;charset=utf-8'})
-  a.href = URL.createObjectURL(blob)
-  const currentDate = new Date().toISOString().replace(/:/g, '-')
-  a.download = 'my_text_' + currentDate + ext ?? '.txt'
-  a.click()
-  URL.revokeObjectURL(a.href)
-}
-
-function handleDirectorySelect(event: any) {
-  const selectedText = prompt('Введите текст для сохранения в файл:')
-
-  if (selectedText !== null) {
-    saveTextToFile(selectedText)
-  }
-}
+import {saveTextToFile} from '../../utils/saveTextToFile'
+import {FileInput, IFileInputRef} from '../../components/FileInput'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -165,8 +148,10 @@ const dragReducer = (state: any, action: any) => {
 
 const GCodeUiConstructor = () => {
   const [selectedViewCommand, setSelectedViewCommand] = useState<ICommand | null>(null)
-  const [state, dispatch] = useReducer(dragReducer, initialState) // Используйте useReducer
+  const [state, dispatch] = useReducer(dragReducer, initialState)
   const [gcode, setGCode] = useState('')
+  const [fileContent, setFileContent] = useState<string>('')
+  const openFileRef = useRef<IFileInputRef | null>(null)
 
   const addCommand = useCallback(
     (command: ICommand) => () => {
@@ -198,6 +183,10 @@ const GCodeUiConstructor = () => {
     dispatch({type: 'SET_IS_ACTIVE_PARAM', payload: {id, paramName, value, isActive}})
   }, [])
 
+  const handleOpen = (content: string) => {
+    setFileContent(content)
+  }
+
   useEffect(() => {
     setGCode(convertToGCode(state.selectedCommands))
   }, [state.selectedCommands])
@@ -206,7 +195,7 @@ const GCodeUiConstructor = () => {
     <Box display="flex" flex={1} flexDirection="column" p={2}>
       <Box display="flex" flexDirection="row" mb={2}>
         {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-        <Button style={{marginTop: 20}} size="large" variant="contained" onClick={() => {}}>
+        <Button style={{marginTop: 20}} size="large" variant="contained" onClick={() => openFileRef.current?.open()}>
           Открыть
         </Button>
         <Button
@@ -232,6 +221,7 @@ const GCodeUiConstructor = () => {
                 onClick={() => setSelectedViewCommand(command)}
                 onAdd={addCommand(command)}
               />
+              <Typography>{fileContent}</Typography>
             </Box>
           ))}
         </Box>
@@ -283,6 +273,7 @@ const GCodeUiConstructor = () => {
           </Box>
         </DragDropContext>
       </Box>
+      <FileInput ref={openFileRef} onFileChange={handleOpen} />
     </Box>
   )
 }

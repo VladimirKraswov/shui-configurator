@@ -2,8 +2,7 @@ import React from 'react'
 
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-
-import {ICommand} from '../commands'
+import {ICommand} from '../../../utils/GCodeParser'
 
 interface ICommandDetails {
   command?: ICommand | null

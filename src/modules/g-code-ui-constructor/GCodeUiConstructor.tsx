@@ -3,15 +3,17 @@ import React, {useCallback, useEffect, useMemo, useReducer, useRef, useState} fr
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
 import * as uuid from 'uuid'
 import Box from '@mui/material/Box'
-import {ICommand, commands} from './commands'
 
 import {CommandCard} from './components/CommandCard'
 import {CommandDetails, EditCommandCard} from './components'
 import {Button, Typography} from '@mui/material'
-import {convertToGCode} from './utils/convert-to-gcode'
 import {saveTextToFile} from '../../utils/saveTextToFile'
 import {FileInput, IFileInputRef} from '../../components/FileInput'
 import {TabsNavigator} from './components/TabNavigator'
+import {removeComments} from '../installer/utils/remove-comments'
+import {getParseGCode} from '../installer/gcode-parse'
+import {ICommand, commandsToGCode} from '../../utils/GCodeParser'
+import {commands} from '../../utils/GCodeParser/commands'
 
 const initialState = {
   selectedCommands: [],
@@ -121,7 +123,7 @@ const GCodeUiConstructor = () => {
   )
 
   useEffect(() => {
-    setGCode(convertToGCode(state.selectedCommands))
+    setGCode(commandsToGCode(state.selectedCommands))
   }, [state.selectedCommands])
 
   return (

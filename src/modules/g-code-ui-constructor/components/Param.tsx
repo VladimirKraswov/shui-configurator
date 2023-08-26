@@ -4,8 +4,8 @@ import {Box, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Sele
 
 import {NumberInput} from './NumberInput'
 
-import {IParam} from '../commands'
 import {Hint} from '../../../components/Hint'
+import {IParam} from '../../../utils/GCodeParser'
 
 interface IParamOptions {
   commandId: string

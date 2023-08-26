@@ -1,6 +1,6 @@
-import {ICommand} from '../commands'
+import {ICommand} from './types'
 
-export const convertToGCode = (commands: ICommand[]) => {
+export const commandsToGCode = (commands: ICommand[]) => {
   let result = ''
 
   commands?.forEach((command) => {

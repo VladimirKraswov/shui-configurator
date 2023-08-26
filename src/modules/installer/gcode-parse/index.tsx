@@ -28,7 +28,7 @@ async function writeGCodeFromFile(filename: string, gcode: string) {
   }
 }
 
-function parseGCode(gCode: string): ParsedCommands {
+export function getParseGCode(gCode: string): ParsedCommands {
   const lines = gCode.split('\n')
   const parsedCommands: ParsedCommands = {}
 
@@ -124,7 +124,7 @@ export async function loadConfig(fileName: string): Promise<ParsedCommands | nul
   try {
     const gcodeData = await readGCodeFromFile(fileName)
     if (gcodeData) {
-      return parseGCode(removeComments(gcodeData))
+      return getParseGCode(removeComments(gcodeData))
     }
 
     return null

@@ -1,9 +1,9 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import {ICommand} from '../commands'
 import {Button} from '@mui/material'
 import {COLORS} from '../../../theme/colors'
+import {ICommand} from '../../../utils/GCodeParser'
 
 interface ICommandCard {
   command: ICommand

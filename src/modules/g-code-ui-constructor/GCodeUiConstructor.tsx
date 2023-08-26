@@ -6,12 +6,14 @@ import Box from '@mui/material/Box'
 
 import {CommandCard} from './components/CommandCard'
 import {CommandDetails, EditCommandCard} from './components'
-import {Button, Typography} from '@mui/material'
+import {Button, List, ListItem, ListItemIcon, TextField, Typography} from '@mui/material'
 import {saveTextToFile} from '../../utils/saveTextToFile'
 import {FileInput, IFileInputRef} from '../../components/FileInput'
 import {TabsNavigator} from './components/TabNavigator'
-import {ICommand, commandsToGCode} from '../../utils/GCodeParser'
+import {ICommand, commandsToGCode, gcodeToCommands} from '../../utils/GCodeParser'
 import {commands} from '../../utils/GCodeParser/commands'
+import {Input} from '@mui/base'
+import SearchIcon from '@mui/icons-material/Search'
 
 const initialState = {
   selectedCommands: [],
@@ -23,6 +25,11 @@ const dragReducer = (state: any, action: any) => {
       return {
         ...state,
         selectedCommands: [...state.selectedCommands, {...action.payload, id: uuid.v4()}],
+      }
+    case 'SET_COMMANDS':
+      return {
+        ...state,
+        selectedCommands: [...action.payload],
       }
     case 'DELETE_COMMAND':
       return {
@@ -73,8 +80,21 @@ const GCodeUiConstructor = () => {
   const [selectedViewCommand, setSelectedViewCommand] = useState<ICommand | null>(null)
   const [state, dispatch] = useReducer(dragReducer, initialState)
   const [gcode, setGCode] = useState('')
-  const [fileContent, setFileContent] = useState<string>('')
   const openFileRef = useRef<IFileInputRef | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const searchCommands = useMemo(() => {
+    if (searchQuery === '') {
+      return commands
+    }
+
+    return commands.filter((command: ICommand) => command.name?.toLowerCase().includes(searchQuery.toLowerCase()))
+  }, [searchQuery])
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value
+    setSearchQuery(query)
+  }
 
   const addCommand = useCallback(
     (command: ICommand) => () => {
@@ -107,7 +127,13 @@ const GCodeUiConstructor = () => {
   }, [])
 
   const handleOpen = (content: string) => {
-    setFileContent(content)
+    const commands = gcodeToCommands(content)
+    // console.log('commands', commands)
+
+    dispatch({
+      type: 'SET_COMMANDS',
+      payload: commands,
+    })
   }
 
   const tabs = useMemo(
@@ -147,25 +173,33 @@ const GCodeUiConstructor = () => {
           flexDirection: 'row',
         }}>
         <Box
-          style={{overflowY: 'scroll', maxHeight: '85vh'}}
+          style={{overflowY: 'scroll', overflowX: 'hidden', maxHeight: '85vh'}}
           display="flex"
           flex={1}
-          overflow="scroll"
           flexDirection="column"
           width={'25rem'}
           border={1}
           borderRadius={5}
           borderColor={'#3b3b3b'}>
-          {commands.map((command: ICommand, index) => (
-            <Box mt={index < commands.length ? 1 : 0} key={command.name}>
-              <CommandCard
-                command={command}
-                onClick={() => setSelectedViewCommand(command)}
-                onAdd={addCommand(command)}
-              />
-              <Typography>{fileContent}</Typography>
-            </Box>
-          ))}
+          <TextField
+            label="Search by Name"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            variant="outlined"
+            fullWidth
+            sx={{mb: 2}}
+          />
+          <List>
+            {searchCommands.map((command: ICommand) => (
+              <ListItem key={command.id}>
+                <CommandCard
+                  command={command}
+                  onClick={() => setSelectedViewCommand(command)}
+                  onAdd={addCommand(command)}
+                />
+              </ListItem>
+            ))}
+          </List>
         </Box>
         <Box width={10} />
         <DragDropContext onDragEnd={onDragEnd}>
@@ -173,35 +207,39 @@ const GCodeUiConstructor = () => {
             {(provided, snapshot) => (
               <Box
                 ref={provided.innerRef}
-                style={{overflowY: 'scroll', maxHeight: '85vh'}}
+                style={{overflowY: 'scroll', overflowX: 'hidden', maxHeight: '85vh'}}
                 width={'30%'}
-                height={'100%'}
+                display="flex"
+                flex={1}
                 border={1}
                 borderRadius={5}
                 borderColor={'#3b3b3b'}
                 {...provided.droppableProps}>
-                {state.selectedCommands.map((command: ICommand, index: number) => (
-                  <Draggable draggableId={command.id} key={command.id} index={index}>
-                    {(provided) => (
-                      <Box
-                        // mb={index < state.selectedCommands.length ? 1 : 0}
-                        mt={index < state.selectedCommands.length ? 1 : 0}
-                        ml={2}
-                        mr={2}
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}>
-                        <EditCommandCard
-                          key={command.id}
-                          command={command}
-                          onClick={() => setSelectedViewCommand(command)}
-                          onDelete={deleteCommand(command)}
-                          onChange={handleChange}
-                        />
-                      </Box>
-                    )}
-                  </Draggable>
-                ))}
+                <List>
+                  {state.selectedCommands.map((command: ICommand, index: number) => (
+                    <ListItem key={command.id}>
+                      <Draggable draggableId={command.id} key={command.id} index={index}>
+                        {(provided) => (
+                          <Box
+                            display="flex"
+                            flex={1}
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}>
+                            <EditCommandCard
+                              key={command.id}
+                              command={command}
+                              onClick={() => setSelectedViewCommand(command)}
+                              onDelete={deleteCommand(command)}
+                              onChange={handleChange}
+                            />
+                          </Box>
+                        )}
+                      </Draggable>
+                    </ListItem>
+                  ))}
+                </List>
+
                 {provided.placeholder}
               </Box>
             )}

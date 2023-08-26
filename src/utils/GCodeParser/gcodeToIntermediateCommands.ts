@@ -1,5 +1,6 @@
 export interface IIntermediateParameter {
-  [parameterLetter: string]: number
+  name: string
+  value: any
 }
 
 export interface IIntermediateCommands {
@@ -7,7 +8,7 @@ export interface IIntermediateCommands {
 }
 
 export function gcodeToIntermediateCommands(gCode: string): IIntermediateCommands {
-  const lines = gCode.split('IIntermediateCommands')
+  const lines = gCode.split('\n')
   const commands: IIntermediateCommands = {}
 
   lines.forEach((line) => {
@@ -17,10 +18,10 @@ export function gcodeToIntermediateCommands(gCode: string): IIntermediateCommand
       const parameters: IIntermediateParameter[] = []
 
       for (let i = 1; i < parts.length; i++) {
-        const parameterLetter = parts[i][0]
+        const parameterName = parts[i][0]
         const parameterValue = parseFloat(parts[i].substring(1))
 
-        const parameter: IIntermediateParameter = {[parameterLetter]: parameterValue}
+        const parameter: IIntermediateParameter = {name: parameterName, value: parameterValue ?? true}
         parameters.push(parameter)
       }
 

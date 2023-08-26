@@ -6,12 +6,10 @@ export const commandsToGCode = (commands: ICommand[]) => {
   commands?.forEach((command) => {
     result += command.name
     command.params?.forEach((param) => {
-      if (param.isActive) {
-        result += ` ${param.name}${param.value}`
-      }
-
       if (typeof param.value === 'boolean' && param.value) {
         result += ` ${param.name}`
+      } else if (typeof param.value !== 'boolean' && param.isActive) {
+        result += ` ${param.name}${param.value}`
       }
     })
     result += '\n'

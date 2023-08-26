@@ -22,6 +22,9 @@ export const EditCommandCard = ({command, onClick, onDelete, onChange}: IEditCom
   return (
     <Accordion
       style={{
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
         backgroundColor: COLORS.grey[100],
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,

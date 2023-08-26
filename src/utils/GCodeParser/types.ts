@@ -7,7 +7,7 @@ export interface ISelectableValues {
 
 export interface IParam {
   name: string
-  value: TParamType
+  value?: TParamType
   description?: string
   hint?: string
   min?: number
@@ -19,8 +19,8 @@ export interface IParam {
 
 export interface ICommand {
   id: string
-  name: string
-  description: string
+  name?: string
+  description?: string
   details?: {
     text: string
     url?: string

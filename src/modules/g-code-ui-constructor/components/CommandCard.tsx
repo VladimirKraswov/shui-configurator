@@ -14,8 +14,6 @@ interface ICommandCard {
 export const CommandCard = ({command, onClick, onAdd, ...rest}: ICommandCard) => {
   return (
     <Box
-      ml={2}
-      mr={2}
       style={{
         display: 'flex',
         flex: 1,

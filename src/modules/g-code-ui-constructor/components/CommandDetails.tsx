@@ -21,7 +21,7 @@ export const CommandDetails = ({command}: ICommandDetails) => {
           overflowX: 'hidden',
         }}>
         <Typography variant="h4">{command.name}</Typography>
-        <Typography>{command.details?.text}</Typography>
+        <Typography whiteSpace="pre-wrap">{command.details?.text}</Typography>
       </Box>
       <Box display="flex" flexDirection="row" width="100%" justifyContent="flex-end">
         {!!command.details?.url && (

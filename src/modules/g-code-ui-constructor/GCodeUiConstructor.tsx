@@ -6,14 +6,12 @@ import Box from '@mui/material/Box'
 
 import {CommandCard} from './components/CommandCard'
 import {CommandDetails, EditCommandCard} from './components'
-import {Button, List, ListItem, ListItemIcon, TextField, Typography} from '@mui/material'
+import {Button, List, ListItem, TextField, Typography} from '@mui/material'
 import {saveTextToFile} from '../../utils/saveTextToFile'
 import {FileInput, IFileInputRef} from '../../components/FileInput'
 import {TabsNavigator} from './components/TabNavigator'
 import {ICommand, commandsToGCode, gcodeToCommands} from '../../utils/GCodeParser'
 import {commands} from '../../utils/GCodeParser/commands'
-import {Input} from '@mui/base'
-import SearchIcon from '@mui/icons-material/Search'
 
 const initialState = {
   selectedCommands: [],
@@ -91,6 +89,9 @@ const GCodeUiConstructor = () => {
     return commands.filter((command: ICommand) => command.name?.toLowerCase().includes(searchQuery.toLowerCase()))
   }, [searchQuery])
 
+  console.log('x,', searchQuery)
+  console.log('y,', searchCommands)
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value
     setSearchQuery(query)
@@ -128,7 +129,6 @@ const GCodeUiConstructor = () => {
 
   const handleOpen = (content: string) => {
     const commands = gcodeToCommands(content)
-    // console.log('commands', commands)
 
     dispatch({
       type: 'SET_COMMANDS',
@@ -191,7 +191,7 @@ const GCodeUiConstructor = () => {
           />
           <List>
             {searchCommands.map((command: ICommand) => (
-              <ListItem key={command.id}>
+              <ListItem key={command.name}>
                 <CommandCard
                   command={command}
                   onClick={() => setSelectedViewCommand(command)}

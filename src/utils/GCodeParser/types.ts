@@ -22,7 +22,7 @@ export interface ICommand {
   name?: string
   description?: string
   details?: {
-    text: string
+    text?: string
     url?: string
   }
   params?: IParam[]

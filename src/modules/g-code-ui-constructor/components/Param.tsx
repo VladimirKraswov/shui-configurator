@@ -22,7 +22,7 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
     return (
       <FormControl disabled={!param.isActive} fullWidth>
         <Hint title={param.hint}>
-          <InputLabel id="demo-simple-select-label">{param.label}</InputLabel>
+          <InputLabel id="demo-simple-select-label">{param.label === '?' ? param.name : param.label}</InputLabel>
         </Hint>
 
         <Select
@@ -49,7 +49,7 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
           <FormControlLabel
             required
             control={<Checkbox checked={param.value} onChange={(e, checked) => handleChange(checked)} />}
-            label={param.label}
+            label={param.label === '?' ? param.name : param.label}
           />
         </Hint>
       </FormControl>
@@ -60,7 +60,7 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
     return (
       <Box>
         <Hint title={param.hint}>
-          <InputLabel>{param.label}</InputLabel>
+          <InputLabel>{param.label === '?' ? param.name : param.label}</InputLabel>
         </Hint>
 
         <Box display="inline-flex">

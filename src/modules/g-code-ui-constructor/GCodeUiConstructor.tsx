@@ -10,8 +10,6 @@ import {Button, Typography} from '@mui/material'
 import {saveTextToFile} from '../../utils/saveTextToFile'
 import {FileInput, IFileInputRef} from '../../components/FileInput'
 import {TabsNavigator} from './components/TabNavigator'
-import {removeComments} from '../installer/utils/remove-comments'
-import {getParseGCode} from '../installer/gcode-parse'
 import {ICommand, commandsToGCode} from '../../utils/GCodeParser'
 import {commands} from '../../utils/GCodeParser/commands'
 

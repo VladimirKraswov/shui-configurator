@@ -112,9 +112,9 @@ const GCodeUiConstructor = () => {
 
   const tabs = useMemo(
     () => [
-      <Typography key="t1" whiteSpace="pre-wrap">
-        {gcode}
-      </Typography>,
+      <Box key="t1" style={{overflowY: 'scroll', maxHeight: '70vh'}}>
+        <Typography whiteSpace="pre-wrap">{gcode}</Typography>
+      </Box>,
       <CommandDetails key="t2" command={selectedViewCommand} />,
     ],
     [gcode, selectedViewCommand],
@@ -146,7 +146,16 @@ const GCodeUiConstructor = () => {
           flex: 1,
           flexDirection: 'row',
         }}>
-        <Box flexDirection="column" width={'25rem'} height={'100%'} border={1} borderRadius={5} borderColor={'#3b3b3b'}>
+        <Box
+          style={{overflowY: 'scroll', maxHeight: '85vh'}}
+          display="flex"
+          flex={1}
+          overflow="scroll"
+          flexDirection="column"
+          width={'25rem'}
+          border={1}
+          borderRadius={5}
+          borderColor={'#3b3b3b'}>
           {commands.map((command: ICommand, index) => (
             <Box mt={index < commands.length ? 1 : 0} key={command.name}>
               <CommandCard
@@ -164,15 +173,12 @@ const GCodeUiConstructor = () => {
             {(provided, snapshot) => (
               <Box
                 ref={provided.innerRef}
+                style={{overflowY: 'scroll', maxHeight: '85vh'}}
                 width={'30%'}
                 height={'100%'}
                 border={1}
                 borderRadius={5}
                 borderColor={'#3b3b3b'}
-                style={{
-                  overflowY: 'auto',
-                  overflowX: 'hidden',
-                }}
                 {...provided.droppableProps}>
                 {state.selectedCommands.map((command: ICommand, index: number) => (
                   <Draggable draggableId={command.id} key={command.id} index={index}>

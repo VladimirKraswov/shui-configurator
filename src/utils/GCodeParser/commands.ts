@@ -87,16 +87,6 @@ export const commands: ICommand[] = [
     ],
   },
   {
-    id: '',
-    name: '',
-    description: '?',
-    details: {
-      text: '?',
-    },
-    params: [],
-    isNotDuplicate: true,
-  },
-  {
     id: 'M414',
     name: 'M414',
     description: '?',

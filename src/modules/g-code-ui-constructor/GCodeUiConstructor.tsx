@@ -1,11 +1,7 @@
-import React, {useCallback, useEffect, useReducer, useRef, useState} from 'react'
+import React, {useCallback, useEffect, useMemo, useReducer, useRef, useState} from 'react'
 
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd'
 import * as uuid from 'uuid'
-import SwipeableViews from 'react-swipeable-views'
-import AppBar from '@mui/material/AppBar'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
 import {ICommand, commands} from './commands'
 
@@ -15,80 +11,7 @@ import {Button, Typography} from '@mui/material'
 import {convertToGCode} from './utils/convert-to-gcode'
 import {saveTextToFile} from '../../utils/saveTextToFile'
 import {FileInput, IFileInputRef} from '../../components/FileInput'
-
-interface TabPanelProps {
-  children?: React.ReactNode
-  dir?: string
-  index: number
-  value: number
-}
-
-function TabPanel(props: TabPanelProps) {
-  const {children, value, index, ...other} = props
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}>
-      {value === index && children}
-    </div>
-  )
-}
-
-function a11yProps(index: number) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  }
-}
-
-export default function FullWidthTabs({selectedViewCommand, gcode}: any) {
-  const [value, setValue] = React.useState(1)
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue)
-  }
-
-  const handleChangeIndex = (index: number) => {
-    setValue(index)
-  }
-
-  return (
-    <Box flex={1}>
-      <AppBar position="static">
-        <Tabs
-          // style={{backgroundColor: '#262626', borderColor: '#fff'}}
-          TabIndicatorProps={{
-            style: {
-              // backgroundColor: '#fff',
-            },
-          }}
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example">
-          <Tab label="Out GCode" {...a11yProps(0)} />
-          <Tab label="Command Details" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
-        <TabPanel value={value} index={0}>
-          <Box>
-            <Typography whiteSpace="pre-wrap">{gcode}</Typography>
-          </Box>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          {selectedViewCommand && <CommandDetails command={selectedViewCommand} />}
-        </TabPanel>
-      </SwipeableViews>
-    </Box>
-  )
-}
+import {TabsNavigator} from './components/TabNavigator'
 
 const initialState = {
   selectedCommands: [],
@@ -187,6 +110,16 @@ const GCodeUiConstructor = () => {
     setFileContent(content)
   }
 
+  const tabs = useMemo(
+    () => [
+      <Typography key="t1" whiteSpace="pre-wrap">
+        {gcode}
+      </Typography>,
+      <CommandDetails key="t2" command={selectedViewCommand} />,
+    ],
+    [gcode, selectedViewCommand],
+  )
+
   useEffect(() => {
     setGCode(convertToGCode(state.selectedCommands))
   }, [state.selectedCommands])
@@ -269,7 +202,7 @@ const GCodeUiConstructor = () => {
           </Droppable>
           <Box width={10} />
           <Box p={1} display="flex" width={'40%'} height={'100%'} border={1} borderRadius={5} borderColor={'#3b3b3b'}>
-            <FullWidthTabs selectedViewCommand={selectedViewCommand} gcode={gcode} />
+            <TabsNavigator tabs={tabs} />
           </Box>
         </DragDropContext>
       </Box>

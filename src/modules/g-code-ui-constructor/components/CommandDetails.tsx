@@ -6,10 +6,14 @@ import Typography from '@mui/material/Typography'
 import {ICommand} from '../commands'
 
 interface ICommandDetails {
-  command: ICommand
+  command?: ICommand | null
 }
 
 export const CommandDetails = ({command}: ICommandDetails) => {
+  if (!command) {
+    return null
+  }
+
   return (
     <Box height="100%" flexDirection="column" justifyContent="space-between">
       <Box

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shui-configurator/static/css/main.aa6e10cd.css",
-    "main.js": "/shui-configurator/static/js/main.955c2309.js",
+    "main.js": "/shui-configurator/static/js/main.10d9c604.js",
     "static/js/787.9dc1b04e.chunk.js": "/shui-configurator/static/js/787.9dc1b04e.chunk.js",
     "static/media/roboto-latin-500-normal.woff2": "/shui-configurator/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/shui-configurator/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -61,11 +61,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/shui-configurator/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/shui-configurator/index.html",
     "main.aa6e10cd.css.map": "/shui-configurator/static/css/main.aa6e10cd.css.map",
-    "main.955c2309.js.map": "/shui-configurator/static/js/main.955c2309.js.map",
+    "main.10d9c604.js.map": "/shui-configurator/static/js/main.10d9c604.js.map",
     "787.9dc1b04e.chunk.js.map": "/shui-configurator/static/js/787.9dc1b04e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aa6e10cd.css",
-    "static/js/main.955c2309.js"
+    "static/js/main.10d9c604.js"
   ]
 }

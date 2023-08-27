@@ -21,7 +21,9 @@ export const CommandDetails = ({command}: ICommandDetails) => {
           overflowX: 'hidden',
           height: '75vh',
         }}>
-        <Typography variant="h4">{command.name}</Typography>
+        <Typography variant="h4">{`${command.name} ${
+          command.description ? ` - ${command.description}` : ''
+        }`}</Typography>
         {!!command.details?.description && (
           <Box mt={2}>
             <Typography variant="h6">Description</Typography>

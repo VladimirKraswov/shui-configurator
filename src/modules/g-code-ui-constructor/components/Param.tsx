@@ -14,15 +14,20 @@ interface IParamOptions {
 }
 
 export const Param = ({commandId, param, onChange}: IParamOptions) => {
-  const handleChange = useCallback((value: any, isActive?: boolean) => {
-    onChange?.(commandId, param.name, value, isActive)
-  }, [])
+  const handleChange = useCallback(
+    (value: any, isActive?: boolean) => {
+      onChange?.(commandId, param.name, value, isActive)
+    },
+    [commandId, onChange, param],
+  )
+
+  const label = param.label ?? param.name
 
   if (param.selectableValues?.length) {
     return (
       <FormControl disabled={!param.isActive} fullWidth>
         <Hint title={param.hint}>
-          <InputLabel id="demo-simple-select-label">{param.label === '?' ? param.name : param.label}</InputLabel>
+          <InputLabel id="demo-simple-select-label">{label}</InputLabel>
         </Hint>
 
         <Select
@@ -49,7 +54,7 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
           <FormControlLabel
             required
             control={<Checkbox checked={param.value} onChange={(e, checked) => handleChange(checked)} />}
-            label={param.label === '?' ? param.name : param.label}
+            label={label}
           />
         </Hint>
       </FormControl>
@@ -60,7 +65,7 @@ export const Param = ({commandId, param, onChange}: IParamOptions) => {
     return (
       <Box>
         <Hint title={param.hint}>
-          <InputLabel>{param.label === '?' ? param.name : param.label}</InputLabel>
+          <InputLabel>{label}</InputLabel>
         </Hint>
 
         <Box display="inline-flex">

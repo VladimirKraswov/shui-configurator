@@ -151,9 +151,9 @@ export const commands: ICommand[] = [
     name: 'M81',
     details: {
       description:
-        ' Description Turn off the high-voltage power supply. If the board is not powered from another source, this may also shut down the electronics. ',
+        'Turn off the high-voltage power supply. If the board is not powered from another source, this may also shut down the electronics. ',
       notes:
-        ' Notes A PS_ON_PIN is also required. Check your board’s pins file for the default. For Marlin 1.1.9 and earlier this feature is enabled by POWER_SUPPLY. ',
+        'A PS_ON_PIN is also required. Check your board’s pins file for the default. For Marlin 1.1.9 and earlier this feature is enabled by POWER_SUPPLY. ',
       url: 'https://marlinfw.org/docs/gcode/M081.html',
     },
     params: [],
@@ -163,9 +163,9 @@ export const commands: ICommand[] = [
     name: 'M851',
     details: {
       description:
-        ' Description Set the XYZ distance from the nozzle to the probe trigger-point. These offsets are required for the firmware to know how to probe the bed and where probed points are in relation to the nozzle, and vice-versa. The easiest way to get the Z offset value (assuming your homed Z = 0.0) is to:  Home the Z axis. Raise Z and deploy the probe. Move Z down slowly until the probe triggers. Take the current Z position (as reported by M119) and negate it. (5.2 => -5.2) Set with M851 Z-5.2 and save it with M500. Configure with #define Z_PROBE_OFFSET_FROM_EXTRUDER -5.2.  For the X and Y offsets you have to measure the distance with a ruler or caliper. For LCDs that support MarlinUI you can enable PROBE_OFFSET_WIZARD and follow a guided process to set the probe Z offset. ',
+        'Set the XYZ distance from the nozzle to the probe trigger-point. These offsets are required for the firmware to know how to probe the bed and where probed points are in relation to the nozzle, and vice-versa. The easiest way to get the Z offset value (assuming your homed Z = 0.0) is to:  Home the Z axis. Raise Z and deploy the probe. Move Z down slowly until the probe triggers. Take the current Z position (as reported by M119) and negate it. (5.2 => -5.2) Set with M851 Z-5.2 and save it with M500. Configure with #define Z_PROBE_OFFSET_FROM_EXTRUDER -5.2.  For the X and Y offsets you have to measure the distance with a ruler or caliper. For LCDs that support MarlinUI you can enable PROBE_OFFSET_WIZARD and follow a guided process to set the probe Z offset. ',
       notes:
-        ' Notes The default (factory) values are set by  (version 1.x)  X_PROBE_OFFSET_FROM_EXTRUDER Y_PROBE_OFFSET_FROM_EXTRUDER Z_PROBE_OFFSET_FROM_EXTRUDER  Where the X and Y offsets must be integers.  (version 2.x)  NOZZLE_TO_PROBE_OFFSET    Positions:  X offset: -left +right [of the nozzle] Y offset: -front +behind [the nozzle] Z offset: -below +above [the nozzle]       +-- BACK ---+\n     |           |\n   L |    (+) P  | R <-- probe (20,20)\n   E |           | I\n   F | (-) N (+) | G <-- nozzle (10,10)\n   T |           | H\n     |    (-)    | T\n     |           |\n     O-- FRONT --+\n   (0,0)\n ',
+        'The default (factory) values are set by  (version 1.x)  X_PROBE_OFFSET_FROM_EXTRUDER Y_PROBE_OFFSET_FROM_EXTRUDER Z_PROBE_OFFSET_FROM_EXTRUDER  Where the X and Y offsets must be integers.  (version 2.x)  NOZZLE_TO_PROBE_OFFSET    Positions:  X offset: -left +right [of the nozzle] Y offset: -front +behind [the nozzle] Z offset: -below +above [the nozzle]       +-- BACK ---+\n     |           |\n   L |    (+) P  | R <-- probe (20,20)\n   E |           | I\n   F | (-) N (+) | G <-- nozzle (10,10)\n   T |           | H\n     |    (-)    | T\n     |           |\n     O-- FRONT --+\n   (0,0)\n ',
       url: 'https://marlinfw.org/docs/gcode/M851.html',
     },
     params: [
@@ -194,7 +194,7 @@ export const commands: ICommand[] = [
     name: 'G21',
     details: {
       description:
-        ' Description Set units to millimeters. In this mode, all positions, offsets, rates, accelerations, etc., specified in G-code parameters are interpreted as millimeters. ',
+        'Set units to millimeters. In this mode, all positions, offsets, rates, accelerations, etc., specified in G-code parameters are interpreted as millimeters. ',
       url: 'https://marlinfw.org/docs/gcode/G021.html',
     },
     params: [],
@@ -205,9 +205,9 @@ export const commands: ICommand[] = [
     name: 'M92',
     details: {
       description:
-        ' Description Use M92 to set the steps-per-unit for one or more axes. This setting affects how many steps will be done for each unit of movement. Units will usually be set in steps-per-millimeter unless:  The firmware has INCH_MODE_SUPPORT enabled and has been set to Inches Mode by G20 or by having inches as the default unit. The machine is a SCARA in which case the A and B axes are configured in steps-per-degree, not steps-per-distance.  ',
+        'Use M92 to set the steps-per-unit for one or more axes. This setting affects how many steps will be done for each unit of movement. Units will usually be set in steps-per-millimeter unless:  The firmware has INCH_MODE_SUPPORT enabled and has been set to Inches Mode by G20 or by having inches as the default unit. The machine is a SCARA in which case the A and B axes are configured in steps-per-degree, not steps-per-distance.  ',
       notes:
-        ' Notes  Get the current steps-per-unit settings using M92 with no parameters or M503 on older versions of Marlin.  With EEPROM_SETTINGS enabled:  This setting for all axes is saved with M500 and loaded with M501.  M502 resets steps-per-unit for all axes to the values from DEFAULT_AXIS_STEPS_PER_UNIT.  ',
+        ' Get the current steps-per-unit settings using M92 with no parameters or M503 on older versions of Marlin.  With EEPROM_SETTINGS enabled:  This setting for all axes is saved with M500 and loaded with M501.  M502 resets steps-per-unit for all axes to the values from DEFAULT_AXIS_STEPS_PER_UNIT.  ',
       url: 'https://marlinfw.org/docs/gcode/M092.html',
     },
     params: [
@@ -248,8 +248,7 @@ export const commands: ICommand[] = [
     id: 'M281',
     name: 'M281',
     details: {
-      description:
-        ' Description Set or get the position of a servo. Without L or U the current values will be reported. ',
+      description: 'Set or get the position of a servo. Without L or U the current values will be reported. ',
       url: 'https://marlinfw.org/docs/gcode/M281.html',
     },
     params: [
@@ -278,9 +277,9 @@ export const commands: ICommand[] = [
     id: 'M301',
     name: 'M301',
     details: {
-      description: ' Description Set the values that control the PID loop for a hotend. ',
+      description: 'Set the values that control the PID loop for a hotend. ',
       notes:
-        ' Notes Requires PIDTEMP. View current PID values with M503. If EEPROM_SETTINGS is enabled, all hotend PID values are saved with M500, loaded with M501, and reset with M502. ',
+        'Requires PIDTEMP. View current PID values with M503. If EEPROM_SETTINGS is enabled, all hotend PID values are saved with M500, loaded with M501, and reset with M502. ',
       url: 'https://marlinfw.org/docs/gcode/M301.html',
     },
     params: [
@@ -333,9 +332,9 @@ export const commands: ICommand[] = [
     id: 'M304',
     name: 'M304',
     details: {
-      description: ' Description Set the values that control the PID loop for the heated bed. ',
+      description: 'Set the values that control the PID loop for the heated bed. ',
       notes:
-        ' Notes Requires PIDTEMPBED. View current bed PID values with M503 If EEPROM_SETTINGS is enabled, bed PID values are saved with M500, loaded with M501, and reset with M502 ',
+        'Requires PIDTEMPBED. View current bed PID values with M503 If EEPROM_SETTINGS is enabled, bed PID values are saved with M500, loaded with M501, and reset with M502 ',
       url: 'https://marlinfw.org/docs/gcode/M304.html',
     },
     params: [
@@ -364,8 +363,8 @@ export const commands: ICommand[] = [
     id: 'M603',
     name: 'M603',
     details: {
-      description: ' Description The M603 command configures automatic filament change parameters. ',
-      notes: ' Notes Requires ADVANCED_PAUSE_FEATURE. ',
+      description: 'The M603 command configures automatic filament change parameters. ',
+      notes: 'Requires ADVANCED_PAUSE_FEATURE. ',
       url: 'https://marlinfw.org/docs/gcode/M603.html',
     },
     params: [
@@ -395,8 +394,8 @@ export const commands: ICommand[] = [
     name: 'M302',
     details: {
       description:
-        ' Description Set the minimum extrusion temperature, potentially allowing E movement at temperatures below the melting point of the material. ',
-      notes: ' Notes Requires PREVENT_COLD_EXTRUSION. ',
+        'Set the minimum extrusion temperature, potentially allowing E movement at temperatures below the melting point of the material. ',
+      notes: 'Requires PREVENT_COLD_EXTRUSION. ',
       url: 'https://marlinfw.org/docs/gcode/M302.html',
     },
     params: [
@@ -420,9 +419,9 @@ export const commands: ICommand[] = [
     name: 'M852',
     details: {
       description:
-        ' Description Bed Skew Compensation corrects for misalignment in the XY, XZ, and ZY axes through the use of correction factors. ',
+        'Bed Skew Compensation corrects for misalignment in the XY, XZ, and ZY axes through the use of correction factors. ',
       notes:
-        ' Notes Correction factors have a range of -1 to 1. See Bed Skew Compensation section in the configuration file for more information on calculating the correction factors. ',
+        'Correction factors have a range of -1 to 1. See Bed Skew Compensation section in the configuration file for more information on calculating the correction factors. ',
       url: 'https://marlinfw.org/docs/gcode/M852.html',
     },
     params: [
@@ -458,9 +457,9 @@ export const commands: ICommand[] = [
     name: 'M425',
     details: {
       description:
-        ' Description Backlash compensation will add extra steps to one or more segments whenever a motor reverses direction. By default, steps are added to the first segment after a direction change. This gives the best dimensional accuracy but may cause marks to appear in the print. Smoothing spreads the added steps over multiple consecutive segments to prevent blemishes in the print, at the expense of dimensional accuracy. Backlash compensation can be configured at either compile-time or run-time. Enable BACKLASH_GCODE to turn on M425 and a “Backlash” menu item. Backlash can be measured automatically on all axes with G425 or on Z only with G29 when MEASURE_BACKLASH_WHEN_PROBING is enabled. ',
+        'Backlash compensation will add extra steps to one or more segments whenever a motor reverses direction. By default, steps are added to the first segment after a direction change. This gives the best dimensional accuracy but may cause marks to appear in the print. Smoothing spreads the added steps over multiple consecutive segments to prevent blemishes in the print, at the expense of dimensional accuracy. Backlash compensation can be configured at either compile-time or run-time. Enable BACKLASH_GCODE to turn on M425 and a “Backlash” menu item. Backlash can be measured automatically on all axes with G425 or on Z only with G29 when MEASURE_BACKLASH_WHEN_PROBING is enabled. ',
       notes:
-        ' Notes Requires BACKLASH_COMPENSATION, BACKLASH_GCODE and the following parameters:   BACKLASH_DISTANCE_MM specifies the default backlash on the X, Y and Z axis.  BACKLASH_CORRECTION specifies the default backlash correction (0.0 = none; 1.0 = 100%).  BACKLASH_SMOOTHING_MM enables backlash smoothing over a specified distance.  BACKLASH_GCODE enables M425 for run-time tuning of backlash.  MEASURE_BACKLASH_WHEN_PROBING turns on Z backlash measurement when probing with G29. Use BACKLASH_MEASUREMENT_LIMIT, BACKLASH_MEASUREMENT_RESOLUTION and BACKLASH_MEASUREMENT_FEEDRATE to configure G29 backlash measurement.  ',
+        'Requires BACKLASH_COMPENSATION, BACKLASH_GCODE and the following parameters:   BACKLASH_DISTANCE_MM specifies the default backlash on the X, Y and Z axis.  BACKLASH_CORRECTION specifies the default backlash correction (0.0 = none; 1.0 = 100%).  BACKLASH_SMOOTHING_MM enables backlash smoothing over a specified distance.  BACKLASH_GCODE enables M425 for run-time tuning of backlash.  MEASURE_BACKLASH_WHEN_PROBING turns on Z backlash measurement when probing with G29. Use BACKLASH_MEASUREMENT_LIMIT, BACKLASH_MEASUREMENT_RESOLUTION and BACKLASH_MEASUREMENT_FEEDRATE to configure G29 backlash measurement.  ',
       url: 'https://marlinfw.org/docs/gcode/M425.html',
     },
     params: [
@@ -508,9 +507,9 @@ export const commands: ICommand[] = [
     name: 'M420',
     details: {
       description:
-        ' Description Get and/or set bed leveling state. For mesh-based leveling systems use Z parameter to set the Z Fade Height. With AUTO_BED_LEVELING_UBL you can use L to load a mesh from EEPROM. ',
+        'Get and/or set bed leveling state. For mesh-based leveling systems use Z parameter to set the Z Fade Height. With AUTO_BED_LEVELING_UBL you can use L to load a mesh from EEPROM. ',
       notes:
-        ' Notes   G28 disables bed leveling. Follow with M420 S to turn leveling on, or use RESTORE_LEVELING_AFTER_G28 to automatically keep leveling on after G28. The “current position” may change in response to M420 Sn.  ',
+        '  G28 disables bed leveling. Follow with M420 S to turn leveling on, or use RESTORE_LEVELING_AFTER_G28 to automatically keep leveling on after G28. The “current position” may change in response to M420 Sn.  ',
       url: 'https://marlinfw.org/docs/gcode/M420.html',
     },
     params: [
@@ -558,9 +557,9 @@ export const commands: ICommand[] = [
     name: 'G0-G1',
     details: {
       description:
-        ' Description The G0 and G1 commands add a linear move to the queue to be performed after all previous moves are completed. These commands yield control back to the command parser as soon as the move is queued, but they may delay the command parser while awaiting a slot in the queue. A linear move traces a straight line from one point to another, ensuring that the specified axes will arrive simultaneously at the given coordinates (by linear interpolation). The speed may change over time following an acceleration curve, according to the acceleration and jerk settings of the given axes. A command like G1 F1000 sets the feedrate for all subsequent moves. By convention, most G-code generators use G0 for non-extrusion movements (those without the E axis) and G1 for moves that include extrusion. This is meant to allow a kinematic system to, optionally, do a more rapid uninterpolated movement requiring much less calculation. For Cartesians and Deltas the G0 (rapid linear movement) command is (and must be) a direct alias for G1 (rapid movement). On SCARA machines G0 does a fast non-linear move. Marlin 2.0 introduces an option to maintain a separate default feedrate for G0. Note: Slicers tend to override firmware feedrates! ',
+        'The G0 and G1 commands add a linear move to the queue to be performed after all previous moves are completed. These commands yield control back to the command parser as soon as the move is queued, but they may delay the command parser while awaiting a slot in the queue. A linear move traces a straight line from one point to another, ensuring that the specified axes will arrive simultaneously at the given coordinates (by linear interpolation). The speed may change over time following an acceleration curve, according to the acceleration and jerk settings of the given axes. A command like G1 F1000 sets the feedrate for all subsequent moves. By convention, most G-code generators use G0 for non-extrusion movements (those without the E axis) and G1 for moves that include extrusion. This is meant to allow a kinematic system to, optionally, do a more rapid uninterpolated movement requiring much less calculation. For Cartesians and Deltas the G0 (rapid linear movement) command is (and must be) a direct alias for G1 (rapid movement). On SCARA machines G0 does a fast non-linear move. Marlin 2.0 introduces an option to maintain a separate default feedrate for G0. Note: Slicers tend to override firmware feedrates! ',
       notes:
-        ' Notes  Coordinates are given in millimeters by default. Units may be set to inches by G20. In Relative Mode (G91) all coordinates are interpreted as relative, adding onto the previous position. In Extruder Relative Mode (M83) the E coordinate is interpreted as relative, adding onto the previous E position. A single linear move may generate several smaller moves to the planner due to kinematics and bed leveling compensation. Printing performance can be tuned by adjusting segments-per-second.  ',
+        ' Coordinates are given in millimeters by default. Units may be set to inches by G20. In Relative Mode (G91) all coordinates are interpreted as relative, adding onto the previous position. In Extruder Relative Mode (M83) the E coordinate is interpreted as relative, adding onto the previous E position. A single linear move may generate several smaller moves to the planner due to kinematics and bed leveling compensation. Printing performance can be tuned by adjusting segments-per-second.  ',
       url: 'https://marlinfw.org/docs/gcode/G000-G001.html',
     },
     params: [
@@ -608,7 +607,7 @@ export const commands: ICommand[] = [
     name: 'G2-G3',
     details: {
       description:
-        ' Description G2 adds a clockwise arc move to the planner; G3 adds a counter-clockwise arc. An arc move starts at the current position and ends at the given XYZ, pivoting around a center-point offset given by I and J or R. CNC_WORKSPACE_PLANES allows G2/G3 to operate in the selected XY, ZX, or YZ workspace plane. This command has two forms: I J Form   I specifies an X offset. J specifies a Y offset. At least one of the I J parameters is required.  X and Y can be omitted to do a complete circle. The given X Y is not error-checked. The arc ends based on the angle of the destination. Mixing I or J with R will throw an error.  R Form   R specifies the radius. X or Y is required. Omitting both X and Y will throw an error.  X or Y must differ from the current XY position. Mixing R with I or J will throw an error.  Arc moves actually generate several short straight-line moves, the length of which are determined by the configuration option MM_PER_ARC_SEGMENT (default 1mm). Any change in the Z position is linearly interpolated over the whole arc. ‘ARC_P_CIRCLES’ enables the use of the ‘P’ parameter to specify complete circles ',
+        'G2 adds a clockwise arc move to the planner; G3 adds a counter-clockwise arc. An arc move starts at the current position and ends at the given XYZ, pivoting around a center-point offset given by I and J or R. CNC_WORKSPACE_PLANES allows G2/G3 to operate in the selected XY, ZX, or YZ workspace plane. This command has two forms: I J Form   I specifies an X offset. J specifies a Y offset. At least one of the I J parameters is required.  X and Y can be omitted to do a complete circle. The given X Y is not error-checked. The arc ends based on the angle of the destination. Mixing I or J with R will throw an error.  R Form   R specifies the radius. X or Y is required. Omitting both X and Y will throw an error.  X or Y must differ from the current XY position. Mixing R with I or J will throw an error.  Arc moves actually generate several short straight-line moves, the length of which are determined by the configuration option MM_PER_ARC_SEGMENT (default 1mm). Any change in the Z position is linearly interpolated over the whole arc. ‘ARC_P_CIRCLES’ enables the use of the ‘P’ parameter to specify complete circles ',
       url: 'https://marlinfw.org/docs/gcode/G002-G003.html',
     },
     params: [
@@ -679,9 +678,9 @@ export const commands: ICommand[] = [
     id: 'G4',
     name: 'G4',
     details: {
-      description: ' Description Dwell pauses the command queue and waits for a period of time. ',
+      description: 'Dwell pauses the command queue and waits for a period of time. ',
       notes:
-        ' Notes If both S and P are included, S takes precedence. M0/M1 provides an interruptible “dwell” (Marlin 1.1.0 and up). G4 with no arguments is effectively the same as M400. ',
+        'If both S and P are included, S takes precedence. M0/M1 provides an interruptible “dwell” (Marlin 1.1.0 and up). G4 with no arguments is effectively the same as M400. ',
       url: 'https://marlinfw.org/docs/gcode/G004.html',
     },
     params: [
@@ -705,9 +704,9 @@ export const commands: ICommand[] = [
     name: 'G5',
     details: {
       description:
-        ' Description G5 creates a cubic B-spline in the XY plane with the X and Y axes only. P and Q parameters are required. I and J are required for the first G5 command in a series. For subsequent G5 commands, either both I and J must be specified, or neither. If I and J are unspecified, the starting direction of the cubic will automatically match the ending direction of the previous cubic (as if I and J are the negation of the previous P and Q). See This interactive demo to understand how Bézier control points work. ',
+        'G5 creates a cubic B-spline in the XY plane with the X and Y axes only. P and Q parameters are required. I and J are required for the first G5 command in a series. For subsequent G5 commands, either both I and J must be specified, or neither. If I and J are unspecified, the starting direction of the cubic will automatically match the ending direction of the previous cubic (as if I and J are the negation of the previous P and Q). See This interactive demo to understand how Bézier control points work. ',
       notes:
-        ' Notes It is an error if an axis other than X or Y is specified. The first control point is the current position of the head. XY is the destination (the last control point of the spline). The next control-points are the current position plus IJ and the current position plus PQ. I and J can be omitted, which results in these offsets being zero. This produces a 3-point spline (try the interactive demo). However, P and Q are required (otherwise you just get a linear movement). ',
+        'It is an error if an axis other than X or Y is specified. The first control point is the current position of the head. XY is the destination (the last control point of the spline). The next control-points are the current position plus IJ and the current position plus PQ. I and J can be omitted, which results in these offsets being zero. This produces a 3-point spline (try the interactive demo). However, P and Q are required (otherwise you just get a linear movement). ',
       url: 'https://marlinfw.org/docs/gcode/G005.html',
     },
     params: [
@@ -773,9 +772,9 @@ export const commands: ICommand[] = [
     name: 'G6',
     details: {
       description:
-        ' Description Direct Stepping allows a host device to issue direct stepper movements in binary format, pre-written by the host device to a page in the device RAM. A “page manager” mechanism is provided to load the binary data onto the device. The page manager provided here uses a parallel protocol over the USB serial connection to write pages to the device RAM, and is decoupled from the normal serial G-code pipeline. This allows the host device to preload pages as fast as possible without waiting on the G-code pipeline. Once a page is written by the device, it can be triggered using the G6 G-code which references the page index that should be used for that move. Depending on the page format, direction arguments may need to be provided in the G6 code.  Requires Step Daemon by @ColinRGodsey. Visit RepRap Wiki for more details.  ',
+        'Direct Stepping allows a host device to issue direct stepper movements in binary format, pre-written by the host device to a page in the device RAM. A “page manager” mechanism is provided to load the binary data onto the device. The page manager provided here uses a parallel protocol over the USB serial connection to write pages to the device RAM, and is decoupled from the normal serial G-code pipeline. This allows the host device to preload pages as fast as possible without waiting on the G-code pipeline. Once a page is written by the device, it can be triggered using the G6 G-code which references the page index that should be used for that move. Depending on the page format, direction arguments may need to be provided in the G6 code.  Requires Step Daemon by @ColinRGodsey. Visit RepRap Wiki for more details.  ',
       notes:
-        ' Notes Requires DIRECT_STEPPING. Position sync in step-daemon is not entirely finished and movements made with the control panel may be lost. At this moment, homing is required to sync step daemon and the device. Always home before issuing movement commands. Use with extra caution. ',
+        'Requires DIRECT_STEPPING. Position sync in step-daemon is not entirely finished and movements made with the control panel may be lost. At this moment, homing is required to sync step daemon and the device. Always home before issuing movement commands. Use with extra caution. ',
       url: 'https://marlinfw.org/docs/gcode/G006.html',
     },
     params: [
@@ -829,8 +828,8 @@ export const commands: ICommand[] = [
     name: 'G10',
     details: {
       description:
-        ' Description Retract the filament according to settings of M207. Firmware retraction allows you to tune retraction at the machine level and can significantly reduce the size of G-code files. Multiple consecutive G10 or G10 S1 commands without a corresponding G11 or G11 S1 will be ignored. Performs two moves: a retract move at the retract feedrate/acceleration, and an optional Z lift at the maximum Z feedrate (travel acceleration). ',
-      notes: ' Notes Requires FWRETRACT. See related codes G11, M207, M208, and M209. ',
+        'Retract the filament according to settings of M207. Firmware retraction allows you to tune retraction at the machine level and can significantly reduce the size of G-code files. Multiple consecutive G10 or G10 S1 commands without a corresponding G11 or G11 S1 will be ignored. Performs two moves: a retract move at the retract feedrate/acceleration, and an optional Z lift at the maximum Z feedrate (travel acceleration). ',
+      notes: 'Requires FWRETRACT. See related codes G11, M207, M208, and M209. ',
       url: 'https://marlinfw.org/docs/gcode/G010.html',
     },
     params: [
@@ -848,8 +847,8 @@ export const commands: ICommand[] = [
     name: 'G11',
     details: {
       description:
-        ' Description Unretract (i.e., recover, prime) the filament according to settings of M208. Multiple consecutive G11 or G11 S1 commands without a corresponding G10 or G10 S1 will be ignored. “Performs two moves: An optional Z lower at the maximum Z feedrate (travel acceleration), and a recovery move at the recover feedrate (retract acceleration).” ',
-      notes: ' Notes Requires FWRETRACT. See related codes G10, M207, M208, and M209. ',
+        'Unretract (i.e., recover, prime) the filament according to settings of M208. Multiple consecutive G11 or G11 S1 commands without a corresponding G10 or G10 S1 will be ignored. “Performs two moves: An optional Z lower at the maximum Z feedrate (travel acceleration), and a recovery move at the recover feedrate (retract acceleration).” ',
+      notes: 'Requires FWRETRACT. See related codes G10, M207, M208, and M209. ',
       url: 'https://marlinfw.org/docs/gcode/G011.html',
     },
     params: [],
@@ -860,9 +859,9 @@ export const commands: ICommand[] = [
     name: 'G12',
     details: {
       description:
-        ' Description Start the nozzle cleaning process. Three types of cleaning patterns are supported: straight strokes, zigzags and circles. This feature requires a dedicated cleaning area on or outside the bed, but within reach of the nozzle. The pattern may be repeated as many times as desired. ',
+        'Start the nozzle cleaning process. Three types of cleaning patterns are supported: straight strokes, zigzags and circles. This feature requires a dedicated cleaning area on or outside the bed, but within reach of the nozzle. The pattern may be repeated as many times as desired. ',
       notes:
-        ' Notes Default behavior is defined by NOZZLE_CLEAN_STROKES, NOZZLE_CLEAN_START_POINT, NOZZLE_CLEAN_END_POINT, NOZZLE_CLEAN_TRIANGLES, NOZZLE_CLEAN_CIRCLE_MIDDLE, NOZZLE_CLEAN_CIRCLE_RADIUS and NOZZLE_CLEAN_GOBACK. With NOZZLE_CLEAN_GOBACK enabled, the nozzle automatically returns to the XYZ position before G12. ',
+        'Default behavior is defined by NOZZLE_CLEAN_STROKES, NOZZLE_CLEAN_START_POINT, NOZZLE_CLEAN_END_POINT, NOZZLE_CLEAN_TRIANGLES, NOZZLE_CLEAN_CIRCLE_MIDDLE, NOZZLE_CLEAN_CIRCLE_RADIUS and NOZZLE_CLEAN_GOBACK. With NOZZLE_CLEAN_GOBACK enabled, the nozzle automatically returns to the XYZ position before G12. ',
       url: 'https://marlinfw.org/docs/gcode/G012.html',
     },
     params: [
@@ -916,8 +915,8 @@ export const commands: ICommand[] = [
     name: 'G17-G19',
     details: {
       description:
-        ' Description Select workspace plane XY, ZX, or YZ. Allows G2/G3 and G5 to operate in the selected plane when CNC_WORKSPACE_PLANES is enabled. ',
-      notes: ' Notes Requires CNC_WORKSPACE_PLANES. ',
+        'Select workspace plane XY, ZX, or YZ. Allows G2/G3 and G5 to operate in the selected plane when CNC_WORKSPACE_PLANES is enabled. ',
+      notes: 'Requires CNC_WORKSPACE_PLANES. ',
       url: 'https://marlinfw.org/docs/gcode/G017-G019.html',
     },
     params: [],
@@ -928,7 +927,7 @@ export const commands: ICommand[] = [
     name: 'G20',
     details: {
       description:
-        ' Description Set units to inches. In this mode, all positions, offsets, rates, accelerations, etc., specified in G-code parameters are interpreted as inches. ',
+        'Set units to inches. In this mode, all positions, offsets, rates, accelerations, etc., specified in G-code parameters are interpreted as inches. ',
       url: 'https://marlinfw.org/docs/gcode/G020.html',
     },
     params: [],
@@ -939,9 +938,9 @@ export const commands: ICommand[] = [
     name: 'G26',
     details: {
       description:
-        ' Description G26 Mesh Validation Pattern is designed to be used in conjunction with mesh-based leveling to test the accuracy of the probed mesh. The G26 command prints a single-layer pattern over the entire print bed, giving a clear indication of how accurately every mesh point is defined. G26 can be used to determine which areas of the mesh are less-than-perfect and how much to adjust each mesh point. ',
+        'G26 Mesh Validation Pattern is designed to be used in conjunction with mesh-based leveling to test the accuracy of the probed mesh. The G26 command prints a single-layer pattern over the entire print bed, giving a clear indication of how accurately every mesh point is defined. G26 can be used to determine which areas of the mesh are less-than-perfect and how much to adjust each mesh point. ',
       notes:
-        ' Notes  Before 1.1.6 it only works with AUTO_BED_LEVELING_UBL. Since 1.1.7 it also works with MESH_BED_LEVELING and AUTO_BED_LEVELING_BILINEAR.  ',
+        ' Before 1.1.6 it only works with AUTO_BED_LEVELING_UBL. Since 1.1.7 it also works with MESH_BED_LEVELING and AUTO_BED_LEVELING_BILINEAR.  ',
       url: 'https://marlinfw.org/docs/gcode/G026.html',
     },
     params: [
@@ -1048,8 +1047,8 @@ export const commands: ICommand[] = [
     id: 'G27',
     name: 'G27',
     details: {
-      description: ' Description Park the nozzle at a predefined XYZ position. ',
-      notes: ' Notes Requires NOZZLE_PARK_FEATURE. The park position is defined by NOZZLE_PARK_POINT. ',
+      description: 'Park the nozzle at a predefined XYZ position. ',
+      notes: 'Requires NOZZLE_PARK_FEATURE. The park position is defined by NOZZLE_PARK_POINT. ',
       url: 'https://marlinfw.org/docs/gcode/G027.html',
     },
     params: [
@@ -1067,9 +1066,9 @@ export const commands: ICommand[] = [
     name: 'G28',
     details: {
       description:
-        ' Description When you first start up your machine it has no idea where the toolhead is positioned, so Marlin needs to use a procedure called “homing” to establish a known position. To do this it moves each axis towards one end of its track until it triggers a switch, commonly called an “endstop.” Marlin knows where the endstops are, so once all the endstops have been triggered the position is known. The G28 command is used to home one or more axes. The default behavior with no parameters is to home all axes. In order to improve positional accuracy, the homing procedure can re-bump at a slower speed according to the [XYZ]_HOME_BUMP_MM and HOMING_BUMP_DIVISOR settings. The position is easy to lose when the steppers are turned off, so homing may be required or advised after the machine has been sitting idle for a period of time. See the Configuration files for all homing options. ',
+        'When you first start up your machine it has no idea where the toolhead is positioned, so Marlin needs to use a procedure called “homing” to establish a known position. To do this it moves each axis towards one end of its track until it triggers a switch, commonly called an “endstop.” Marlin knows where the endstops are, so once all the endstops have been triggered the position is known. The G28 command is used to home one or more axes. The default behavior with no parameters is to home all axes. In order to improve positional accuracy, the homing procedure can re-bump at a slower speed according to the [XYZ]_HOME_BUMP_MM and HOMING_BUMP_DIVISOR settings. The position is easy to lose when the steppers are turned off, so homing may be required or advised after the machine has been sitting idle for a period of time. See the Configuration files for all homing options. ',
       notes:
-        ' Notes Homing is required before G29, M48, and some other procedures. If homing is needed the LCD will blink the X Y Z indicators. By default G28 disables bed leveling. Follow with M420 S to turn leveling on.  With ENABLE_LEVELING_AFTER_G28 leveling will always be enabled after G28. With RESTORE_LEVELING_AFTER_G28 leveling is restored to whatever state it was in before G28.  ',
+        'Homing is required before G29, M48, and some other procedures. If homing is needed the LCD will blink the X Y Z indicators. By default G28 disables bed leveling. Follow with M420 S to turn leveling on.  With ENABLE_LEVELING_AFTER_G28 leveling will always be enabled after G28. With RESTORE_LEVELING_AFTER_G28 leveling is restored to whatever state it was in before G28.  ',
       url: 'https://marlinfw.org/docs/gcode/G028.html',
     },
     params: [
@@ -1115,9 +1114,9 @@ export const commands: ICommand[] = [
     name: 'G29',
     details: {
       description:
-        ' Description The Unified Bed Leveling System (UBL) provides a comprehensive set of resources to produce the best bed leveling results possible. See the full Unified Bed Leveling documentation for more details. ',
+        'The Unified Bed Leveling System (UBL) provides a comprehensive set of resources to produce the best bed leveling results possible. See the full Unified Bed Leveling documentation for more details. ',
       notes:
-        ' Notes  Requires AUTO_BED_LEVELING_UBL.  G28 disables bed leveling. Follow with G29 A to turn leveling on, or use RESTORE_LEVELING_AFTER_G28 to automatically keep leveling on after G28.  M420 S1 can be used to turn leveling on, but requires a valid (complete) mesh. See M420 for more details.  Release Notes:   UBL builds on Edward Patel’s “Mesh Bed Leveling” system (also included).   UBL does not replace 3-Point or Planar leveling. These use a 3D matrix to tilt the whole model. UBL’s 3-point and Planar operations only apply to the mesh, not to the whole model.   It is highly recommended to enable EEPROM. Without EEPROM storage enabled, UBL is limited to 3-Point or Grid Leveling (G29 P0 T or G29 P0 G) and can’t save meshes for later use.   For the initial G28 and G29 P1 that automatically populates the mesh, UBL probes the mesh points in a growing spiral starting from the center of the bed. This pattern is better for Deltabots, allowing the center of the Mesh to be populated (and edited) more quickly so you can do test printing early in the process.   You don’t need to populate the entire mesh to use it. This saves time if you need to adjust settings and probe again.   UBL gathers the points closest the nozzle unless you specify an (X,Y) coordinate pair.   Use G29 P3 to automatically fill in unpopulated mesh points. You can also use an LCD controller with G29 P2 to move the nozzle to each unpopulated point and manually adjust the height. See the P2 and P3 parameters for usage info.   We know it takes a lot of effort to create good working Mesh data, so UBL stores its mesh data in a separate location where it won’t be affected by EEPROM errors or version changes.   ',
+        ' Requires AUTO_BED_LEVELING_UBL.  G28 disables bed leveling. Follow with G29 A to turn leveling on, or use RESTORE_LEVELING_AFTER_G28 to automatically keep leveling on after G28.  M420 S1 can be used to turn leveling on, but requires a valid (complete) mesh. See M420 for more details.  Release Notes:   UBL builds on Edward Patel’s “Mesh Bed Leveling” system (also included).   UBL does not replace 3-Point or Planar leveling. These use a 3D matrix to tilt the whole model. UBL’s 3-point and Planar operations only apply to the mesh, not to the whole model.   It is highly recommended to enable EEPROM. Without EEPROM storage enabled, UBL is limited to 3-Point or Grid Leveling (G29 P0 T or G29 P0 G) and can’t save meshes for later use.   For the initial G28 and G29 P1 that automatically populates the mesh, UBL probes the mesh points in a growing spiral starting from the center of the bed. This pattern is better for Deltabots, allowing the center of the Mesh to be populated (and edited) more quickly so you can do test printing early in the process.   You don’t need to populate the entire mesh to use it. This saves time if you need to adjust settings and probe again.   UBL gathers the points closest the nozzle unless you specify an (X,Y) coordinate pair.   Use G29 P3 to automatically fill in unpopulated mesh points. You can also use an LCD controller with G29 P2 to move the nozzle to each unpopulated point and manually adjust the height. See the P2 and P3 parameters for usage info.   We know it takes a lot of effort to create good working Mesh data, so UBL stores its mesh data in a separate location where it won’t be affected by EEPROM errors or version changes.   ',
       url: 'https://marlinfw.org/docs/gcode/G029-ubl.html',
     },
     params: [
@@ -1255,9 +1254,8 @@ export const commands: ICommand[] = [
     id: 'G30',
     name: 'G30',
     details: {
-      description:
-        ' Description Do a single Z probe at a specified position. By default probe in the current position. ',
-      notes: ' Notes Use SERIAL_FLOAT_PRECISION to set the number of decimal places in the output. ',
+      description: 'Do a single Z probe at a specified position. By default probe in the current position. ',
+      notes: 'Use SERIAL_FLOAT_PRECISION to set the number of decimal places in the output. ',
       url: 'https://marlinfw.org/docs/gcode/G030.html',
     },
     params: [
@@ -1292,8 +1290,8 @@ export const commands: ICommand[] = [
     id: 'G31',
     name: 'G31',
     details: {
-      description: ' Description Dock the Z probe sled. ',
-      notes: ' Notes Requires Z_PROBE_SLED. ',
+      description: 'Dock the Z probe sled. ',
+      notes: 'Requires Z_PROBE_SLED. ',
       url: 'https://marlinfw.org/docs/gcode/G031.html',
     },
     params: [],
@@ -1303,7 +1301,7 @@ export const commands: ICommand[] = [
     id: 'G32',
     name: 'G32',
     details: {
-      description: ' Description Undock the Z probe sled. ',
+      description: 'Undock the Z probe sled. ',
       url: 'https://marlinfw.org/docs/gcode/G032.html',
     },
     params: [],
@@ -1314,7 +1312,7 @@ export const commands: ICommand[] = [
     name: 'G33',
     details: {
       description:
-        ' Description With the G33 command you can:  Probe a circular grid of points, Calibrate Delta Height, Calibrate endstops, Calibrate Delta Radius, and Calibrate Tower Angles.  ',
+        'With the G33 command you can:  Probe a circular grid of points, Calibrate Delta Height, Calibrate endstops, Calibrate Delta Radius, and Calibrate Tower Angles.  ',
       url: 'https://marlinfw.org/docs/gcode/G033.html',
     },
     params: [
@@ -1374,8 +1372,8 @@ export const commands: ICommand[] = [
     name: 'G34',
     details: {
       description:
-        ' Description This command is used to align the ends of the X gantry. See the video demonstration below.  The carriage moves to GANTRY_CALIBRATION_SAFE_POSITION, also called the “pounce” position. If possible, the Z stepper current is reduced to the value specified by S (or GANTRY_CALIBRATION_CURRENT) to prevent damage to steppers and other parts. The reduced current should be just high enough to move the Z axis when not blocked.  The Z axis is jogged past the Z limit, only as far as the specified Z distance (or GANTRY_CALIBRATION_EXTRA_HEIGHT) at the GANTRY_CALIBRATION_FEEDRATE. The Z axis is moved back to the working area (also at GANTRY_CALIBRATION_FEEDRATE). Stepper current is restored back to normal. Finally the machine is re-homed, according to GANTRY_CALIBRATION_COMMANDS_POST.  ',
-      notes: ' Notes Requires MECHANICAL_GANTRY_CALIBRATION. ',
+        'This command is used to align the ends of the X gantry. See the video demonstration below.  The carriage moves to GANTRY_CALIBRATION_SAFE_POSITION, also called the “pounce” position. If possible, the Z stepper current is reduced to the value specified by S (or GANTRY_CALIBRATION_CURRENT) to prevent damage to steppers and other parts. The reduced current should be just high enough to move the Z axis when not blocked.  The Z axis is jogged past the Z limit, only as far as the specified Z distance (or GANTRY_CALIBRATION_EXTRA_HEIGHT) at the GANTRY_CALIBRATION_FEEDRATE. The Z axis is moved back to the working area (also at GANTRY_CALIBRATION_FEEDRATE). Stepper current is restored back to normal. Finally the machine is re-homed, according to GANTRY_CALIBRATION_COMMANDS_POST.  ',
+      notes: 'Requires MECHANICAL_GANTRY_CALIBRATION. ',
       url: 'https://marlinfw.org/docs/gcode/G034-mgc.html',
     },
     params: [
@@ -1399,8 +1397,8 @@ export const commands: ICommand[] = [
     name: 'G35',
     details: {
       description:
-        ' Description This command runs an interactive procedure to help you adjust the bed corners so that the bed is as true to the machine frame as possible. This is an important step in calibrating your printer and getting the best first layer results. ',
-      notes: ' Notes Requires ASSISTED_TRAMMING. ',
+        'This command runs an interactive procedure to help you adjust the bed corners so that the bed is as true to the machine frame as possible. This is an important step in calibrating your printer and getting the best first layer results. ',
+      notes: 'Requires ASSISTED_TRAMMING. ',
       url: 'https://marlinfw.org/docs/gcode/G035.html',
     },
     params: [
@@ -1418,9 +1416,9 @@ export const commands: ICommand[] = [
     name: 'G38.2-G38.5',
     details: {
       description:
-        ' Description The Probe Target commands are used to probe towards (or away from) a workpiece to determine its precise position. You might, for example, use a grounded metal workpiece, with a metal probe spliced into the bed probe circuit.   G38.2 probes towards a target and stops on contact, signaling an error if it reaches the target position without triggering the probe.  G38.3 probes towards a target and stops on contact. No error is given if it fails to trigger the probe.  G38.4 probes away from a target and stops on contact break. An error is signaled if the target position is reached without triggering the probe.  G38.5 probes away from a target and stops on contact break. No error is given if it fails to trigger the probe.  These commands use the current homing feedrate, by default. ',
+        'The Probe Target commands are used to probe towards (or away from) a workpiece to determine its precise position. You might, for example, use a grounded metal workpiece, with a metal probe spliced into the bed probe circuit.   G38.2 probes towards a target and stops on contact, signaling an error if it reaches the target position without triggering the probe.  G38.3 probes towards a target and stops on contact. No error is given if it fails to trigger the probe.  G38.4 probes away from a target and stops on contact break. An error is signaled if the target position is reached without triggering the probe.  G38.5 probes away from a target and stops on contact break. No error is given if it fails to trigger the probe.  These commands use the current homing feedrate, by default. ',
       notes:
-        ' Notes These commands require G38_PROBE_TARGET and a defined probe. G38.4 and G38.5 are only available with the G38_PROBE_AWAY option. ',
+        'These commands require G38_PROBE_TARGET and a defined probe. G38.4 and G38.5 are only available with the G38_PROBE_AWAY option. ',
       url: 'https://marlinfw.org/docs/gcode/G038.html',
     },
     params: [
@@ -1456,7 +1454,7 @@ export const commands: ICommand[] = [
     name: 'G42',
     details: {
       description:
-        ' Description The G42 command moves the nozzle to the location corresponding to a specific coordinate in the bed leveling mesh. It operates similarly to the G0 and G1 commands except that the provided coordinates are a mesh row and column instead of an absolute or relative position on the bed. The G42 command will determine the bed position that corresponds to the provided mesh row and column and move the nozzle to that position. ',
+        'The G42 command moves the nozzle to the location corresponding to a specific coordinate in the bed leveling mesh. It operates similarly to the G0 and G1 commands except that the provided coordinates are a mesh row and column instead of an absolute or relative position on the bed. The G42 command will determine the bed position that corresponds to the provided mesh row and column and move the nozzle to that position. ',
       url: 'https://marlinfw.org/docs/gcode/G042.html',
     },
     params: [
@@ -1486,8 +1484,8 @@ export const commands: ICommand[] = [
     name: 'G53',
     details: {
       description:
-        ' Description G53 applies native workspace to the current move. See G54-G59.3 for workspace coordinate system. In CNC G-code G53 is a modifier. It precedes a movement command (or other modifiers) on the same line. Marlin also accepts G53 on a line by itself as the command to return to the native workspace. ',
-      notes: ' Notes Requires CNC_COORDINATE_SYSTEMS. ',
+        'G53 applies native workspace to the current move. See G54-G59.3 for workspace coordinate system. In CNC G-code G53 is a modifier. It precedes a movement command (or other modifiers) on the same line. Marlin also accepts G53 on a line by itself as the command to return to the native workspace. ',
+      notes: 'Requires CNC_COORDINATE_SYSTEMS. ',
       url: 'https://marlinfw.org/docs/gcode/G053.html',
     },
     params: [],
@@ -1498,8 +1496,8 @@ export const commands: ICommand[] = [
     name: 'G54-G59.3',
     details: {
       description:
-        ' Description A workspace is an XYZ offset to the native machine space. All workspaces default to 0,0,0 at start, or with EEPROM support they may be restored from a previous session. See G53 for native space.  ”G92 is used to set the current workspace’s offset.” “G54 - use coordinate system 1” “G55 - use coordinate system 2” “G56 - use coordinate system 3” “G57 - use coordinate system 4” “G58 - use coordinate system 5” “G59 - use coordinate system 6” “G59.1 - use coordinate system 7” “G59.2 - use coordinate system 8” “G59.3 - use coordinate system 9”  ',
-      notes: ' Notes Requires CNC_COORDINATE_SYSTEMS. ',
+        'A workspace is an XYZ offset to the native machine space. All workspaces default to 0,0,0 at start, or with EEPROM support they may be restored from a previous session. See G53 for native space.  ”G92 is used to set the current workspace’s offset.” “G54 - use coordinate system 1” “G55 - use coordinate system 2” “G56 - use coordinate system 3” “G57 - use coordinate system 4” “G58 - use coordinate system 5” “G59 - use coordinate system 6” “G59.1 - use coordinate system 7” “G59.2 - use coordinate system 8” “G59.3 - use coordinate system 9”  ',
+      notes: 'Requires CNC_COORDINATE_SYSTEMS. ',
       url: 'https://marlinfw.org/docs/gcode/G054-G059.html',
     },
     params: [],
@@ -1509,9 +1507,9 @@ export const commands: ICommand[] = [
     id: 'G60',
     name: 'G60',
     details: {
-      description: ' Description Save the current position of all axes in an SRAM buffer for later recall with G61. ',
+      description: 'Save the current position of all axes in an SRAM buffer for later recall with G61. ',
       notes:
-        ' Notes  The total number of slots is configured with the SAVED_POSITIONS option. All slots are initially set to 0, 0, 0.  ',
+        ' The total number of slots is configured with the SAVED_POSITIONS option. All slots are initially set to 0, 0, 0.  ',
       url: 'https://marlinfw.org/docs/gcode/G060.html',
     },
     params: [
@@ -1529,7 +1527,7 @@ export const commands: ICommand[] = [
     name: 'G61',
     details: {
       description:
-        ' Description Use this command to move to a saved position. To limit the move to only some axes, include one or more axis letters. Otherwise all axes will be included. ',
+        'Use this command to move to a saved position. To limit the move to only some axes, include one or more axis letters. Otherwise all axes will be included. ',
       url: 'https://marlinfw.org/docs/gcode/G061.html',
     },
     params: [
@@ -1577,9 +1575,9 @@ export const commands: ICommand[] = [
     name: 'G76',
     details: {
       description:
-        ' Description Calibrate temperature compensation offsets for bed and/or probe temperatures. Temperature compensation values are added to probe measurements when running G29 mesh bed leveling. Currently, calibration only heats up the bed, not the hotend. The probe is heated up by bringing it close to the heated bed and cooled down by moving it away. See Probe Temperature Compensation for a more detailed explanation of the process. ',
+        'Calibrate temperature compensation offsets for bed and/or probe temperatures. Temperature compensation values are added to probe measurements when running G29 mesh bed leveling. Currently, calibration only heats up the bed, not the hotend. The probe is heated up by bringing it close to the heated bed and cooled down by moving it away. See Probe Temperature Compensation for a more detailed explanation of the process. ',
       notes:
-        ' Notes Requires PTC_PROBE and PTC_BED. This process can take a very long time. The timeout is currently set to 15min to allow the parts to fully heat up and cool down. Use M500 to save the result to EEPROM. ',
+        'Requires PTC_PROBE and PTC_BED. This process can take a very long time. The timeout is currently set to 15min to allow the parts to fully heat up and cool down. Use M500 to save the result to EEPROM. ',
       url: 'https://marlinfw.org/docs/gcode/G076.html',
     },
     params: [
@@ -1603,8 +1601,8 @@ export const commands: ICommand[] = [
     name: 'G80',
     details: {
       description:
-        ' Description Cancels the current motion mode (G0 G1 G2 G3 G5 G38.X). With GCODE_MOTION_MODES enabled, Marlin will remember the last used motion mode which can then be canceled with G80. ',
-      notes: ' Notes Requires GCODE_MOTION_MODES. ',
+        'Cancels the current motion mode (G0 G1 G2 G3 G5 G38.X). With GCODE_MOTION_MODES enabled, Marlin will remember the last used motion mode which can then be canceled with G80. ',
+      notes: 'Requires GCODE_MOTION_MODES. ',
       url: 'https://marlinfw.org/docs/gcode/G080.html',
     },
     params: [],
@@ -1615,8 +1613,8 @@ export const commands: ICommand[] = [
     name: 'G90',
     details: {
       description:
-        ' Description In absolute mode all coordinates given in G-code are interpreted as positions in the logical coordinate space. This includes the extruder position unless overridden by M83. ',
-      notes: ' Notes Absolute positioning is the default. ',
+        'In absolute mode all coordinates given in G-code are interpreted as positions in the logical coordinate space. This includes the extruder position unless overridden by M83. ',
+      notes: 'Absolute positioning is the default. ',
       url: 'https://marlinfw.org/docs/gcode/G090.html',
     },
     params: [],
@@ -1627,7 +1625,7 @@ export const commands: ICommand[] = [
     name: 'G91',
     details: {
       description:
-        ' Description Set relative position mode. In this mode all coordinates are interpreted as relative to the last position. This includes the extruder position unless overridden by M82. ',
+        'Set relative position mode. In this mode all coordinates are interpreted as relative to the last position. This includes the extruder position unless overridden by M82. ',
       url: 'https://marlinfw.org/docs/gcode/G091.html',
     },
     params: [],
@@ -1638,9 +1636,9 @@ export const commands: ICommand[] = [
     name: 'G92',
     details: {
       description:
-        ' Description Set the current position to the values specified. In Marlin 1.1.0 and up, the software endstops are adjusted to preserve the physical movement limits. Thus you could use G92 to set the middle of the bed to 0,0 and then run .gcode that was sliced for a Deltabot. The CNC_COORDINATE_SYSTEMS option enables use of G92.1 to reset the selected workspace to native machine space. See G54-G59 and G53. ',
+        'Set the current position to the values specified. In Marlin 1.1.0 and up, the software endstops are adjusted to preserve the physical movement limits. Thus you could use G92 to set the middle of the bed to 0,0 and then run .gcode that was sliced for a Deltabot. The CNC_COORDINATE_SYSTEMS option enables use of G92.1 to reset the selected workspace to native machine space. See G54-G59 and G53. ',
       notes:
-        ' Notes In earlier versions of Marlin G92 doesn’t update the software endstops, so it was unsupported to set coordinates outside these boundaries. In Marlin 1.1.0 and up, the physical boundaries are maintained. This means you can no longer use G92 to move below the bed, for example. ',
+        'In earlier versions of Marlin G92 doesn’t update the software endstops, so it was unsupported to set coordinates outside these boundaries. In Marlin 1.1.0 and up, the physical boundaries are maintained. This means you can no longer use G92 to move below the bed, for example. ',
       url: 'https://marlinfw.org/docs/gcode/G092.html',
     },
     params: [
@@ -1676,9 +1674,9 @@ export const commands: ICommand[] = [
     name: 'G425',
     details: {
       description:
-        ' Description This command performs an automatic calibration of backlash, positional errors, and nozzle offset by touching the nozzle to the sides of a bed-mounted, electrically-conductive object (e.g., a cube, washer or bolt). This command measures backlash but doesn’t enable backlash correction. Use M425 to enable backlash correction. ',
+        'This command performs an automatic calibration of backlash, positional errors, and nozzle offset by touching the nozzle to the sides of a bed-mounted, electrically-conductive object (e.g., a cube, washer or bolt). This command measures backlash but doesn’t enable backlash correction. Use M425 to enable backlash correction. ',
       notes:
-        ' Notes Requires CALIBRATION_GCODE and the following parameters:   CALIBRATION_MEASUREMENT_RESOLUTION determines the increments taken in mm when performing measurements.  CALIBRATION_FEEDRATE_SLOW, CALIBRATION_FEEDRATE_FAST and CALIBRATION_FEEDRATE_TRAVEL determine the speed of motion during the calibration.  CALIBRATION_NOZZLE_TIP_HEIGHT and CALIBRATION_NOZZLE_OUTER_DIAMETER refer to the conical part of the nozzle tip.  CALIBRATION_REPORTING enables G425 V for reporting of measurements.  CALIBRATION_OBJECT_CENTER and CALIBRATION_OBJECT_DIMENSIONS define the true location and dimensions of a cube/bolt/washer mounted on the bed.  CALIBRATION_MEASURE_RIGHT, CALIBRATION_MEASURE_FRONT, CALIBRATION_MEASURE_LEFT and CALIBRATION_MEASURE_BACK define the usable touch points. Comment out any sides which are unreachable by the probe. For best results, all four sides should be reachable.  CALIBRATION_PIN, CALIBRATION_PIN_INVERTING, CALIBRATION_PIN_PULLDOWN and CALIBRATION_PIN_PULLUP configure the pin used for calibration. For example, if the nozzle is grounded, the calibation cube would be connected to a digital input pin with a pull-up enabled.  ',
+        'Requires CALIBRATION_GCODE and the following parameters:   CALIBRATION_MEASUREMENT_RESOLUTION determines the increments taken in mm when performing measurements.  CALIBRATION_FEEDRATE_SLOW, CALIBRATION_FEEDRATE_FAST and CALIBRATION_FEEDRATE_TRAVEL determine the speed of motion during the calibration.  CALIBRATION_NOZZLE_TIP_HEIGHT and CALIBRATION_NOZZLE_OUTER_DIAMETER refer to the conical part of the nozzle tip.  CALIBRATION_REPORTING enables G425 V for reporting of measurements.  CALIBRATION_OBJECT_CENTER and CALIBRATION_OBJECT_DIMENSIONS define the true location and dimensions of a cube/bolt/washer mounted on the bed.  CALIBRATION_MEASURE_RIGHT, CALIBRATION_MEASURE_FRONT, CALIBRATION_MEASURE_LEFT and CALIBRATION_MEASURE_BACK define the usable touch points. Comment out any sides which are unreachable by the probe. For best results, all four sides should be reachable.  CALIBRATION_PIN, CALIBRATION_PIN_INVERTING, CALIBRATION_PIN_PULLDOWN and CALIBRATION_PIN_PULLUP configure the pin used for calibration. For example, if the nozzle is grounded, the calibation cube would be connected to a digital input pin with a pull-up enabled.  ',
       url: 'https://marlinfw.org/docs/gcode/G425.html',
     },
     params: [
@@ -1714,9 +1712,9 @@ export const commands: ICommand[] = [
     name: 'M0-M1',
     details: {
       description:
-        ' Description The M0 and M1 commands pause after the last movement and wait for the user to continue. M1 is a deprecated alias for M0. ',
+        'The M0 and M1 commands pause after the last movement and wait for the user to continue. M1 is a deprecated alias for M0. ',
       notes:
-        ' Notes If both S and P are included, S takes precedence. Without an LCD controller or EMERGENCY_PARSER this command is ignored. With EMERGENCY_PARSER enabled the M108 command can be used to continue. ',
+        'If both S and P are included, S takes precedence. Without an LCD controller or EMERGENCY_PARSER this command is ignored. With EMERGENCY_PARSER enabled the M108 command can be used to continue. ',
       url: 'https://marlinfw.org/docs/gcode/M000-M001.html',
     },
     params: [
@@ -1745,9 +1743,9 @@ export const commands: ICommand[] = [
     id: 'M3',
     name: 'M3',
     details: {
-      description: ' Description Wait for moves to complete, then set the spindle speed (clockwise) or laser power. ',
+      description: 'Wait for moves to complete, then set the spindle speed (clockwise) or laser power. ',
       notes:
-        ' Notes S is interpeted as the configured value range: PWM (default), Percentage, or RPM. (See CUTTER_POWER_UNIT) M3 and M4 aren’t needed with LASER_POWER_INLINE and LASER_MOVE_POWER enabled. Power is set directly in G1…G5 ',
+        'S is interpeted as the configured value range: PWM (default), Percentage, or RPM. (See CUTTER_POWER_UNIT) M3 and M4 aren’t needed with LASER_POWER_INLINE and LASER_MOVE_POWER enabled. Power is set directly in G1…G5 ',
       url: 'https://marlinfw.org/docs/gcode/M003.html',
     },
     params: [
@@ -1776,10 +1774,9 @@ export const commands: ICommand[] = [
     id: 'M4',
     name: 'M4',
     details: {
-      description:
-        ' Description Wait for moves to complete, then set the spindle speed (counter-clockwise) or laser power. ',
+      description: 'Wait for moves to complete, then set the spindle speed (counter-clockwise) or laser power. ',
       notes:
-        ' Notes S is interpeted as the configured value range: PWM (default), Percentage, or RPM. (See CUTTER_POWER_UNIT) M3 and M4 aren’t needed with LASER_POWER_INLINE and LASER_MOVE_POWER enabled. Power is set directly in G1…G5 ',
+        'S is interpeted as the configured value range: PWM (default), Percentage, or RPM. (See CUTTER_POWER_UNIT) M3 and M4 aren’t needed with LASER_POWER_INLINE and LASER_MOVE_POWER enabled. Power is set directly in G1…G5 ',
       url: 'https://marlinfw.org/docs/gcode/M004.html',
     },
     params: [
@@ -1808,8 +1805,8 @@ export const commands: ICommand[] = [
     id: 'M5',
     name: 'M5',
     details: {
-      description: ' Description Wait for moves to complete, then turn off the spindle / laser power and PWM. ',
-      notes: ' Notes G0 and G28 will also turn the laser off ',
+      description: 'Wait for moves to complete, then turn off the spindle / laser power and PWM. ',
+      notes: 'G0 and G28 will also turn the laser off ',
       url: 'https://marlinfw.org/docs/gcode/M005.html',
     },
     params: [],
@@ -1819,8 +1816,7 @@ export const commands: ICommand[] = [
     id: 'M7-M9',
     name: 'M7-M9',
     details: {
-      description:
-        ' Description This command pertains to a CNC machine with a liquid cooling system or a laser with air assist. ',
+      description: 'This command pertains to a CNC machine with a liquid cooling system or a laser with air assist. ',
       url: 'https://marlinfw.org/docs/gcode/M007-M009.html',
     },
     params: [],
@@ -1830,8 +1826,8 @@ export const commands: ICommand[] = [
     id: 'M10-M11',
     name: 'M10-M11',
     details: {
-      description: ' Description Immediately turn the cutter’s vacuum or laser’s blower motor on or off. ',
-      notes: ' Notes These G-codes can only be enabled for use with a spindle or laser setup. ',
+      description: 'Immediately turn the cutter’s vacuum or laser’s blower motor on or off. ',
+      notes: 'These G-codes can only be enabled for use with a spindle or laser setup. ',
       url: 'https://marlinfw.org/docs/gcode/M010-M011.html',
     },
     params: [],
@@ -1842,7 +1838,7 @@ export const commands: ICommand[] = [
     name: 'M16',
     details: {
       description:
-        ' Description Do a case-sensitive comparison between the string argument and the configured MACHINE_NAME. If the machine name doesn’t match, halt the printer so that a reset is required. This safety feature is meant to prevent G-code sliced for a specific machine from being used on any other machine. ',
+        'Do a case-sensitive comparison between the string argument and the configured MACHINE_NAME. If the machine name doesn’t match, halt the printer so that a reset is required. This safety feature is meant to prevent G-code sliced for a specific machine from being used on any other machine. ',
       url: 'https://marlinfw.org/docs/gcode/M016.html',
     },
     params: [
@@ -1860,7 +1856,7 @@ export const commands: ICommand[] = [
     name: 'M17',
     details: {
       description:
-        ' Description This command can be used to enable one or more steppers (X,Y,Z,E). If no steppers are specified, this command enables all steppers immediately. If one or more axes are specified, this command enables the specified steppers immediately. ',
+        'This command can be used to enable one or more steppers (X,Y,Z,E). If no steppers are specified, this command enables all steppers immediately. If one or more axes are specified, this command enables the specified steppers immediately. ',
       url: 'https://marlinfw.org/docs/gcode/M017.html',
     },
     params: [
@@ -1896,7 +1892,7 @@ export const commands: ICommand[] = [
     name: 'M18, M84',
     details: {
       description:
-        ' Description This command can be used to set the stepper inactivity timeout (S) or to disable one or more steppers (X,Y,Z,E). If a timeout is given with S, this command just sets the stepper inactivity timeout. If no steppers are specified, this command disables all steppers immediately. If one or more axes are specified, this command disables the specified steppers immediately. ',
+        'This command can be used to set the stepper inactivity timeout (S) or to disable one or more steppers (X,Y,Z,E). If a timeout is given with S, this command just sets the stepper inactivity timeout. If no steppers are specified, this command disables all steppers immediately. If one or more axes are specified, this command disables the specified steppers immediately. ',
       url: 'https://marlinfw.org/docs/gcode/M018.html',
     },
     params: [
@@ -1938,8 +1934,8 @@ export const commands: ICommand[] = [
     name: 'M20',
     details: {
       description:
-        ' Description List all printable files on the SD card back to the requesting serial port in compact DOS 8.3 format. Only files with .gcode, .gco, and .g extensions will be listed. Hidden files (beginning with .) will not be listed. Hosts or serial controllers should send M20 to get a DOS 8.3 file listing of the active media device that includes file sizes. The file size is included in the output since Marlin 1.1.0. ',
-      notes: ' Notes Requires SDSUPPORT ',
+        'List all printable files on the SD card back to the requesting serial port in compact DOS 8.3 format. Only files with .gcode, .gco, and .g extensions will be listed. Hidden files (beginning with .) will not be listed. Hosts or serial controllers should send M20 to get a DOS 8.3 file listing of the active media device that includes file sizes. The file size is included in the output since Marlin 1.1.0. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M020.html',
     },
     params: [
@@ -1968,8 +1964,8 @@ export const commands: ICommand[] = [
     id: 'M21',
     name: 'M21',
     details: {
-      description: ' Description Use this command to mount the last-selected SD card or thumb drive. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Use this command to mount the last-selected SD card or thumb drive. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M021.html',
     },
     params: [],
@@ -1980,8 +1976,8 @@ export const commands: ICommand[] = [
     name: 'M22',
     details: {
       description:
-        ' Description If Marlin gets confused about the state of the SD card, this command can be used to simulate an ejection of the SD card. Re-insert the SD card or use M21 to enable the SD card following M22. ',
-      notes: ' Notes Requires SDSUPPORT ',
+        'If Marlin gets confused about the state of the SD card, this command can be used to simulate an ejection of the SD card. Re-insert the SD card or use M21 to enable the SD card following M22. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M022.html',
     },
     params: [],
@@ -1991,9 +1987,8 @@ export const commands: ICommand[] = [
     id: 'M23',
     name: 'M23',
     details: {
-      description:
-        ' Description Select an SD file for printing or processing. Follow with M24 to run the selected file. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Select an SD file for printing or processing. Follow with M24 to run the selected file. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M023.html',
     },
     params: [
@@ -2011,8 +2006,8 @@ export const commands: ICommand[] = [
     name: 'M24',
     details: {
       description:
-        ' Description Start an SD print or resume the paused SD print. If PARK_HEAD_ON_PAUSE is enabled, unpark the nozzle. If POWER_LOSS_RECOVERY is enabled M24 accepts parameters which allow resuming the print from a specific point in the file. These parameters are usually only used in this scenario. ',
-      notes: ' Notes Requires SDSUPPORT Since Marlin 2.0.0, SD printing can be aborted with M524. ',
+        'Start an SD print or resume the paused SD print. If PARK_HEAD_ON_PAUSE is enabled, unpark the nozzle. If POWER_LOSS_RECOVERY is enabled M24 accepts parameters which allow resuming the print from a specific point in the file. These parameters are usually only used in this scenario. ',
+      notes: 'Requires SDSUPPORT Since Marlin 2.0.0, SD printing can be aborted with M524. ',
       url: 'https://marlinfw.org/docs/gcode/M024.html',
     },
     params: [
@@ -2035,8 +2030,8 @@ export const commands: ICommand[] = [
     id: 'M25',
     name: 'M25',
     details: {
-      description: ' Description Pause the SD print in progress. If PARK_HEAD_ON_PAUSE is enabled, park the nozzle. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Pause the SD print in progress. If PARK_HEAD_ON_PAUSE is enabled, park the nozzle. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M025.html',
     },
     params: [],
@@ -2046,8 +2041,8 @@ export const commands: ICommand[] = [
     id: 'M26',
     name: 'M26',
     details: {
-      description: ' Description Set the next read position in the open SD file. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Set the next read position in the open SD file. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M026.html',
     },
     params: [
@@ -2065,8 +2060,8 @@ export const commands: ICommand[] = [
     name: 'M27',
     details: {
       description:
-        ' Description With no parameter, report the current SD read position in the form “SD printing byte 123/12345.” If no file is open the response is “Not SD printing.” With S<seconds>, set the SD status auto-report interval. (Requires AUTO_REPORT_SD_STATUS) With C, get the currently open file’s name (and long filename if possible). Print “(no file)” if no file is open. ',
-      notes: ' Notes Requires SDSUPPORT ',
+        'With no parameter, report the current SD read position in the form “SD printing byte 123/12345.” If no file is open the response is “Not SD printing.” With S<seconds>, set the SD status auto-report interval. (Requires AUTO_REPORT_SD_STATUS) With C, get the currently open file’s name (and long filename if possible). Print “(no file)” if no file is open. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M027.html',
     },
     params: [
@@ -2090,8 +2085,8 @@ export const commands: ICommand[] = [
     name: 'M28',
     details: {
       description:
-        ' Description This command starts a file write. All commands received by Marlin are written to the file and are not executed until M29 closes the file. With ‘B1’, set an optimized binary file transfer mode. (Requires BINARY_FILE_TRANSFER) ',
-      notes: ' Notes Requires SDSUPPORT Use M928 to log commands to a file during printing. ',
+        'This command starts a file write. All commands received by Marlin are written to the file and are not executed until M29 closes the file. With ‘B1’, set an optimized binary file transfer mode. (Requires BINARY_FILE_TRANSFER) ',
+      notes: 'Requires SDSUPPORT Use M928 to log commands to a file during printing. ',
       url: 'https://marlinfw.org/docs/gcode/M028.html',
     },
     params: [
@@ -2114,8 +2109,8 @@ export const commands: ICommand[] = [
     id: 'M29',
     name: 'M29',
     details: {
-      description: ' Description Stop writing to a file that was begun with M28 or M928. Logging is disabled. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Stop writing to a file that was begun with M28 or M928. Logging is disabled. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M029.html',
     },
     params: [],
@@ -2125,8 +2120,8 @@ export const commands: ICommand[] = [
     id: 'M30',
     name: 'M30',
     details: {
-      description: ' Description Delete a file from the SD card. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Delete a file from the SD card. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M030.html',
     },
     params: [
@@ -2144,7 +2139,7 @@ export const commands: ICommand[] = [
     name: 'M31',
     details: {
       description:
-        ' Description This command reports the time elapsed since the start of the current print job to the host. When printing from SD card, the print job timer starts as soon as SD printing starts. If PRINTJOB_TIMER_AUTOSTART is enabled then the first M109 or M190 command received from the host will also start the print job timer. For manual control from the host, use M75, M76, and M77 to start, pause, and stop the print job timer. ',
+        'This command reports the time elapsed since the start of the current print job to the host. When printing from SD card, the print job timer starts as soon as SD printing starts. If PRINTJOB_TIMER_AUTOSTART is enabled then the first M109 or M190 command received from the host will also start the print job timer. For manual control from the host, use M75, M76, and M77 to start, pause, and stop the print job timer. ',
       url: 'https://marlinfw.org/docs/gcode/M031.html',
     },
     params: [],
@@ -2155,8 +2150,8 @@ export const commands: ICommand[] = [
     name: 'M32',
     details: {
       description:
-        ' Description The M32 command exists to allow G-code to load other G-code files and run them as sub-programs. This can be useful to change the start / end G-code for a batch of files without having to edit them all. For legacy reasons M32 uses ‘!’ (and ‘#’) to delimit the filepath parameter. The filepath must be the last parameter. ',
-      notes: ' Notes Requires SDSUPPORT This is a seldom-used beta feature that needs more testing and use-cases. ',
+        'The M32 command exists to allow G-code to load other G-code files and run them as sub-programs. This can be useful to change the start / end G-code for a batch of files without having to edit them all. For legacy reasons M32 uses ‘!’ (and ‘#’) to delimit the filepath parameter. The filepath must be the last parameter. ',
+      notes: 'Requires SDSUPPORT This is a seldom-used beta feature that needs more testing and use-cases. ',
       url: 'https://marlinfw.org/docs/gcode/M032.html',
     },
     params: [
@@ -2179,8 +2174,8 @@ export const commands: ICommand[] = [
     id: 'M33',
     name: 'M33',
     details: {
-      description: ' Description Get the long name for a file based on the DOS 8.3 path. ',
-      notes: ' Notes Requires SDSUPPORT and LONG_FILENAME_HOST_SUPPORT ',
+      description: 'Get the long name for a file based on the DOS 8.3 path. ',
+      notes: 'Requires SDSUPPORT and LONG_FILENAME_HOST_SUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M033.html',
     },
     params: [
@@ -2198,8 +2193,8 @@ export const commands: ICommand[] = [
     name: 'M34',
     details: {
       description:
-        ' Description Marlin now contains support for SDCard alphabetical file sorting in the LCD menus. This feature uses free SRAM to create a sorting index for up to the first 256 files in the current folder, and (if you have lots of SRAM) can optionally cache file listings for a more responsive UI. Buffering only occurs during file browsing. Otherwise the SRAM is freed. ',
-      notes: ' Notes Requires SDSUPPORT and SDCARD_SORT_ALPHA. ',
+        'Marlin now contains support for SDCard alphabetical file sorting in the LCD menus. This feature uses free SRAM to create a sorting index for up to the first 256 files in the current folder, and (if you have lots of SRAM) can optionally cache file listings for a more responsive UI. Buffering only occurs during file browsing. Otherwise the SRAM is freed. ',
+      notes: 'Requires SDSUPPORT and SDCARD_SORT_ALPHA. ',
       url: 'https://marlinfw.org/docs/gcode/M034.html',
     },
     params: [
@@ -2223,7 +2218,7 @@ export const commands: ICommand[] = [
     name: 'M42',
     details: {
       description:
-        ' Description For custom hardware not officially supported in Marlin, you can often just connect up an unused pin and use M42 to control it. ',
+        'For custom hardware not officially supported in Marlin, you can often just connect up an unused pin and use M42 to control it. ',
       url: 'https://marlinfw.org/docs/gcode/M042.html',
     },
     params: [
@@ -2260,8 +2255,8 @@ export const commands: ICommand[] = [
     name: 'M43',
     details: {
       description:
-        ' Description When setting up or debugging a machine it’s useful to know how pins are assigned to functions by the firmware, and to be able to find pins for use with new functions. M43 provides these tools. M43 by itself reports all pin assignments. Use P to specify a single pin. Use I to report the values on pins that are protected. Use W to watch the specified pin, or all pins. Use the E option to monitor endstops. Use S option to test a BLTouch type servo probe. Use T option to toggle pins. The W watch mode option continues looping, blocking all further commands, until the board is reset. If EMERGENCY_PARSER is enabled, M108 may also be used to exit the watch loop without needing to reset the board. See M43 T for Pins Debugging toggle options. ',
-      notes: ' Notes Requires PINS_DEBUGGING. This feature should be disabled for production use. ',
+        'When setting up or debugging a machine it’s useful to know how pins are assigned to functions by the firmware, and to be able to find pins for use with new functions. M43 provides these tools. M43 by itself reports all pin assignments. Use P to specify a single pin. Use I to report the values on pins that are protected. Use W to watch the specified pin, or all pins. Use the E option to monitor endstops. Use S option to test a BLTouch type servo probe. Use T option to toggle pins. The W watch mode option continues looping, blocking all further commands, until the board is reset. If EMERGENCY_PARSER is enabled, M108 may also be used to exit the watch loop without needing to reset the board. See M43 T for Pins Debugging toggle options. ',
+      notes: 'Requires PINS_DEBUGGING. This feature should be disabled for production use. ',
       url: 'https://marlinfw.org/docs/gcode/M043.html',
     },
     params: [
@@ -2308,9 +2303,9 @@ export const commands: ICommand[] = [
     id: 'M43 T',
     name: 'M43 T',
     details: {
-      description: ' Description The M43 T command toggles one or more pins. ',
+      description: 'The M43 T command toggles one or more pins. ',
       notes:
-        ' Notes Requires PINS_DEBUGGING. This feature should be disabled for production use. See M43 for other pins debug options. ',
+        'Requires PINS_DEBUGGING. This feature should be disabled for production use. See M43 for other pins debug options. ',
       url: 'https://marlinfw.org/docs/gcode/M043-T.html',
     },
     params: [
@@ -2352,8 +2347,8 @@ export const commands: ICommand[] = [
     name: 'M48',
     details: {
       description:
-        ' Description Probes come in many flavors and as such have varying levels of accuracy, reliability, and repeatability, depending on several factors. This command tests the probe for repeatability (precision) and produces a standard deviation based on two or more probes of the same XY position. ',
-      notes: ' Notes Requires Z_MIN_PROBE_REPEATABILITY_TEST. ',
+        'Probes come in many flavors and as such have varying levels of accuracy, reliability, and repeatability, depending on several factors. This command tests the probe for repeatability (precision) and produces a standard deviation based on two or more probes of the same XY position. ',
+      notes: 'Requires Z_MIN_PROBE_REPEATABILITY_TEST. ',
       url: 'https://marlinfw.org/docs/gcode/M048.html',
     },
     params: [
@@ -2412,7 +2407,7 @@ export const commands: ICommand[] = [
     id: 'M73',
     name: 'M73',
     details: {
-      description: ' Description Set current print progress percentage and/or remaining time for display on the LCD. ',
+      description: 'Set current print progress percentage and/or remaining time for display on the LCD. ',
       url: 'https://marlinfw.org/docs/gcode/M073.html',
     },
     params: [
@@ -2435,9 +2430,9 @@ export const commands: ICommand[] = [
     id: 'M75',
     name: 'M75',
     details: {
-      description: ' Description Start the print job timer. ',
+      description: 'Start the print job timer. ',
       notes:
-        ' Notes Marlin considers a print job to be in progress whenever the print job timer is running, so it should be included in your starting G-code in your slicer settings. When PRINTJOB_TIMER_AUTOSTART is enabled the print job timer will be started in response to turning on heaters. ',
+        'Marlin considers a print job to be in progress whenever the print job timer is running, so it should be included in your starting G-code in your slicer settings. When PRINTJOB_TIMER_AUTOSTART is enabled the print job timer will be started in response to turning on heaters. ',
       url: 'https://marlinfw.org/docs/gcode/M075.html',
     },
     params: [
@@ -2454,7 +2449,7 @@ export const commands: ICommand[] = [
     id: 'M76',
     name: 'M76',
     details: {
-      description: ' Description Pause the print job timer. ',
+      description: 'Pause the print job timer. ',
       url: 'https://marlinfw.org/docs/gcode/M076.html',
     },
     params: [],
@@ -2464,9 +2459,9 @@ export const commands: ICommand[] = [
     id: 'M77',
     name: 'M77',
     details: {
-      description: ' Description Stop the print job timer. ',
+      description: 'Stop the print job timer. ',
       notes:
-        ' Notes Marlin considers a print job to be in progress whenever the print job timer is running, so M77 should be included in your ending G-code in your slicer settings. When PRINTJOB_TIMER_AUTOSTART is enabled the print job timer will be stopped in response to the heaters being turned off. ',
+        'Marlin considers a print job to be in progress whenever the print job timer is running, so M77 should be included in your ending G-code in your slicer settings. When PRINTJOB_TIMER_AUTOSTART is enabled the print job timer will be stopped in response to the heaters being turned off. ',
       url: 'https://marlinfw.org/docs/gcode/M077.html',
     },
     params: [],
@@ -2476,7 +2471,7 @@ export const commands: ICommand[] = [
     id: 'M78',
     name: 'M78',
     details: {
-      description: ' Description ',
+      description: '',
       url: 'https://marlinfw.org/docs/gcode/M078.html',
     },
     params: [],
@@ -2487,9 +2482,9 @@ export const commands: ICommand[] = [
     name: 'M80',
     details: {
       description:
-        ' Description Turn on the high-voltage power supply. Requires a board that’s powered from USB or another 5V source. ',
+        'Turn on the high-voltage power supply. Requires a board that’s powered from USB or another 5V source. ',
       notes:
-        ' Notes A PS_ON_PIN is also required. Check your board’s pins file for the default. For Marlin 1.1.9 and earlier this feature is enabled by POWER_SUPPLY. Some octoprint plugins filter out M80/M81. If M80 does not work, use a plain serial terminal first prior reporting a bug. ',
+        'A PS_ON_PIN is also required. Check your board’s pins file for the default. For Marlin 1.1.9 and earlier this feature is enabled by POWER_SUPPLY. Some octoprint plugins filter out M80/M81. If M80 does not work, use a plain serial terminal first prior reporting a bug. ',
       url: 'https://marlinfw.org/docs/gcode/M080.html',
     },
     params: [
@@ -2507,8 +2502,8 @@ export const commands: ICommand[] = [
     name: 'M82',
     details: {
       description:
-        ' Description This command is used to override G91 and put the E axis into absolute mode independent of the other axes. ',
-      notes: ' Notes G90 and G91 clear this mode. ',
+        'This command is used to override G91 and put the E axis into absolute mode independent of the other axes. ',
+      notes: 'G90 and G91 clear this mode. ',
       url: 'https://marlinfw.org/docs/gcode/M082.html',
     },
     params: [],
@@ -2519,8 +2514,8 @@ export const commands: ICommand[] = [
     name: 'M83',
     details: {
       description:
-        ' Description This command is used to override G90 and put the E axis into relative mode independent of the other axes. ',
-      notes: ' Notes G90 and G91 clear this mode. ',
+        'This command is used to override G90 and put the E axis into relative mode independent of the other axes. ',
+      notes: 'G90 and G91 clear this mode. ',
       url: 'https://marlinfw.org/docs/gcode/M083.html',
     },
     params: [],
@@ -2531,7 +2526,7 @@ export const commands: ICommand[] = [
     name: 'M85',
     details: {
       description:
-        ' Description Use this command to set a maximum period of time for the machine to be inactive (with no moves). If the machine is idle for longer than the set period, the firmware will shut everything down and halt the machine. ',
+        'Use this command to set a maximum period of time for the machine to be inactive (with no moves). If the machine is idle for longer than the set period, the firmware will shut everything down and halt the machine. ',
       url: 'https://marlinfw.org/docs/gcode/M085.html',
     },
     params: [
@@ -2549,7 +2544,7 @@ export const commands: ICommand[] = [
     name: 'M86',
     details: {
       description:
-        ' Description Use this command to set a maximum period of time for the machine to be idle with heaters on. If the extruder temperature is above the trigger value and the machine is idle for longer than the set period, the firmware will set the temperature of all hotends and the heated bed to the configured temperatures. Send M86 with no parameters to report the current settings. ',
+        'Use this command to set a maximum period of time for the machine to be idle with heaters on. If the extruder temperature is above the trigger value and the machine is idle for longer than the set period, the firmware will set the temperature of all hotends and the heated bed to the configured temperatures. Send M86 with no parameters to report the current settings. ',
       url: 'https://marlinfw.org/docs/gcode/M086.html',
     },
     params: [
@@ -2584,7 +2579,7 @@ export const commands: ICommand[] = [
     id: 'M87',
     name: 'M87',
     details: {
-      description: ' Description Use this command to disable the Hotend Idle Timer. Equivalent to M86 S0. ',
+      description: 'Use this command to disable the Hotend Idle Timer. Equivalent to M86 S0. ',
       url: 'https://marlinfw.org/docs/gcode/M087.html',
     },
     params: [],
@@ -2595,8 +2590,8 @@ export const commands: ICommand[] = [
     name: 'M100',
     details: {
       description:
-        ' Description Use M100 for development purposes to observe how much memory (particularly stack) is being used by code. Proper AVR code should avoid use of new, malloc, etc., and instead use either pre-allocated static variables or stack. ',
-      notes: ' Notes Requires M100_FREE_MEMORY_WATCHER. ',
+        'Use M100 for development purposes to observe how much memory (particularly stack) is being used by code. Proper AVR code should avoid use of new, malloc, etc., and instead use either pre-allocated static variables or stack. ',
+      notes: 'Requires M100_FREE_MEMORY_WATCHER. ',
       url: 'https://marlinfw.org/docs/gcode/M100.html',
     },
     params: [
@@ -2631,8 +2626,8 @@ export const commands: ICommand[] = [
     id: 'M102',
     name: 'M102',
     details: {
-      description: ' Description ',
-      notes: ' Notes Requires BD_SENSOR. ',
+      description: '',
+      notes: 'Requires BD_SENSOR. ',
       url: 'https://marlinfw.org/docs/gcode/M102.html',
     },
     params: [
@@ -2650,9 +2645,9 @@ export const commands: ICommand[] = [
     name: 'M104',
     details: {
       description:
-        ' Description Set a new target hot end temperature and continue without waiting. The firmware will continue to try to reach and hold the temperature in the background. Use M109 to wait for the hot end to reach the target temperature. ',
+        'Set a new target hot end temperature and continue without waiting. The firmware will continue to try to reach and hold the temperature in the background. Use M109 to wait for the hot end to reach the target temperature. ',
       notes:
-        ' Notes  With PRINTJOB_TIMER_AUTOSTART this command will stop the print job timer if the temperature is set at or below half of EXTRUDE_MINTEMP.  ',
+        ' With PRINTJOB_TIMER_AUTOSTART this command will stop the print job timer if the temperature is set at or below half of EXTRUDE_MINTEMP.  ',
       url: 'https://marlinfw.org/docs/gcode/M104.html',
     },
     params: [
@@ -2693,9 +2688,9 @@ export const commands: ICommand[] = [
     id: 'M105',
     name: 'M105',
     details: {
-      description: ' Description Request a temperature report to be sent to the host as soon as possible. ',
+      description: 'Request a temperature report to be sent to the host as soon as possible. ',
       notes:
-        ' Notes Some hosts may hide the reply from M105. A better way for hosts to get regular temperature updates is to use M155 (requires AUTO_REPORT_TEMPERATURES and EXTENDED_CAPABILITIES_REPORT). Hosts then no longer need to run an extra process or use up slots in the command buffer to receive temperatures. ',
+        'Some hosts may hide the reply from M105. A better way for hosts to get regular temperature updates is to use M155 (requires AUTO_REPORT_TEMPERATURES and EXTENDED_CAPABILITIES_REPORT). Hosts then no longer need to run an extra process or use up slots in the command buffer to receive temperatures. ',
       url: 'https://marlinfw.org/docs/gcode/M105.html',
     },
     params: [
@@ -2719,8 +2714,8 @@ export const commands: ICommand[] = [
     name: 'M106',
     details: {
       description:
-        ' Description Turn on one of the fans and set its speed. If no fan index is given, the print cooling fan is selected. The fan speed applies to the next block added to the planner, so it will not take effect until previous moves in the planner are done. Under manual control with an idle machine, M106 will change the fan speed immediately. ',
-      notes: ' Notes M106 with no speed sets the fan to full speed. Turn off fans with M107. ',
+        'Turn on one of the fans and set its speed. If no fan index is given, the print cooling fan is selected. The fan speed applies to the next block added to the planner, so it will not take effect until previous moves in the planner are done. Under manual control with an idle machine, M106 will change the fan speed immediately. ',
+      notes: 'M106 with no speed sets the fan to full speed. Turn off fans with M107. ',
       url: 'https://marlinfw.org/docs/gcode/M106.html',
     },
     params: [
@@ -2756,9 +2751,9 @@ export const commands: ICommand[] = [
     name: 'M108',
     details: {
       description:
-        ' Description The M108 command requires EMERGENCY_PARSER for full effectiveness. (Otherwise a full queue blocks the parser.) Some G-code commands cause Marlin to go into a closed loop, waiting indefinitely for a certain state or event. For example, M109 waits for the target temperature to be reached, and M0 waits for an LCD click. In the case of M109, the M108 command stops waiting for the target temperature and continues processing G-code. This may result in “cold extrude” messages. For a full stop use M112. In the case of M0 the M108 command acts like the LCD button, breaking out of M0 and continuing to process the G-code queue. ',
+        'The M108 command requires EMERGENCY_PARSER for full effectiveness. (Otherwise a full queue blocks the parser.) Some G-code commands cause Marlin to go into a closed loop, waiting indefinitely for a certain state or event. For example, M109 waits for the target temperature to be reached, and M0 waits for an LCD click. In the case of M109, the M108 command stops waiting for the target temperature and continues processing G-code. This may result in “cold extrude” messages. For a full stop use M112. In the case of M0 the M108 command acts like the LCD button, breaking out of M0 and continuing to process the G-code queue. ',
       notes:
-        ' Notes With both EMERGENCY_PARSER and HOST_KEEPALIVE_FEATURE enabled, hosts will be able to prompt for continuation or cancellation, confirming with M108 and cancelling with M112. ',
+        'With both EMERGENCY_PARSER and HOST_KEEPALIVE_FEATURE enabled, hosts will be able to prompt for continuation or cancellation, confirming with M108 and cancelling with M112. ',
       url: 'https://marlinfw.org/docs/gcode/M108.html',
     },
     params: [],
@@ -2769,8 +2764,8 @@ export const commands: ICommand[] = [
     name: 'M110',
     details: {
       description:
-        ' Description Hosts can use M110 to set the current line number in a print job. Each line number sent by a host must be one higher than the previous line number, or the firmware will ignore the line and send an error requesting a resend of the missing line. This is one technique Marlin uses to keep in sync with hosts. ',
-      notes: ' Notes All these are valid: N100 M110, M110 N100, N101 M110 N100. ',
+        'Hosts can use M110 to set the current line number in a print job. Each line number sent by a host must be one higher than the previous line number, or the firmware will ignore the line and send an error requesting a resend of the missing line. This is one technique Marlin uses to keep in sync with hosts. ',
+      notes: 'All these are valid: N100 M110, M110 N100, N101 M110 N100. ',
       url: 'https://marlinfw.org/docs/gcode/M110.html',
     },
     params: [
@@ -2788,9 +2783,9 @@ export const commands: ICommand[] = [
     name: 'M112',
     details: {
       description:
-        ' Description Used for immediate halt, M112 shuts down the machine, turns off all the steppers and heaters, and if possible, turns off the power supply. A reset is required to return to operational mode. M112 is NOT a safety-rated “Emergency Stop” in the formal sense and is not guaranteed to meet the requirements of any safety category or required performance level (PLr). This is functionally a control stop. Machine builders should perform their own risk-assessment and implement suitable safety stop devices. ',
+        'Used for immediate halt, M112 shuts down the machine, turns off all the steppers and heaters, and if possible, turns off the power supply. A reset is required to return to operational mode. M112 is NOT a safety-rated “Emergency Stop” in the formal sense and is not guaranteed to meet the requirements of any safety category or required performance level (PLr). This is functionally a control stop. Machine builders should perform their own risk-assessment and implement suitable safety stop devices. ',
       notes:
-        ' Notes M112 is the fastest way to shut down the machine using a host, but it may need to wait for a space to open up in the command queue. Enable EMERGENCY_PARSER for an instantaneous M112 command. ',
+        'M112 is the fastest way to shut down the machine using a host, but it may need to wait for a space to open up in the command queue. Enable EMERGENCY_PARSER for an instantaneous M112 command. ',
       url: 'https://marlinfw.org/docs/gcode/M112.html',
     },
     params: [],
@@ -2801,9 +2796,9 @@ export const commands: ICommand[] = [
     name: 'M114',
     details: {
       description:
-        ' Description Get the “current position” of the active tool. Stepper values are included. If M114_LEGACY is enabled the planner will be synchronized before reporting so that the reported position is not be ahead of the actual planner position. Normally M114 reports the “projected position” which is the last position Marlin was instructed to move to. With the M114_REALTIME option you can send R to get the “real” current position at the moment that the request was processed. This position comes directly from the steppers in the midst of motion, so when the printer is moving you can consider this the “recent position.” For debugging it can be useful to enable M114_DETAIL which adds D and E parameters to get extra details. ',
+        'Get the “current position” of the active tool. Stepper values are included. If M114_LEGACY is enabled the planner will be synchronized before reporting so that the reported position is not be ahead of the actual planner position. Normally M114 reports the “projected position” which is the last position Marlin was instructed to move to. With the M114_REALTIME option you can send R to get the “real” current position at the moment that the request was processed. This position comes directly from the steppers in the midst of motion, so when the printer is moving you can consider this the “recent position.” For debugging it can be useful to enable M114_DETAIL which adds D and E parameters to get extra details. ',
       notes:
-        ' Notes Hosts should respond to the output of M114 by updating their current position. G-code M154 can be used to to auto-report positions to the host, reducing serial traffic. ',
+        'Hosts should respond to the output of M114 by updating their current position. G-code M154 can be used to to auto-report positions to the host, reducing serial traffic. ',
       url: 'https://marlinfw.org/docs/gcode/M114.html',
     },
     params: [
@@ -2832,9 +2827,8 @@ export const commands: ICommand[] = [
     id: 'M117',
     name: 'M117',
     details: {
-      description: ' Description Set the status line message on the LCD. ',
-      notes:
-        ' Notes Requires an LCD controller. The message should appear immediately, but it will depend on LCD settings. ',
+      description: 'Set the status line message on the LCD. ',
+      notes: 'Requires an LCD controller. The message should appear immediately, but it will depend on LCD settings. ',
       url: 'https://marlinfw.org/docs/gcode/M117.html',
     },
     params: [
@@ -2852,9 +2846,9 @@ export const commands: ICommand[] = [
     name: 'M119',
     details: {
       description:
-        ' Description Use this command to get the current state of all endstops, useful for setup and troubleshooting. Endstops are reported as either “open” or “TRIGGERED”. The state of the Z probe and filament runout sensors are also reported with this command. ',
+        'Use this command to get the current state of all endstops, useful for setup and troubleshooting. Endstops are reported as either “open” or “TRIGGERED”. The state of the Z probe and filament runout sensors are also reported with this command. ',
       notes:
-        ' Notes The BLTOUCH probe only sends a brief pulse, so “TRIGGERED” indicates the probe is in error state. Similarly, Trinamic’s Sensorless Homing only sends a short pulse, so for these “TRIGGERED” is unusual. ',
+        'The BLTOUCH probe only sends a brief pulse, so “TRIGGERED” indicates the probe is in error state. Similarly, Trinamic’s Sensorless Homing only sends a short pulse, so for these “TRIGGERED” is unusual. ',
       url: 'https://marlinfw.org/docs/gcode/M119.html',
     },
     params: [],
@@ -2864,9 +2858,9 @@ export const commands: ICommand[] = [
     id: 'M121',
     name: 'M121',
     details: {
-      description: ' Description Disable endstops. ',
+      description: 'Disable endstops. ',
       notes:
-        ' Notes After this command endstops will be kept disabled when not homing. This may have side-effects if using SD_ABORT_ON_ENDSTOP_HIT. ',
+        'After this command endstops will be kept disabled when not homing. This may have side-effects if using SD_ABORT_ON_ENDSTOP_HIT. ',
       url: 'https://marlinfw.org/docs/gcode/M121.html',
     },
     params: [],
@@ -2877,7 +2871,7 @@ export const commands: ICommand[] = [
     name: 'M123',
     details: {
       description:
-        ' Description If your machine has fans with tachometers this command will report their current speed readings in RPM. Marlin can also auto-report the fan speeds at regular intervals, as set by M123 S. ',
+        'If your machine has fans with tachometers this command will report their current speed readings in RPM. Marlin can also auto-report the fan speeds at regular intervals, as set by M123 S. ',
       url: 'https://marlinfw.org/docs/gcode/M123.html',
     },
     params: [],
@@ -2887,8 +2881,8 @@ export const commands: ICommand[] = [
     id: 'M125',
     name: 'M125',
     details: {
-      description: ' Description Save the current nozzle position and move to the configured park position. ',
-      notes: ' Notes Requires PARK_HEAD_ON_PAUSE. ',
+      description: 'Save the current nozzle position and move to the configured park position. ',
+      notes: 'Requires PARK_HEAD_ON_PAUSE. ',
       url: 'https://marlinfw.org/docs/gcode/M125.html',
     },
     params: [
@@ -2929,8 +2923,8 @@ export const commands: ICommand[] = [
     id: 'M127',
     name: 'M127',
     details: {
-      description: ' Description Close the valve for Baricuda paste extruder 1. ',
-      notes: ' Notes Requires BARICUDA. ',
+      description: 'Close the valve for Baricuda paste extruder 1. ',
+      notes: 'Requires BARICUDA. ',
       url: 'https://marlinfw.org/docs/gcode/M127.html',
     },
     params: [],
@@ -2940,8 +2934,8 @@ export const commands: ICommand[] = [
     id: 'M129',
     name: 'M129',
     details: {
-      description: ' Description Close the valve for Baricuda paste extruder 2. ',
-      notes: ' Notes Requires BARICUDA. ',
+      description: 'Close the valve for Baricuda paste extruder 2. ',
+      notes: 'Requires BARICUDA. ',
       url: 'https://marlinfw.org/docs/gcode/M129.html',
     },
     params: [],
@@ -2952,7 +2946,7 @@ export const commands: ICommand[] = [
     name: 'M141',
     details: {
       description:
-        ' Description Set a new target heated chamber temperature and continue without waiting. The firmware will continue to try to reach and hold the temperature in the background. ',
+        'Set a new target heated chamber temperature and continue without waiting. The firmware will continue to try to reach and hold the temperature in the background. ',
       url: 'https://marlinfw.org/docs/gcode/M141.html',
     },
     params: [
@@ -2969,9 +2963,9 @@ export const commands: ICommand[] = [
     id: 'M145',
     name: 'M145',
     details: {
-      description: ' Description Set the preheating presets for materials in the LCD menu. ',
+      description: 'Set the preheating presets for materials in the LCD menu. ',
       notes:
-        ' Notes Requires an LCD controller. View the current settings with M503. If EEPROM_SETTINGS is enabled, these settings are saved with M500, loaded with M501, and reset with M502. ',
+        'Requires an LCD controller. View the current settings with M503. If EEPROM_SETTINGS is enabled, these settings are saved with M500, loaded with M501, and reset with M502. ',
       url: 'https://marlinfw.org/docs/gcode/M145.html',
     },
     params: [
@@ -3007,8 +3001,8 @@ export const commands: ICommand[] = [
     name: 'M150',
     details: {
       description:
-        ' Description If you have an RGB(W) light, either as part of a controller or installed separately, the M150 command can be used to set its color. ',
-      notes: ' Notes Requires BLINKM, RGB_LED, RGBW_LED, NEOPIXEL_LED or PCA9632. ',
+        'If you have an RGB(W) light, either as part of a controller or installed separately, the M150 command can be used to set its color. ',
+      notes: 'Requires BLINKM, RGB_LED, RGBW_LED, NEOPIXEL_LED or PCA9632. ',
       url: 'https://marlinfw.org/docs/gcode/M150.html',
     },
     params: [
@@ -3068,9 +3062,9 @@ export const commands: ICommand[] = [
     name: 'M155',
     details: {
       description:
-        ' Description It can be useful for host software to track temperatures, display and graph them over time, but polling with M105 is less than optimal. With M155 hosts simply set an interval and Marlin will keep sending data automatically. This method is preferred over polling with M105. ',
+        'It can be useful for host software to track temperatures, display and graph them over time, but polling with M105 is less than optimal. With M155 hosts simply set an interval and Marlin will keep sending data automatically. This method is preferred over polling with M105. ',
       notes:
-        ' Notes Requires AUTO_REPORT_TEMPERATURES. Also enable EXTENDED_CAPABILITIES_REPORT to notify hosts about this capability. ',
+        'Requires AUTO_REPORT_TEMPERATURES. Also enable EXTENDED_CAPABILITIES_REPORT to notify hosts about this capability. ',
       url: 'https://marlinfw.org/docs/gcode/M155.html',
     },
     params: [
@@ -3087,8 +3081,8 @@ export const commands: ICommand[] = [
     id: 'M164',
     name: 'M164',
     details: {
-      description: ' Description ',
-      notes: ' Notes Requires MIXING_EXTRUDER and MIXING_VIRTUAL_TOOLS. ',
+      description: '',
+      notes: 'Requires MIXING_EXTRUDER and MIXING_VIRTUAL_TOOLS. ',
       url: 'https://marlinfw.org/docs/gcode/M164.html',
     },
     params: [
@@ -3106,8 +3100,8 @@ export const commands: ICommand[] = [
     name: 'M166',
     details: {
       description:
-        ' Description Use M166 to set a gradient that will be automatically updated as the Z position changes during a print. The gradient smoothly transitions from one virtual tool to another between the given starting and ending Z heights. Below the starting height the starting virtual tool fully applies, and above the ending height the ending virtual tool fully applies. ',
-      notes: ' Notes Requires MIXING_EXTRUDER and GRADIENT_MIX. ',
+        'Use M166 to set a gradient that will be automatically updated as the Z position changes during a print. The gradient smoothly transitions from one virtual tool to another between the given starting and ending Z heights. Below the starting height the starting virtual tool fully applies, and above the ending height the ending virtual tool fully applies. ',
+      notes: 'Requires MIXING_EXTRUDER and GRADIENT_MIX. ',
       url: 'https://marlinfw.org/docs/gcode/M166.html',
     },
     params: [
@@ -3154,7 +3148,7 @@ export const commands: ICommand[] = [
     id: 'M192',
     name: 'M192',
     details: {
-      description: ' Description Use this command to dwell until the probe reaches a given target temperature. ',
+      description: 'Use this command to dwell until the probe reaches a given target temperature. ',
       url: 'https://marlinfw.org/docs/gcode/M192.html',
     },
     params: [
@@ -3178,9 +3172,9 @@ export const commands: ICommand[] = [
     name: 'M201',
     details: {
       description:
-        ' Description Set the max acceleration for one or more axes (in current units-per-second per-second). The acceleration limit for extruder(s) only applies for print moves where at least one other axis is also in motion. To set the acceleration limit for retract / recover in which only the E axis is moving use M204 R instead. With XY_FREQUENCY_LIMIT you can also set the XY frequency limits, described below. ',
+        'Set the max acceleration for one or more axes (in current units-per-second per-second). The acceleration limit for extruder(s) only applies for print moves where at least one other axis is also in motion. To set the acceleration limit for retract / recover in which only the E axis is moving use M204 R instead. With XY_FREQUENCY_LIMIT you can also set the XY frequency limits, described below. ',
       notes:
-        ' Notes View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. ',
+        'View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. ',
       url: 'https://marlinfw.org/docs/gcode/M201.html',
     },
     params: [
@@ -3233,9 +3227,8 @@ export const commands: ICommand[] = [
     id: 'M207',
     name: 'M207',
     details: {
-      description:
-        ' Description Set lengths, feedrate, and Z lift for firmware-based retraction. See parameters below. ',
-      notes: ' Notes Requires FWRETRACT. See related codes G10, G11, M208, and M209. ',
+      description: 'Set lengths, feedrate, and Z lift for firmware-based retraction. See parameters below. ',
+      notes: 'Requires FWRETRACT. See related codes G10, G11, M208, and M209. ',
       url: 'https://marlinfw.org/docs/gcode/M207.html',
     },
     params: [
@@ -3271,8 +3264,8 @@ export const commands: ICommand[] = [
     name: 'M208',
     details: {
       description:
-        ' Description Set the added lengths and feedrates for firmware-based retract recovery. The lengths set by M208 are applied in addition to the lengths set by M207 when un-retracting (aka “recovering”) the filament. The new values will apply to all subsequent G11 commands. The “swap” values apply to firmware-based recover moves after a tool-change. ',
-      notes: ' Notes Requires FWRETRACT. See related codes G10, G11, M207, and M209. ',
+        'Set the added lengths and feedrates for firmware-based retract recovery. The lengths set by M208 are applied in addition to the lengths set by M207 when un-retracting (aka “recovering”) the filament. The new values will apply to all subsequent G11 commands. The “swap” values apply to firmware-based recover moves after a tool-change. ',
+      notes: 'Requires FWRETRACT. See related codes G10, G11, M207, and M209. ',
       url: 'https://marlinfw.org/docs/gcode/M208.html',
     },
     params: [
@@ -3308,9 +3301,9 @@ export const commands: ICommand[] = [
     name: 'M209',
     details: {
       description:
-        ' Description Enable or disable automatic retraction. This option is meant to help slicers that don’t support G10/G11. But it can be used to override retraction in any G-code. When auto-retract is enabled, all reversed E-only moves are treated as retraction. (Recover moves are also automatically overridden.) When disabled, E retraction derives from G-code. ',
+        'Enable or disable automatic retraction. This option is meant to help slicers that don’t support G10/G11. But it can be used to override retraction in any G-code. When auto-retract is enabled, all reversed E-only moves are treated as retraction. (Recover moves are also automatically overridden.) When disabled, E retraction derives from G-code. ',
       notes:
-        ' Notes Requires FWRETRACT. Most slicers today can generate G10/G11. But this option is useful for older G-code. Though not currently very popular, both volumetric extrusion and firmware-based retraction (and/or M209) make G-code more immune to changes from one machine to another, and permit changing the hardware without needing to re-slice. See related codes G10, G11, M207, and M208. ',
+        'Requires FWRETRACT. Most slicers today can generate G10/G11. But this option is useful for older G-code. Though not currently very popular, both volumetric extrusion and firmware-based retraction (and/or M209) make G-code more immune to changes from one machine to another, and permit changing the hardware without needing to re-slice. See related codes G10, G11, M207, and M208. ',
       url: 'https://marlinfw.org/docs/gcode/M209.html',
     },
     params: [
@@ -3328,8 +3321,8 @@ export const commands: ICommand[] = [
     name: 'M211',
     details: {
       description:
-        ' Description Optionally enable/disable software endstops, then report the current state. With software endstops enabled, moves will be clipped to the physical boundaries from [XYZ]_MIN_POS to [XYZ]_MAX_POS. ',
-      notes: ' Notes Requires either MIN_SOFTWARE_ENDSTOPS or MAX_SOFTWARE_ENDSTOPS for the enable option. ',
+        'Optionally enable/disable software endstops, then report the current state. With software endstops enabled, moves will be clipped to the physical boundaries from [XYZ]_MIN_POS to [XYZ]_MAX_POS. ',
+      notes: 'Requires either MIN_SOFTWARE_ENDSTOPS or MAX_SOFTWARE_ENDSTOPS for the enable option. ',
       url: 'https://marlinfw.org/docs/gcode/M211.html',
     },
     params: [
@@ -3347,8 +3340,8 @@ export const commands: ICommand[] = [
     name: 'M217',
     details: {
       description:
-        ' Description When changing tools on some setups, one filament may be retracted before the other is primed. This command sets the length and feedrates used for the filament swap retract and prime. If no parameters are given this command reports the current filament swap parameters. ',
-      notes: ' Notes These values are stored in EEPROM. ',
+        'When changing tools on some setups, one filament may be retracted before the other is primed. This command sets the length and feedrates used for the filament swap retract and prime. If no parameters are given this command reports the current filament swap parameters. ',
+      notes: 'These values are stored in EEPROM. ',
       url: 'https://marlinfw.org/docs/gcode/M217.html',
     },
     params: [
@@ -3456,9 +3449,9 @@ export const commands: ICommand[] = [
     name: 'M218',
     details: {
       description:
-        ' Description To keep nozzles aligned to the work area between tool-changes, the firmware needs to know how they relate to each other. ',
+        'To keep nozzles aligned to the work area between tool-changes, the firmware needs to know how they relate to each other. ',
       notes:
-        ' Notes  Requires 2 or more nozzles. The default hotend offsets are set with HOTEND_OFFSET_[XYZ]. Z hotend offset only available with DUAL_X_CARRIAGE or SWITCHING_NOZZLE. View current hotend offsets with M503. If EEPROM_SETTINGS is enabled, these offsets are saved with M500, loaded with M501, and reset with M502.  ',
+        ' Requires 2 or more nozzles. The default hotend offsets are set with HOTEND_OFFSET_[XYZ]. Z hotend offset only available with DUAL_X_CARRIAGE or SWITCHING_NOZZLE. View current hotend offsets with M503. If EEPROM_SETTINGS is enabled, these offsets are saved with M500, loaded with M501, and reset with M502.  ',
       url: 'https://marlinfw.org/docs/gcode/M218.html',
     },
     params: [
@@ -3494,7 +3487,7 @@ export const commands: ICommand[] = [
     name: 'M220',
     details: {
       description:
-        ' Description Set speed percentage factor, aka “Feed Rate” which applies to all G-code-based moves in all (X, Y, Z, and E) axes. Report the current speed percentage factor if no parameter is specified. ',
+        'Set speed percentage factor, aka “Feed Rate” which applies to all G-code-based moves in all (X, Y, Z, and E) axes. Report the current speed percentage factor if no parameter is specified. ',
       url: 'https://marlinfw.org/docs/gcode/M220.html',
     },
     params: [
@@ -3523,7 +3516,7 @@ export const commands: ICommand[] = [
     id: 'M221',
     name: 'M221',
     details: {
-      description: ' Description Set the flow percentage, which applies to all E moves added to the planner. ',
+      description: 'Set the flow percentage, which applies to all E moves added to the planner. ',
       url: 'https://marlinfw.org/docs/gcode/M221.html',
     },
     params: [
@@ -3546,7 +3539,7 @@ export const commands: ICommand[] = [
     id: 'M226',
     name: 'M226',
     details: {
-      description: ' Description Wait for a pin to have a certain value or state. ',
+      description: 'Wait for a pin to have a certain value or state. ',
       url: 'https://marlinfw.org/docs/gcode/M226.html',
     },
     params: [
@@ -3569,9 +3562,9 @@ export const commands: ICommand[] = [
     id: 'M240',
     name: 'M240',
     details: {
-      description: ' Description Trigger a camera shutter using a digital pin or by bumping a physical switch. ',
+      description: 'Trigger a camera shutter using a digital pin or by bumping a physical switch. ',
       notes:
-        ' Notes CHDK_PIN or PHOTOGRAPH_PIN is required prior to Marlin 2.0.0. To use the CHDK_PIN or PHOTOGRAPH_PIN option with a digital camera see this article. To use an endstop or contact switch as a shutter switch for your smartphone’s camera, see this video. ',
+        'CHDK_PIN or PHOTOGRAPH_PIN is required prior to Marlin 2.0.0. To use the CHDK_PIN or PHOTOGRAPH_PIN option with a digital camera see this article. To use an endstop or contact switch as a shutter switch for your smartphone’s camera, see this video. ',
       url: 'https://marlinfw.org/docs/gcode/M240.html',
     },
     params: [
@@ -3654,8 +3647,8 @@ export const commands: ICommand[] = [
     id: 'M250',
     name: 'M250',
     details: {
-      description: ' Description Set and/or get the LCD contrast. The value is constrained based on the LCD. ',
-      notes: ' Notes Requires an LCD controller with software-controlled contrast. ',
+      description: 'Set and/or get the LCD contrast. The value is constrained based on the LCD. ',
+      notes: 'Requires an LCD controller with software-controlled contrast. ',
       url: 'https://marlinfw.org/docs/gcode/M250.html',
     },
     params: [
@@ -3673,8 +3666,8 @@ export const commands: ICommand[] = [
     name: 'M255',
     details: {
       description:
-        ' Description Set and/or get the LCD sleep / backlight timeout, in minutes. The display will go blank to save energy after your specified period has elapsed with no activity. The screen will wake up if it needs to display an important message. ',
-      notes: ' Notes Requires an LCD controller with a software controlled backlight or sleep function. ',
+        'Set and/or get the LCD sleep / backlight timeout, in minutes. The display will go blank to save energy after your specified period has elapsed with no activity. The screen will wake up if it needs to display an important message. ',
+      notes: 'Requires an LCD controller with a software controlled backlight or sleep function. ',
       url: 'https://marlinfw.org/docs/gcode/M255.html',
     },
     params: [
@@ -3692,9 +3685,9 @@ export const commands: ICommand[] = [
     name: 'M256',
     details: {
       description:
-        ' Description Set and/or get the LCD brightness. The value is constrained based on the LCD, but typically a value of 0 is the dimmest and 255 is the brightest. ',
+        'Set and/or get the LCD brightness. The value is constrained based on the LCD, but typically a value of 0 is the dimmest and 255 is the brightest. ',
       notes:
-        ' Notes Requires an LCD controller with software-controlled brightness. This may be extended in the future to work with a NeoPixel or RGB LED backlight. ',
+        'Requires an LCD controller with software-controlled brightness. This may be extended in the future to work with a NeoPixel or RGB LED backlight. ',
       url: 'https://marlinfw.org/docs/gcode/M256.html',
     },
     params: [
@@ -3711,8 +3704,8 @@ export const commands: ICommand[] = [
     id: 'M260',
     name: 'M260',
     details: {
-      description: ' Description Utility to send data over the I2C bus. ',
-      notes: ' Notes Requires EXPERIMENTAL_I2CBUS. ',
+      description: 'Utility to send data over the I2C bus. ',
+      notes: 'Requires EXPERIMENTAL_I2CBUS. ',
       url: 'https://marlinfw.org/docs/gcode/M260.html',
     },
     params: [
@@ -3748,8 +3741,8 @@ export const commands: ICommand[] = [
     name: 'M261',
     details: {
       description:
-        ' Description Request bytes from the I2C bus and echo them to the host. To find out how to do more useful things with I2C see the I2C master / slave article. ',
-      notes: ' Notes Requires EXPERIMENTAL_I2CBUS. ',
+        'Request bytes from the I2C bus and echo them to the host. To find out how to do more useful things with I2C see the I2C master / slave article. ',
+      notes: 'Requires EXPERIMENTAL_I2CBUS. ',
       url: 'https://marlinfw.org/docs/gcode/M261.html',
     },
     params: [
@@ -3779,8 +3772,8 @@ export const commands: ICommand[] = [
     id: 'M280',
     name: 'M280',
     details: {
-      description: ' Description Set or get the position of a servo. ',
-      notes: ' Notes Requires NUM_SERVOS of 1 or more. ',
+      description: 'Set or get the position of a servo. ',
+      notes: 'Requires NUM_SERVOS of 1 or more. ',
       url: 'https://marlinfw.org/docs/gcode/M280.html',
     },
     params: [
@@ -3804,7 +3797,7 @@ export const commands: ICommand[] = [
     name: 'M282',
     details: {
       description:
-        ' Description Detach a servo, which turns off its power. The servo will be attached (powered up) before its next move. ',
+        'Detach a servo, which turns off its power. The servo will be attached (powered up) before its next move. ',
       url: 'https://marlinfw.org/docs/gcode/M282.html',
     },
     params: [
@@ -3822,8 +3815,8 @@ export const commands: ICommand[] = [
     name: 'M290',
     details: {
       description:
-        ' Description Apply babysteps to one or more axes using current units. Offsets applied with M290 aren’t added to the current coordinates, but are intended for making small adjustments, especially in the Z axis, at the start of a print. Note that when BABYSTEP_ZPROBE_OFFSET is enabled, M290 also modifies the Probe Z Offset (with no immediate effects). The new Z offset applies to successive probing operations, and can be saved with M500. This behavior is means to coincide with the LCD Menu replacing “Z Babystepping” with “Babystep Z Probe Offset.” To avoid this side-effect, use M290 P0 or leave BABYSTEP_ZPROBE_OFFSET disabled. ',
-      notes: ' Notes Requires BABYSTEP_XY for babystepping on the XY axes. ',
+        'Apply babysteps to one or more axes using current units. Offsets applied with M290 aren’t added to the current coordinates, but are intended for making small adjustments, especially in the Z axis, at the start of a print. Note that when BABYSTEP_ZPROBE_OFFSET is enabled, M290 also modifies the Probe Z Offset (with no immediate effects). The new Z offset applies to successive probing operations, and can be saved with M500. This behavior is means to coincide with the LCD Menu replacing “Z Babystepping” with “Babystep Z Probe Offset.” To avoid this side-effect, use M290 P0 or leave BABYSTEP_ZPROBE_OFFSET disabled. ',
+      notes: 'Requires BABYSTEP_XY for babystepping on the XY axes. ',
       url: 'https://marlinfw.org/docs/gcode/M290.html',
     },
     params: [
@@ -3864,9 +3857,9 @@ export const commands: ICommand[] = [
     id: 'M300',
     name: 'M300',
     details: {
-      description: ' Description Add a tone to the tone queue. ',
+      description: 'Add a tone to the tone queue. ',
       notes:
-        ' Notes Requires SPEAKER to play tones (not just beeps). In Marlin 1.0.2, playing tones block the command queue. Marlin 1.1.0 uses a tone queue and background tone player to keep the command buffer from being blocked by playing tones. ',
+        'Requires SPEAKER to play tones (not just beeps). In Marlin 1.0.2, playing tones block the command queue. Marlin 1.1.0 uses a tone queue and background tone player to keep the command buffer from being blocked by playing tones. ',
       url: 'https://marlinfw.org/docs/gcode/M300.html',
     },
     params: [
@@ -3890,9 +3883,9 @@ export const commands: ICommand[] = [
     name: 'M303',
     details: {
       description:
-        ' Description This command initiates a process of heating and cooling to determine the proper PID values for the specified hotend or the heated bed. ',
+        'This command initiates a process of heating and cooling to determine the proper PID values for the specified hotend or the heated bed. ',
       notes:
-        ' Notes Requires PIDTEMP or PIDTEMPBED. View current PID values with M503. If EEPROM_SETTINGS is enabled, all PID values are saved with M500, loaded with M501, and reset with M502. ',
+        'Requires PIDTEMP or PIDTEMPBED. View current PID values with M503. If EEPROM_SETTINGS is enabled, all PID values are saved with M500, loaded with M501, and reset with M502. ',
       url: 'https://marlinfw.org/docs/gcode/M303.html',
     },
     params: [
@@ -3933,8 +3926,8 @@ export const commands: ICommand[] = [
     id: 'M305',
     name: 'M305',
     details: {
-      description: ' Description Allows for custom temperature sensor. ',
-      notes: ' Notes Must specify temperature sensor 1000 ',
+      description: 'Allows for custom temperature sensor. ',
+      notes: 'Must specify temperature sensor 1000 ',
       url: 'https://marlinfw.org/docs/gcode/M305.html',
     },
     params: [
@@ -3975,9 +3968,9 @@ export const commands: ICommand[] = [
     id: 'M306',
     name: 'M306',
     details: {
-      description: ' Description ',
+      description: '',
       notes:
-        ' Notes Requires MPCTEMP. View current values with M306 and no parameters. If EEPROM_SETTINGS is enabled, all calibration values are saved with M500, loaded with M501, and reset with M502. Heater Power (P) is related to the heater cartridge in the hotend. Most printers have 30 or 40 watt heaters. M306 T will move your hotend to 1mm above the bed for optimal calibration. You should ensure your hotend and print bed are free from debris before running an auto-tune. See the Marlin MPC documentation for more information about MPC parameters. ',
+        'Requires MPCTEMP. View current values with M306 and no parameters. If EEPROM_SETTINGS is enabled, all calibration values are saved with M500, loaded with M501, and reset with M502. Heater Power (P) is related to the heater cartridge in the hotend. Most printers have 30 or 40 watt heaters. M306 T will move your hotend to 1mm above the bed for optimal calibration. You should ensure your hotend and print bed are free from debris before running an auto-tune. See the Marlin MPC documentation for more information about MPC parameters. ',
       url: 'https://marlinfw.org/docs/gcode/M306.html',
     },
     params: [
@@ -4037,7 +4030,7 @@ export const commands: ICommand[] = [
     name: 'M350',
     details: {
       description:
-        ' Description If your board has digital micro-stepping pins (X_MS1, Y_MS1, etc.), use this command to set the micro-steps. ',
+        'If your board has digital micro-stepping pins (X_MS1, Y_MS1, etc.), use this command to set the micro-steps. ',
       url: 'https://marlinfw.org/docs/gcode/M350.html',
     },
     params: [
@@ -4085,7 +4078,7 @@ export const commands: ICommand[] = [
     name: 'M351',
     details: {
       description:
-        ' Description If your board has digital micro-stepping pins (X_MS1, Y_MS1, etc.), use this command to set the micro-steps. At the time of this writing, the only boards which have digital micro-stepping pins are:  MINIRAMBO RAMBO SCOOVO_X9H MKS_BASE_common ALLIGATOR_R2 ARCHIM1 PRINTRBOARD_G2 5DPRINT  ',
+        'If your board has digital micro-stepping pins (X_MS1, Y_MS1, etc.), use this command to set the micro-steps. At the time of this writing, the only boards which have digital micro-stepping pins are:  MINIRAMBO RAMBO SCOOVO_X9H MKS_BASE_common ALLIGATOR_R2 ARCHIM1 PRINTRBOARD_G2 5DPRINT  ',
       url: 'https://marlinfw.org/docs/gcode/M351.html',
     },
     params: [
@@ -4132,9 +4125,9 @@ export const commands: ICommand[] = [
     id: 'M355',
     name: 'M355',
     details: {
-      description: ' Description Set the case light power state and/or brightness. ',
+      description: 'Set the case light power state and/or brightness. ',
       notes:
-        ' Notes Requires a CASE_LIGHT_PIN to control the on/off or PWM state of the case light. The pin will need to be a 12V MOSFET pin with PWM control, or a signal pin connected to a MOSFET or relay to control the higher current required for the light. ',
+        'Requires a CASE_LIGHT_PIN to control the on/off or PWM state of the case light. The pin will need to be a 12V MOSFET pin with PWM control, or a signal pin connected to a MOSFET or relay to control the higher current required for the light. ',
       url: 'https://marlinfw.org/docs/gcode/M355.html',
     },
     params: [
@@ -4158,7 +4151,7 @@ export const commands: ICommand[] = [
     name: 'M360',
     details: {
       description:
-        ' Description Move the nozzle to SCARA calibration position Theta 0 (A0 B120) for calibration of “zero degrees.” ',
+        'Move the nozzle to SCARA calibration position Theta 0 (A0 B120) for calibration of “zero degrees.” ',
       url: 'https://marlinfw.org/docs/gcode/M360.html',
     },
     params: [],
@@ -4169,7 +4162,7 @@ export const commands: ICommand[] = [
     name: 'M361',
     details: {
       description:
-        ' Description Move the nozzle to SCARA Theta-B calibration position Theta 90 (A90 B130) for calibration of “90 degrees steps-per-degree.” ',
+        'Move the nozzle to SCARA Theta-B calibration position Theta 90 (A90 B130) for calibration of “90 degrees steps-per-degree.” ',
       url: 'https://marlinfw.org/docs/gcode/M361.html',
     },
     params: [],
@@ -4180,7 +4173,7 @@ export const commands: ICommand[] = [
     name: 'M362',
     details: {
       description:
-        ' Description Move the nozzle to SCARA Psi-A calibration position Psi 0 (A60 B180) for calibration of “zero degrees.” ',
+        'Move the nozzle to SCARA Psi-A calibration position Psi 0 (A60 B180) for calibration of “zero degrees.” ',
       url: 'https://marlinfw.org/docs/gcode/M362.html',
     },
     params: [],
@@ -4191,7 +4184,7 @@ export const commands: ICommand[] = [
     name: 'M363',
     details: {
       description:
-        ' Description Move the nozzle to SCARA Psi-B calibration position Psi 90 (A50 B90) for calibration of “90 degrees steps-per-degree.” ',
+        'Move the nozzle to SCARA Psi-B calibration position Psi 90 (A50 B90) for calibration of “90 degrees steps-per-degree.” ',
       url: 'https://marlinfw.org/docs/gcode/M363.html',
     },
     params: [],
@@ -4202,7 +4195,7 @@ export const commands: ICommand[] = [
     name: 'M364',
     details: {
       description:
-        ' Description Move the nozzle to SCARA Psi-C calibration position Theta-Psi 90 (A45 B135) for calibration of “90 degrees to Theta.” ',
+        'Move the nozzle to SCARA Psi-C calibration position Theta-Psi 90 (A45 B135) for calibration of “90 degrees to Theta.” ',
       url: 'https://marlinfw.org/docs/gcode/M364.html',
     },
     params: [],
@@ -4212,7 +4205,7 @@ export const commands: ICommand[] = [
     id: 'M380',
     name: 'M380',
     details: {
-      description: ' Description Activate the solenoid on the active extruder. ',
+      description: 'Activate the solenoid on the active extruder. ',
       url: 'https://marlinfw.org/docs/gcode/M380.html',
     },
     params: [
@@ -4229,7 +4222,7 @@ export const commands: ICommand[] = [
     id: 'M381',
     name: 'M381',
     details: {
-      description: ' Description Deactivate all solenoids on all extruders. ',
+      description: 'Deactivate all solenoids on all extruders. ',
       url: 'https://marlinfw.org/docs/gcode/M381.html',
     },
     params: [
@@ -4247,7 +4240,7 @@ export const commands: ICommand[] = [
     name: 'M400',
     details: {
       description:
-        ' Description This command causes G-code processing to pause and wait in a loop until all moves in the planner are completed. ',
+        'This command causes G-code processing to pause and wait in a loop until all moves in the planner are completed. ',
       url: 'https://marlinfw.org/docs/gcode/M400.html',
     },
     params: [],
@@ -4257,9 +4250,9 @@ export const commands: ICommand[] = [
     id: 'M401',
     name: 'M401',
     details: {
-      description: ' Description Deploy the bed probe. The Z axis may raise up to make room for the probe to deploy. ',
+      description: 'Deploy the bed probe. The Z axis may raise up to make room for the probe to deploy. ',
       notes:
-        ' Notes Requires some kind of bed probe. This command has no visible effect for probes that don’t move. They are just activated. ',
+        'Requires some kind of bed probe. This command has no visible effect for probes that don’t move. They are just activated. ',
       url: 'https://marlinfw.org/docs/gcode/M401.html',
     },
     params: [
@@ -4282,9 +4275,9 @@ export const commands: ICommand[] = [
     id: 'M402',
     name: 'M402',
     details: {
-      description: ' Description Stow the bed probe. The Z axis may raise up to make room for the probe to stow. ',
+      description: 'Stow the bed probe. The Z axis may raise up to make room for the probe to stow. ',
       notes:
-        ' Notes Requires some kind of bed probe. This command has no visible effect for probes that don’t move. They are just deactivated. ',
+        'Requires some kind of bed probe. This command has no visible effect for probes that don’t move. They are just deactivated. ',
       url: 'https://marlinfw.org/docs/gcode/M402.html',
     },
     params: [],
@@ -4294,8 +4287,8 @@ export const commands: ICommand[] = [
     id: 'M403',
     name: 'M403',
     details: {
-      description: ' Description Set the filament type for a Průša MMU2 (or compatible) material slot. ',
-      notes: ' Notes Requires a Průša Multi-Material Unit v2.0. Requires PRUSA_MMU2 ',
+      description: 'Set the filament type for a Průša MMU2 (or compatible) material slot. ',
+      notes: 'Requires a Průša Multi-Material Unit v2.0. Requires PRUSA_MMU2 ',
       url: 'https://marlinfw.org/docs/gcode/M403.html',
     },
     params: [
@@ -4319,8 +4312,8 @@ export const commands: ICommand[] = [
     name: 'M404',
     details: {
       description:
-        ' Description Report or set the nominal filament width, such as 1.75 or 3.00. This value is used to determine the percentage difference when auto-adjusting flow in response to the measured filament width, and should match the value used for filament width in your slicer settings. ',
-      notes: ' Notes Requires FILAMENT_WIDTH_SENSOR. ',
+        'Report or set the nominal filament width, such as 1.75 or 3.00. This value is used to determine the percentage difference when auto-adjusting flow in response to the measured filament width, and should match the value used for filament width in your slicer settings. ',
+      notes: 'Requires FILAMENT_WIDTH_SENSOR. ',
       url: 'https://marlinfw.org/docs/gcode/M404.html',
     },
     params: [
@@ -4338,8 +4331,8 @@ export const commands: ICommand[] = [
     name: 'M405',
     details: {
       description:
-        ' Description Turn on the filament width sensor and start using it to do flow control. Initially, the filament between the sensor and the hot-end will be treated as the nominal width. ',
-      notes: ' Notes Requires FILAMENT_WIDTH_SENSOR. ',
+        'Turn on the filament width sensor and start using it to do flow control. Initially, the filament between the sensor and the hot-end will be treated as the nominal width. ',
+      notes: 'Requires FILAMENT_WIDTH_SENSOR. ',
       url: 'https://marlinfw.org/docs/gcode/M405.html',
     },
     params: [
@@ -4356,8 +4349,8 @@ export const commands: ICommand[] = [
     id: 'M406',
     name: 'M406',
     details: {
-      description: ' Description Turn off the filament width sensor and stop using it to do flow control. ',
-      notes: ' Notes Requires FILAMENT_WIDTH_SENSOR. ',
+      description: 'Turn off the filament width sensor and stop using it to do flow control. ',
+      notes: 'Requires FILAMENT_WIDTH_SENSOR. ',
       url: 'https://marlinfw.org/docs/gcode/M406.html',
     },
     params: [],
@@ -4367,8 +4360,8 @@ export const commands: ICommand[] = [
     id: 'M407',
     name: 'M407',
     details: {
-      description: ' Description Report the current measured filament width to the host. ',
-      notes: ' Notes Requires FILAMENT_WIDTH_SENSOR. ',
+      description: 'Report the current measured filament width to the host. ',
+      notes: 'Requires FILAMENT_WIDTH_SENSOR. ',
       url: 'https://marlinfw.org/docs/gcode/M407.html',
     },
     params: [],
@@ -4379,9 +4372,9 @@ export const commands: ICommand[] = [
     name: 'M410',
     details: {
       description:
-        ' Description Stop all steppers instantly. Since there will be no deceleration, steppers are expected to be out of position after this command. ',
+        'Stop all steppers instantly. Since there will be no deceleration, steppers are expected to be out of position after this command. ',
       notes:
-        ' Notes This command is intended only for emergency situations. If EMERGENCY_PARSER is not enabled, this will be delayed. ',
+        'This command is intended only for emergency situations. If EMERGENCY_PARSER is not enabled, this will be delayed. ',
       url: 'https://marlinfw.org/docs/gcode/M410.html',
     },
     params: [],
@@ -4392,9 +4385,9 @@ export const commands: ICommand[] = [
     name: 'M412',
     details: {
       description:
-        ' Description Get or set filament runout status and distance. Omit all parameters to get a report of the current stats. Enable or disable filament runout detection with S and set distance with D. When filament sensors are enabled, Marlin will respond to a filament runout by running the configured G-code (usually M600 Filament Change). When filament runout detection is disabled, Marlin will take no action for filament runout. ',
+        'Get or set filament runout status and distance. Omit all parameters to get a report of the current stats. Enable or disable filament runout detection with S and set distance with D. When filament sensors are enabled, Marlin will respond to a filament runout by running the configured G-code (usually M600 Filament Change). When filament runout detection is disabled, Marlin will take no action for filament runout. ',
       notes:
-        ' Notes Requires FILAMENT_RUNOUT_SENSOR. Parameter D requires FILAMENT_RUNOUT_DISTANCE_MM. Parameter H requires HOST_ACTION_COMMANDS. ',
+        'Requires FILAMENT_RUNOUT_SENSOR. Parameter D requires FILAMENT_RUNOUT_DISTANCE_MM. Parameter H requires HOST_ACTION_COMMANDS. ',
       url: 'https://marlinfw.org/docs/gcode/M412.html',
     },
     params: [
@@ -4430,9 +4423,9 @@ export const commands: ICommand[] = [
     name: 'M413',
     details: {
       description:
-        ' Description M413 is used to turn the Power-loss Recovery feature on and off. When Power-loss Recovery is enabled and Marlin is running a print job from the SD Card or Flash Drive, it periodically saves the print job state to the SD Card / Flash Drive. If the machine crashes or a power outage occurs, Marlin presents the option to resume the interrupted print job. This feature is able to operate without a power-loss detection circuit by writing the recovery file periodically (e.g., once per layer). However, with a POWER_LOSS_PIN Marlin only writes the recovery info when a power-loss is actually detected. This method is preferred because the print will be resumed exactly where it was interrupted (rather than repeating the last layer), and the SD card or Flash Drive will incur much less wear. ',
+        'M413 is used to turn the Power-loss Recovery feature on and off. When Power-loss Recovery is enabled and Marlin is running a print job from the SD Card or Flash Drive, it periodically saves the print job state to the SD Card / Flash Drive. If the machine crashes or a power outage occurs, Marlin presents the option to resume the interrupted print job. This feature is able to operate without a power-loss detection circuit by writing the recovery file periodically (e.g., once per layer). However, with a POWER_LOSS_PIN Marlin only writes the recovery info when a power-loss is actually detected. This method is preferred because the print will be resumed exactly where it was interrupted (rather than repeating the last layer), and the SD card or Flash Drive will incur much less wear. ',
       notes:
-        ' Notes Requires POWER_LOSS_RECOVERY and an LCD controller. Requires printing from the SD Card or Flash Drive. A future implementation may use the EEPROM instead of the attached media. ',
+        'Requires POWER_LOSS_RECOVERY and an LCD controller. Requires printing from the SD Card or Flash Drive. A future implementation may use the EEPROM instead of the attached media. ',
       url: 'https://marlinfw.org/docs/gcode/M413.html',
     },
     params: [
@@ -4450,7 +4443,7 @@ export const commands: ICommand[] = [
     name: 'M421',
     details: {
       description:
-        ' Description This command is used to set a single Z value for a mesh point in the stored bed leveling data. Allowed forms are M421 In Jn Zn, M421 Xn Yn Zn (MESH_BED_LEVELING only) or M421 C Zn (AUTO_BED_LEVELING_UBL only). ',
+        'This command is used to set a single Z value for a mesh point in the stored bed leveling data. Allowed forms are M421 In Jn Zn, M421 Xn Yn Zn (MESH_BED_LEVELING only) or M421 C Zn (AUTO_BED_LEVELING_UBL only). ',
       url: 'https://marlinfw.org/docs/gcode/M421.html',
     },
     params: [
@@ -4510,9 +4503,9 @@ export const commands: ICommand[] = [
     name: 'M422',
     details: {
       description:
-        ' Description Set an XY probe or known position for a given Z Stepper. Either the S or W parameter must be given, along with X and Y positions. The W parameter exists only when Z_STEPPER_ALIGN_STEPPER_XY is defined, providing known stepper positions. ',
+        'Set an XY probe or known position for a given Z Stepper. Either the S or W parameter must be given, along with X and Y positions. The W parameter exists only when Z_STEPPER_ALIGN_STEPPER_XY is defined, providing known stepper positions. ',
       notes:
-        ' Notes See G34 for further details about Z-Stepper automatic alignment. Requires Z_STEPPER_AUTO_ALIGN. M422 W requires Z_STEPPER_ALIGN_STEPPER_XY. ',
+        'See G34 for further details about Z-Stepper automatic alignment. Requires Z_STEPPER_AUTO_ALIGN. M422 W requires Z_STEPPER_ALIGN_STEPPER_XY. ',
       url: 'https://marlinfw.org/docs/gcode/M422.html',
     },
     params: [
@@ -4554,7 +4547,7 @@ export const commands: ICommand[] = [
     name: 'M423',
     details: {
       description:
-        ' Description Use M423 to reset, modify, or report X-Twist Compensation data. X-Twist Compensation is applied to the mesh on G29) to correct for a twisted X gantry. Meaningful X-Twist Compensation data is generated using a guided procedure in the LCD menu that compares measurements taken by the bed probe to readings taken manually at the nozzle. Since manual measurements are prone to inaccuracy, a metal feeler gauge is recommended over a paper test. If the first layer is still imperfect, M423 can then be used to correct for small errors. ',
+        'Use M423 to reset, modify, or report X-Twist Compensation data. X-Twist Compensation is applied to the mesh on G29) to correct for a twisted X gantry. Meaningful X-Twist Compensation data is generated using a guided procedure in the LCD menu that compares measurements taken by the bed probe to readings taken manually at the nozzle. Since manual measurements are prone to inaccuracy, a metal feeler gauge is recommended over a paper test. If the first layer is still imperfect, M423 can then be used to correct for small errors. ',
       url: 'https://marlinfw.org/docs/gcode/M423.html',
     },
     params: [
@@ -4596,9 +4589,9 @@ export const commands: ICommand[] = [
     name: 'M428',
     details: {
       description:
-        ' Description Use M428 to set a persistent offset to the native home position and coordinate space by assigning the current position as the native home position. See the example below.  The current position must be within 2cm from 0 or an endstop. The current position is set to the native home position. Any previous position shift from G92 is cleared. The home offset is persistent — added to the current position until changed. Some uses include fine adjustment of Z position (without moving endstops) and shifting the coordinate space to print on a different part of the bed.  ',
+        'Use M428 to set a persistent offset to the native home position and coordinate space by assigning the current position as the native home position. See the example below.  The current position must be within 2cm from 0 or an endstop. The current position is set to the native home position. Any previous position shift from G92 is cleared. The home offset is persistent — added to the current position until changed. Some uses include fine adjustment of Z position (without moving endstops) and shifting the coordinate space to print on a different part of the bed.  ',
       notes:
-        ' Notes  Only the Z offset can be altered on DELTA. This G-code can be disabled with NO_WORKSPACE_OFFSETS to optimize movement. Changing the home offsets will not invalidate bed leveling or other saved data. If EEPROM_SETTINGS is enabled, the home offsets are saved with M500, loaded with M501, and reset with M502. Use M206 to set the home offsets directly.  ',
+        ' Only the Z offset can be altered on DELTA. This G-code can be disabled with NO_WORKSPACE_OFFSETS to optimize movement. Changing the home offsets will not invalidate bed leveling or other saved data. If EEPROM_SETTINGS is enabled, the home offsets are saved with M500, loaded with M501, and reset with M502. Use M206 to set the home offsets directly.  ',
       url: 'https://marlinfw.org/docs/gcode/M428.html',
     },
     params: [],
@@ -4609,8 +4602,8 @@ export const commands: ICommand[] = [
     name: 'M430',
     details: {
       description:
-        ' Description Enable/disable power monitor on LCD display. Report current/amps (A), voltage (V) and watts (W) if no parameters. ',
-      notes: ' Notes Requires either POWER_MONITOR_CURRENT or POWER_MONITOR_VOLTAGE ',
+        'Enable/disable power monitor on LCD display. Report current/amps (A), voltage (V) and watts (W) if no parameters. ',
+      notes: 'Requires either POWER_MONITOR_CURRENT or POWER_MONITOR_VOLTAGE ',
       url: 'https://marlinfw.org/docs/gcode/M430.html',
     },
     params: [
@@ -4640,9 +4633,9 @@ export const commands: ICommand[] = [
     name: 'M486',
     details: {
       description:
-        ' Description Use M486 to identify and cancel objects during a multi-object print job. This command was originally developed for SD card printing but it works fine when host printing too. Of course, since hosts can skip objects more efficiently, host plugins are the better choice in that scenario. ',
+        'Use M486 to identify and cancel objects during a multi-object print job. This command was originally developed for SD card printing but it works fine when host printing too. Of course, since hosts can skip objects more efficiently, host plugins are the better choice in that scenario. ',
       notes:
-        ' Notes This G-code may not be widely supported by slicers for a while, but they do include helpful comments in the G-code output that includes the current object. So for now you can use a post-processing script to convert these comments into M486 commands. Slicer post-processing scripts:   M486 for Průša Slicer by Paul Paukstelis.  M486 for Cura by Aapo Saaristo.  ',
+        'This G-code may not be widely supported by slicers for a while, but they do include helpful comments in the G-code output that includes the current object. So for now you can use a post-processing script to convert these comments into M486 commands. Slicer post-processing scripts:   M486 for Průša Slicer by Paul Paukstelis.  M486 for Cura by Aapo Saaristo.  ',
       url: 'https://marlinfw.org/docs/gcode/M486.html',
     },
     params: [
@@ -4684,7 +4677,7 @@ export const commands: ICommand[] = [
     name: 'M493',
     details: {
       description:
-        ' Description The Fixed-Time Motion Planner is an additional motion planning system provided by Ulendo.io as an add-on to Marlin Firmware. It currently supports Cartesian and Core kinematics. It may be extended for Delta in the future. The FT_MOTION feature can be enabled at the same time as Marlin’s integrated ZV Input Shaper, but these features do not share settings. It has its own implementation of Linear Advance (aka Pressure Advance) with its own gain parameter separate from M900. One interesting feature of this add-on is that it can be enabled and disabled while the machine is running (and maybe even within a single print job). So if you prefer the integrated ZV Input Shaper for some prints and 2HEI Input Shaping for others you don’t need to re-flash the firmware. G-code M493 allows you to enable or disable Fixed-Time Motion, change the current Input Shaper mode, and set parameters for its own Linear Advance and Input Shaping. Input Shaper Tuning It’s not always easy to attach an accelerometer to most printer boards, so Marlin doesn’t provide accelerator-based tuning. If you have that information you can use it. But the easiest way to tune Input Shaping is to print a ringing tower that goes through a range of frequencies, then examine the appearance of the ringing tower to choose the best frequencies for each axis. Get the Test Model Download the Ringing Tower STL which you will slice and use for the print test. For a CoreXY printer you should rotate the model 45 degrees, which isolates the A and B components of the motion system. Prepare the Slicer Use a slicer that provides custom G-code macros for layer change. For example you can open Kiri:Moto or download Prusa Slicer. If you use Cura you may need to install the Post Processing Plugin from the Cura Marketplace if it is not already installed.  In the the Starting G-code enable Fixed-Time Motion with something like:  M493 S11 D0 ; Enable ZVD Input Shaping\n    In Kiri:Moto enable Infill > Fill Type > Vase. Then add the following under Setup > Machine > Gcode Macros > Layer to run a test range of 15Hz to 60Hz:  M493 A{(layer < 2 ? 0 : 15 + 45.0 * (layer - 2) / 297)} ; (Hz) X Input Shaping Test\nM493 B{(layer < 2 ? 0 : 15 + 45.0 * (layer - 2) / 297)} ; (Hz) Y Input Shaping Test\n    In Prusa Slicer you’ll enable Spiral vase. Then add the following to your Printer Settings > After layer change G-code to run a test range of 15Hz to 60Hz:  M493 A{(layer_num < 2 ? 0 : 15 + 45.0 * (layer_num - 2) / 297)} ; (Hz) X Input Shaping Test\nM493 B{(layer_num < 2 ? 0 : 15 + 45.0 * (layer_num - 2) / 297)} ; (Hz) Y Input Shaping Test\n   In Cura, you’ll first need to add the .py file in this repository to your Cura “scripts” folder. Reopen Cura, enable Spiralize Outer Contour and set Minimum Layer Time to 0. Then go to Extensions > Post Processing > Modify G-Code. Click Add a script in the window that opens and use the dropdown menu to find Input Shaping. Make sure the Motion planning type dropdown is set to M493. The default frequency settings will let you test a range of 15Hz to 60Hz.  Slice and Print Slice and print the tower using 0.2mm layer height using the highest reasonable speed. When you examine the results it should be obvious where ringing is reduced the most on each axis. To get the Hz value for a given Z height, use the formula 15 + 45 * (z / 0.2 - 2) / 297. Analyze the Result Measure the height of the best looking layer, divide by the layer height, subtracting two layers. For example:  The least X ringing appears at height 20mm. So we calculate 15 + 45 * (20 / 0.2 - 2) / 297 and get a result of 29.84Hz. Send the command M493 A29.84 to apply the frequency to X motion. (For Y you would use M493 B29.84.)  More Resources TH3D Studio has created an Input Shaper Calculator that you can use to get the Slicer G-code you need and calculate the Hz value based on the best-looking layers. Dynamic Shaping Once you have the basic Input Shaping tuned, you may want to do further testing to see how the resonance changes as the Z height increases. Z height can affect the machine resonance whether the bed or the gantry moves in Z due to changes in the center of mass. Tuning according to the changing Z-height is more complicated than just printing a test model, and is best done with an accelerometer. Machine vendors should consider tuning at the factory and provide tuned profile settings for the popular slicers. ',
+        'The Fixed-Time Motion Planner is an additional motion planning system provided by Ulendo.io as an add-on to Marlin Firmware. It currently supports Cartesian and Core kinematics. It may be extended for Delta in the future. The FT_MOTION feature can be enabled at the same time as Marlin’s integrated ZV Input Shaper, but these features do not share settings. It has its own implementation of Linear Advance (aka Pressure Advance) with its own gain parameter separate from M900. One interesting feature of this add-on is that it can be enabled and disabled while the machine is running (and maybe even within a single print job). So if you prefer the integrated ZV Input Shaper for some prints and 2HEI Input Shaping for others you don’t need to re-flash the firmware. G-code M493 allows you to enable or disable Fixed-Time Motion, change the current Input Shaper mode, and set parameters for its own Linear Advance and Input Shaping. Input Shaper Tuning It’s not always easy to attach an accelerometer to most printer boards, so Marlin doesn’t provide accelerator-based tuning. If you have that information you can use it. But the easiest way to tune Input Shaping is to print a ringing tower that goes through a range of frequencies, then examine the appearance of the ringing tower to choose the best frequencies for each axis. Get the Test Model Download the Ringing Tower STL which you will slice and use for the print test. For a CoreXY printer you should rotate the model 45 degrees, which isolates the A and B components of the motion system. Prepare the Slicer Use a slicer that provides custom G-code macros for layer change. For example you can open Kiri:Moto or download Prusa Slicer. If you use Cura you may need to install the Post Processing Plugin from the Cura Marketplace if it is not already installed.  In the the Starting G-code enable Fixed-Time Motion with something like:  M493 S11 D0 ; Enable ZVD Input Shaping\n    In Kiri:Moto enable Infill > Fill Type > Vase. Then add the following under Setup > Machine > Gcode Macros > Layer to run a test range of 15Hz to 60Hz:  M493 A{(layer < 2 ? 0 : 15 + 45.0 * (layer - 2) / 297)} ; (Hz) X Input Shaping Test\nM493 B{(layer < 2 ? 0 : 15 + 45.0 * (layer - 2) / 297)} ; (Hz) Y Input Shaping Test\n    In Prusa Slicer you’ll enable Spiral vase. Then add the following to your Printer Settings > After layer change G-code to run a test range of 15Hz to 60Hz:  M493 A{(layer_num < 2 ? 0 : 15 + 45.0 * (layer_num - 2) / 297)} ; (Hz) X Input Shaping Test\nM493 B{(layer_num < 2 ? 0 : 15 + 45.0 * (layer_num - 2) / 297)} ; (Hz) Y Input Shaping Test\n   In Cura, you’ll first need to add the .py file in this repository to your Cura “scripts” folder. Reopen Cura, enable Spiralize Outer Contour and set Minimum Layer Time to 0. Then go to Extensions > Post Processing > Modify G-Code. Click Add a script in the window that opens and use the dropdown menu to find Input Shaping. Make sure the Motion planning type dropdown is set to M493. The default frequency settings will let you test a range of 15Hz to 60Hz.  Slice and Print Slice and print the tower using 0.2mm layer height using the highest reasonable speed. When you examine the results it should be obvious where ringing is reduced the most on each axis. To get the Hz value for a given Z height, use the formula 15 + 45 * (z / 0.2 - 2) / 297. Analyze the Result Measure the height of the best looking layer, divide by the layer height, subtracting two layers. For example:  The least X ringing appears at height 20mm. So we calculate 15 + 45 * (20 / 0.2 - 2) / 297 and get a result of 29.84Hz. Send the command M493 A29.84 to apply the frequency to X motion. (For Y you would use M493 B29.84.)  More Resources TH3D Studio has created an Input Shaper Calculator that you can use to get the Slicer G-code you need and calculate the Hz value based on the best-looking layers. Dynamic Shaping Once you have the basic Input Shaping tuned, you may want to do further testing to see how the resonance changes as the Z height increases. Z height can affect the machine resonance whether the bed or the gantry moves in Z due to changes in the center of mass. Tuning according to the changing Z-height is more complicated than just printing a test model, and is best done with an accelerometer. Machine vendors should consider tuning at the factory and provide tuned profile settings for the popular slicers. ',
       url: 'https://marlinfw.org/docs/gcode/M493.html',
     },
     params: [
@@ -4743,9 +4736,8 @@ export const commands: ICommand[] = [
     id: 'M500',
     name: 'M500',
     details: {
-      description: ' Description Save all configurable settings to EEPROM. ',
-      notes:
-        ' Notes Requires EEPROM_SETTINGS. Since Marlin 1.1.0 only changed bytes are written to prolong EEPROM life. ',
+      description: 'Save all configurable settings to EEPROM. ',
+      notes: 'Requires EEPROM_SETTINGS. Since Marlin 1.1.0 only changed bytes are written to prolong EEPROM life. ',
       url: 'https://marlinfw.org/docs/gcode/M500.html',
     },
     params: [],
@@ -4755,8 +4747,8 @@ export const commands: ICommand[] = [
     id: 'M501',
     name: 'M501',
     details: {
-      description: ' Description Load all saved settings from EEPROM. ',
-      notes: ' Notes Requires EEPROM_SETTINGS. ',
+      description: 'Load all saved settings from EEPROM. ',
+      notes: 'Requires EEPROM_SETTINGS. ',
       url: 'https://marlinfw.org/docs/gcode/M501.html',
     },
     params: [],
@@ -4767,8 +4759,8 @@ export const commands: ICommand[] = [
     name: 'M502',
     details: {
       description:
-        ' Description Reset all configurable settings to their factory defaults. To also reset settings in EEPROM, follow with M500. ',
-      notes: ' Notes This command can be used even if EEPROM_SETTINGS is disabled. ',
+        'Reset all configurable settings to their factory defaults. To also reset settings in EEPROM, follow with M500. ',
+      notes: 'This command can be used even if EEPROM_SETTINGS is disabled. ',
       url: 'https://marlinfw.org/docs/gcode/M502.html',
     },
     params: [],
@@ -4779,8 +4771,8 @@ export const commands: ICommand[] = [
     name: 'M503',
     details: {
       description:
-        ' Description Print a concise report of all runtime-configurable settings (in SRAM) to the host console. This command reports the active settings which may or may not be the same as those stored in the EEPROM. ',
-      notes: ' Notes Does not require EEPROM_SETTINGS. ',
+        'Print a concise report of all runtime-configurable settings (in SRAM) to the host console. This command reports the active settings which may or may not be the same as those stored in the EEPROM. ',
+      notes: 'Does not require EEPROM_SETTINGS. ',
       url: 'https://marlinfw.org/docs/gcode/M503.html',
     },
     params: [
@@ -4803,8 +4795,8 @@ export const commands: ICommand[] = [
     id: 'M504',
     name: 'M504',
     details: {
-      description: ' Description Validate the contents of the EEPROM. ',
-      notes: ' Notes Requires EEPROM_SETTINGS. ',
+      description: 'Validate the contents of the EEPROM. ',
+      notes: 'Requires EEPROM_SETTINGS. ',
       url: 'https://marlinfw.org/docs/gcode/M504.html',
     },
     params: [],
@@ -4815,8 +4807,8 @@ export const commands: ICommand[] = [
     name: 'M510',
     details: {
       description:
-        ' Description Lock the machine. When the machine is locked a passcode is required to unlock it. Use M511 P with your passcode to unlock the machine.option. ',
-      notes: ' Notes Requires PASSWORD_FEATURE. ',
+        'Lock the machine. When the machine is locked a passcode is required to unlock it. Use M511 P with your passcode to unlock the machine.option. ',
+      notes: 'Requires PASSWORD_FEATURE. ',
       url: 'https://marlinfw.org/docs/gcode/M510.html',
     },
     params: [],
@@ -4827,8 +4819,8 @@ export const commands: ICommand[] = [
     name: 'M511',
     details: {
       description:
-        ' Description Check the given passcode and unlock the machine if it is correct. Otherwise, delay for a period of time before allowing another attempt. ',
-      notes: ' Notes Requires PASSWORD_FEATURE. ',
+        'Check the given passcode and unlock the machine if it is correct. Otherwise, delay for a period of time before allowing another attempt. ',
+      notes: 'Requires PASSWORD_FEATURE. ',
       url: 'https://marlinfw.org/docs/gcode/M511.html',
     },
     params: [
@@ -4846,8 +4838,8 @@ export const commands: ICommand[] = [
     name: 'M512',
     details: {
       description:
-        ' Description Check the passcode given with P and if it is correct clear the passcode. If a new passcode is given with S then set a new passcode. ',
-      notes: ' Notes Requires PASSWORD_FEATURE. Use PASSWORD_LENGTH to configure the length, up to 9 digits. ',
+        'Check the passcode given with P and if it is correct clear the passcode. If a new passcode is given with S then set a new passcode. ',
+      notes: 'Requires PASSWORD_FEATURE. Use PASSWORD_LENGTH to configure the length, up to 9 digits. ',
       url: 'https://marlinfw.org/docs/gcode/M512.html',
     },
     params: [
@@ -4870,8 +4862,8 @@ export const commands: ICommand[] = [
     id: 'M524',
     name: 'M524',
     details: {
-      description: ' Description Abort an SD print in progress and turn off all heaters. ',
-      notes: ' Notes Requires SDSUPPORT ',
+      description: 'Abort an SD print in progress and turn off all heaters. ',
+      notes: 'Requires SDSUPPORT ',
       url: 'https://marlinfw.org/docs/gcode/M524.html',
     },
     params: [],
@@ -4882,9 +4874,9 @@ export const commands: ICommand[] = [
     name: 'M540',
     details: {
       description:
-        ' Description Set whether SD printing should abort in the event of any endstop being triggered. This provides a fast way to abort a print in the event of mechanical failure such as loose couplings, lost steps, diverted axes, binding, etc., which lead to axes being very far out of position. ',
+        'Set whether SD printing should abort in the event of any endstop being triggered. This provides a fast way to abort a print in the event of mechanical failure such as loose couplings, lost steps, diverted axes, binding, etc., which lead to axes being very far out of position. ',
       notes:
-        ' Notes Requires SDSUPPORT and SD_ABORT_ON_ENDSTOP_HIT. Use ENDSTOPS_ALWAYS_ON_DEFAULT or M120 to ensure that endstops are enabled. ',
+        'Requires SDSUPPORT and SD_ABORT_ON_ENDSTOP_HIT. Use ENDSTOPS_ALWAYS_ON_DEFAULT or M120 to ensure that endstops are enabled. ',
       url: 'https://marlinfw.org/docs/gcode/M540.html',
     },
     params: [
@@ -4901,8 +4893,8 @@ export const commands: ICommand[] = [
     id: 'M569',
     name: 'M569',
     details: {
-      description: ' Description Toggle between stealthChop and spreadCycle on supporting TMC drivers. ',
-      notes: ' Notes Requires at least one stealthChop capable TMC driver, such as TMC2130, TMC2208, or TMC2209. ',
+      description: 'Toggle between stealthChop and spreadCycle on supporting TMC drivers. ',
+      notes: 'Requires at least one stealthChop capable TMC driver, such as TMC2130, TMC2208, or TMC2209. ',
       url: 'https://marlinfw.org/docs/gcode/M569.html',
     },
     params: [
@@ -4950,9 +4942,9 @@ export const commands: ICommand[] = [
     name: 'M575',
     details: {
       description:
-        ' Description Change the baud rate of one serial port or all serial ports. This command will interrupt serial communication to the host and may reset the firmware when the host reconnects at the new baud rate. ',
+        'Change the baud rate of one serial port or all serial ports. This command will interrupt serial communication to the host and may reset the firmware when the host reconnects at the new baud rate. ',
       notes:
-        ' Notes Only specified baud rates are allowed. Shorthand baud rates (shown below in parentheses) were added in 2.0.6.1. ',
+        'Only specified baud rates are allowed. Shorthand baud rates (shown below in parentheses) were added in 2.0.6.1. ',
       url: 'https://marlinfw.org/docs/gcode/M575.html',
     },
     params: [
@@ -4976,7 +4968,7 @@ export const commands: ICommand[] = [
     name: 'M593',
     details: {
       description:
-        ' Description       This G-code pertains to Marlin’s integrated ZV Input Shaper. For the Fixed-Time Motion Planner Input Shaper see M493.    Set the Input Shaping damping factor and/or frequency (in Hertz) for axes that support it. Use M593 with no parameters to report the current settings. Input Shaper Tuning It’s not always easy to attach an accelerometer to most printer boards, so Marlin doesn’t provide accelerator-based tuning. If you have that information you can use it. But the easiest way to tune Input Shaping is to print a ringing tower that goes through a range of frequencies, then examine the appearance of the ringing tower to choose the best frequencies for each axis. Get the Test Model Download the Ringing Tower STL which you will slice and use for the print test. For a CoreXY printer you should rotate the model 45 degrees, which isolates the A and B components of the motion system. Prepare the Slicer Use a slicer that provides custom G-code macros for layer change. For example you can open Kiri:Moto or download Prusa Slicer. If you use Cura you may need to install the Post Processing Plugin from the Cura Marketplace if it is not already installed.  In Kiri:Moto enable Infill > Fill Type > Vase. Then add the following under Setup > Machine > Gcode Macros > Layer to run a test range of 15Hz to 60Hz:  M593 F{(layer < 2 ? 0 : 15 + 45.0 * (layer - 2) / 297)} ; Hz Input Shaping Test\n   In Prusa Slicer you’ll enable Spiral vase. Then add the following to your Printer Settings > After layer change G-code to run a test range of 15Hz to 60Hz:  M593 F{(layer_num < 2 ? 0 : 15 + 45.0 * (layer_num - 2) / 297)} ; Hz Input Shaping Test\n   In Cura, you’ll first need to add the .py file in this repository to your Cura “scripts” folder. Reopen Cura, enable Spiralize Outer Contour and set Minimum Layer Time to 0. Then go to Extensions > Post Processing > Modify G-Code. Click Add a script in the window that opens and use the dropdown menu to find Input Shaping. Make sure the Motion planning type dropdown is set to M593. The default frequency settings will let you test a range of 15Hz to 60Hz.  Slice and Print Slice and print the tower using 0.2mm layer height using the highest reasonable speed. When you examine the results it should be obvious where ringing is reduced the most on each axis. To get the Hz value for a given Z height, use the formula 15 + 45 * (z / 0.2 - 2) / 297. Analyze the Result Measure the height of the best looking layer, divide by the layer height, subtracting two layers. For example:  The least X ringing appears at height 20mm. So we calculate 15 + 45 * (20 / 0.2 - 2) / 297 and get a result of 29.84Hz. Set this value with M593 X F29.84 then save with M500 and it will apply to all motion from now on.  More Resources TH3D Studio has created an Input Shaper Calculator that you can use to get the Slicer G-code you need and calculate the Hz value based on the best-looking layers. ',
+        '      This G-code pertains to Marlin’s integrated ZV Input Shaper. For the Fixed-Time Motion Planner Input Shaper see M493.    Set the Input Shaping damping factor and/or frequency (in Hertz) for axes that support it. Use M593 with no parameters to report the current settings. Input Shaper Tuning It’s not always easy to attach an accelerometer to most printer boards, so Marlin doesn’t provide accelerator-based tuning. If you have that information you can use it. But the easiest way to tune Input Shaping is to print a ringing tower that goes through a range of frequencies, then examine the appearance of the ringing tower to choose the best frequencies for each axis. Get the Test Model Download the Ringing Tower STL which you will slice and use for the print test. For a CoreXY printer you should rotate the model 45 degrees, which isolates the A and B components of the motion system. Prepare the Slicer Use a slicer that provides custom G-code macros for layer change. For example you can open Kiri:Moto or download Prusa Slicer. If you use Cura you may need to install the Post Processing Plugin from the Cura Marketplace if it is not already installed.  In Kiri:Moto enable Infill > Fill Type > Vase. Then add the following under Setup > Machine > Gcode Macros > Layer to run a test range of 15Hz to 60Hz:  M593 F{(layer < 2 ? 0 : 15 + 45.0 * (layer - 2) / 297)} ; Hz Input Shaping Test\n   In Prusa Slicer you’ll enable Spiral vase. Then add the following to your Printer Settings > After layer change G-code to run a test range of 15Hz to 60Hz:  M593 F{(layer_num < 2 ? 0 : 15 + 45.0 * (layer_num - 2) / 297)} ; Hz Input Shaping Test\n   In Cura, you’ll first need to add the .py file in this repository to your Cura “scripts” folder. Reopen Cura, enable Spiralize Outer Contour and set Minimum Layer Time to 0. Then go to Extensions > Post Processing > Modify G-Code. Click Add a script in the window that opens and use the dropdown menu to find Input Shaping. Make sure the Motion planning type dropdown is set to M593. The default frequency settings will let you test a range of 15Hz to 60Hz.  Slice and Print Slice and print the tower using 0.2mm layer height using the highest reasonable speed. When you examine the results it should be obvious where ringing is reduced the most on each axis. To get the Hz value for a given Z height, use the formula 15 + 45 * (z / 0.2 - 2) / 297. Analyze the Result Measure the height of the best looking layer, divide by the layer height, subtracting two layers. For example:  The least X ringing appears at height 20mm. So we calculate 15 + 45 * (20 / 0.2 - 2) / 297 and get a result of 29.84Hz. Set this value with M593 X F29.84 then save with M500 and it will apply to all motion from now on.  More Resources TH3D Studio has created an Input Shaper Calculator that you can use to get the Slicer G-code you need and calculate the Hz value based on the best-looking layers. ',
       url: 'https://marlinfw.org/docs/gcode/M593.html',
     },
     params: [
@@ -5012,9 +5004,9 @@ export const commands: ICommand[] = [
     name: 'M600',
     details: {
       description:
-        ' Description The M600 command initiates the filament change procedure. The basic procedure will move the print head away from the print, eject the filament, wait for new filament to be inserted and the user to confirm, load and prime the filament, and continue with the print. M600 may be initiated automatically if a filament runout sensor is installed. ',
+        'The M600 command initiates the filament change procedure. The basic procedure will move the print head away from the print, eject the filament, wait for new filament to be inserted and the user to confirm, load and prime the filament, and continue with the print. M600 may be initiated automatically if a filament runout sensor is installed. ',
       notes:
-        ' Notes Requires ADVANCED_PAUSE_FEATURE. The settings for this command can be found in Configuration_adv.h. At this time M600 requires an LCD controller. ',
+        'Requires ADVANCED_PAUSE_FEATURE. The settings for this command can be found in Configuration_adv.h. At this time M600 requires an LCD controller. ',
       url: 'https://marlinfw.org/docs/gcode/M600.html',
     },
     params: [
@@ -5080,7 +5072,7 @@ export const commands: ICommand[] = [
     name: 'M605',
     details: {
       description:
-        ' Description Set the behavior mode for multiple fixed nozzles such as a Dual Extruder or DUAL_X_CARRIAGE machine. This command behaves differently for DUAL_X_CARRIAGE vs. MULTI_NOZZLE_DUPLICATION:  For MULTI_NOZZLE_DUPLICATION the S2 parameter enables duplication mode. Any other value disables it. For DUAL_X_CARRIAGE, this command sets the Dual X mode. See the description of S below. For Mirrored Mode: M605 S2 R0 X<distance> and M605 S3.  ',
+        'Set the behavior mode for multiple fixed nozzles such as a Dual Extruder or DUAL_X_CARRIAGE machine. This command behaves differently for DUAL_X_CARRIAGE vs. MULTI_NOZZLE_DUPLICATION:  For MULTI_NOZZLE_DUPLICATION the S2 parameter enables duplication mode. Any other value disables it. For DUAL_X_CARRIAGE, this command sets the Dual X mode. See theof S below. For Mirrored Mode: M605 S2 R0 X<distance> and M605 S3.  ',
       url: 'https://marlinfw.org/docs/gcode/M605.html',
     },
     params: [
@@ -5121,7 +5113,7 @@ export const commands: ICommand[] = [
     id: 'M665',
     name: 'M665',
     details: {
-      description: ' Description Configure SCARA geometry values ',
+      description: 'Configure SCARA geometry values ',
       url: 'https://marlinfw.org/docs/gcode/M665-scara.html',
     },
     params: [
@@ -5174,7 +5166,7 @@ export const commands: ICommand[] = [
     id: 'M666',
     name: 'M666',
     details: {
-      description: ' Description Use the M666 command to adjust the offsets for dual (or multiple) endstops. ',
+      description: 'Use the M666 command to adjust the offsets for dual (or multiple) endstops. ',
       url: 'https://marlinfw.org/docs/gcode/M666-dual.html',
     },
     params: [
@@ -5203,9 +5195,9 @@ export const commands: ICommand[] = [
     id: 'M672',
     name: 'M672',
     details: {
-      description: ' Description Set or reset Duet Smart Effector sensitivity. ',
+      description: 'Set or reset Duet Smart Effector sensitivity. ',
       notes:
-        ' Notes In addition to the DUET_SMART_EFFECTOR option, a defined SMART_EFFECTOR_MOD_PIN is also required. The format of M672 in Marlin differs from Duet Smart Effector documentation. Use only one of the two parameters (S or R). ',
+        'In addition to the DUET_SMART_EFFECTOR option, a defined SMART_EFFECTOR_MOD_PIN is also required. The format of M672 in Marlin differs from Duet Smart Effector documentation. Use only one of the two parameters (S or R). ',
       url: 'https://marlinfw.org/docs/gcode/M672.html',
     },
     params: [
@@ -5229,9 +5221,9 @@ export const commands: ICommand[] = [
     name: 'M701',
     details: {
       description:
-        ' Description Load filament into the active extruder. By default this will use the configured ADVANCED_PAUSE_FEATURE settings. ',
+        'Load filament into the active extruder. By default this will use the configured ADVANCED_PAUSE_FEATURE settings. ',
       notes:
-        ' Notes Enabled using FILAMENT_LOAD_UNLOAD_GCODES. Uses the minimum temperature for safe extrusion as set by M302. ',
+        'Enabled using FILAMENT_LOAD_UNLOAD_GCODES. Uses the minimum temperature for safe extrusion as set by M302. ',
       url: 'https://marlinfw.org/docs/gcode/M701.html',
     },
     params: [
@@ -5260,10 +5252,9 @@ export const commands: ICommand[] = [
     id: 'M702',
     name: 'M702',
     details: {
-      description:
-        ' Description Unload filament. By default this command will use the configured ADVANCED_PAUSE_FEATURE settings. ',
+      description: 'Unload filament. By default this command will use the configured ADVANCED_PAUSE_FEATURE settings. ',
       notes:
-        ' Notes Enabled using FILAMENT_LOAD_UNLOAD_GCODES. Uses the minimum temperature for safe extrusion as set by M302. ',
+        'Enabled using FILAMENT_LOAD_UNLOAD_GCODES. Uses the minimum temperature for safe extrusion as set by M302. ',
       url: 'https://marlinfw.org/docs/gcode/M702.html',
     },
     params: [
@@ -5292,8 +5283,7 @@ export const commands: ICommand[] = [
     id: 'M710',
     name: 'M710',
     details: {
-      description:
-        ' Description Set one or more Controller Fan options. Without any parameters report the current settings. ',
+      description: 'Set one or more Controller Fan options. Without any parameters report the current settings. ',
       url: 'https://marlinfw.org/docs/gcode/M710.html',
     },
     params: [
@@ -5335,8 +5325,8 @@ export const commands: ICommand[] = [
     name: 'M808',
     details: {
       description:
-        ' Description The Repeat Marker command is used to define regions of a G-code file that will be repeated during SD printing. A marker is first set with M808 L[count], and later in the file a plain M808 command is used count down and loop. (By default up to 10 start markers can be nested.) In slicer software put M808 L to the “Start G-code” and M808 to the “End G-code.” But this command is not the only requirement. Before starting each whole object it’s important to actually clear the print area of obstacles and to reset the coordinate system with G92 or G28, so this command is best used with belt printers or other systems with automatic print removal. ',
-      notes: ' Notes At this time repeat markers only apply during SD printing. ',
+        'The Repeat Marker command is used to define regions of a G-code file that will be repeated during SD printing. A marker is first set with M808 L[count], and later in the file a plain M808 command is used count down and loop. (By default up to 10 start markers can be nested.) In slicer software put M808 L to the “Start G-code” and M808 to the “End G-code.” But this command is not the only requirement. Before starting each whole object it’s important to actually clear the print area of obstacles and to reset the coordinate system with G92 or G28, so this command is best used with belt printers or other systems with automatic print removal. ',
+      notes: 'At this time repeat markers only apply during SD printing. ',
       url: 'https://marlinfw.org/docs/gcode/M808.html',
     },
     params: [
@@ -5354,8 +5344,8 @@ export const commands: ICommand[] = [
     name: 'M810-M819',
     details: {
       description:
-        ' Description Use the M810-M819 commands to set and execute 10 distinct G-code “macros.” Put anything after the command to define its macro. To run the macro just send M810-M819 by itself. Multiple commands in one macro are separated by the pipe character (‘|’). ',
-      notes: ' Notes Requires GCODE_MACROS. ',
+        'Use the M810-M819 commands to set and execute 10 distinct G-code “macros.” Put anything after the command to define its macro. To run the macro just send M810-M819 by itself. Multiple commands in one macro are separated by the pipe character (‘|’). ',
+      notes: 'Requires GCODE_MACROS. ',
       url: 'https://marlinfw.org/docs/gcode/M810-M819.html',
     },
     params: [
@@ -5373,8 +5363,8 @@ export const commands: ICommand[] = [
     name: 'M860-M869',
     details: {
       description:
-        ' Description  M860 - Report the position(s) of position encoder module(s). M861 - Report the status of position encoder modules. M862 - Perform an axis continuity test for position encoder modules. M863 - Perform steps-per-mm calibration for position encoder modules. M864 - Change position encoder module I2C address. M865 - Check position encoder module firmware version. M866 - Report or reset position encoder module error count. M867 - Enable/disable or toggle error correction for position encoder modules. M868 - Report or set position encoder module error correction threshold. M869 - Report position encoder module error.  I2C position encoders for closed loop control. Developed by Chris Barr at Aus3D. Wiki: https://wiki.aus3d.com.au/Magnetic_Encoder Github: https://github.com/Aus3D/MagneticEncoder ',
-      notes: ' Notes Requires I2C_POSITION_ENCODERS. See this wiki article for more info. ',
+        ' M860 - Report the position(s) of position encoder module(s). M861 - Report the status of position encoder modules. M862 - Perform an axis continuity test for position encoder modules. M863 - Perform steps-per-mm calibration for position encoder modules. M864 - Change position encoder module I2C address. M865 - Check position encoder module firmware version. M866 - Report or reset position encoder module error count. M867 - Enable/disable or toggle error correction for position encoder modules. M868 - Report or set position encoder module error correction threshold. M869 - Report position encoder module error.  I2C position encoders for closed loop control. Developed by Chris Barr at Aus3D. Wiki: https://wiki.aus3d.com.au/Magnetic_Encoder Github: https://github.com/Aus3D/MagneticEncoder ',
+      notes: 'Requires I2C_POSITION_ENCODERS. See this wiki article for more info. ',
       url: 'https://marlinfw.org/docs/gcode/M860-M869.html',
     },
     params: [
@@ -5458,9 +5448,9 @@ export const commands: ICommand[] = [
     name: 'M871',
     details: {
       description:
-        ' Description Read/write probe temperature compensation values. Values for bed and/or probe can be calibrated using the G76 command. ',
+        'Read/write probe temperature compensation values. Values for bed and/or probe can be calibrated using the G76 command. ',
       notes:
-        ' Notes Requires PROBE_TEMP_COMPENSATION. Values at index zero are constant (zero). Compensation values are stored in µm (micrometers). Use M500 to save the values to EEPROM. ',
+        'Requires PROBE_TEMP_COMPENSATION. Values at index zero are constant (zero). Compensation values are stored in µm (micrometers). Use M500 to save the values to EEPROM. ',
       url: 'https://marlinfw.org/docs/gcode/M871.html',
     },
     params: [
@@ -5508,8 +5498,8 @@ export const commands: ICommand[] = [
     name: 'M876',
     details: {
       description:
-        ' Description Handle responses from the host, such as:  Filament runout responses: Purge More, Continue General “Continue” response Resume Print response Dismissal of info  ',
-      notes: ' Notes When EMERGENCY_PARSER is enabled the M876 command is handled as soon as the command arrives. ',
+        'Handle responses from the host, such as:  Filament runout responses: Purge More, Continue General “Continue” response Resume Print response Dismissal of info  ',
+      notes: 'When EMERGENCY_PARSER is enabled the M876 command is handled as soon as the command arrives. ',
       url: 'https://marlinfw.org/docs/gcode/M876.html',
     },
     params: [
@@ -5527,9 +5517,8 @@ export const commands: ICommand[] = [
     name: 'M900',
     details: {
       description:
-        ' Description This command sets and/or reports the Linear Advance K factors. Setting the K factor to 0 disables Linear Advance. With the EXTRA_LIN_ADVANCE_K option Marlin maintains two slots for each extruder. The first slot is set with K and the second slot is set with L, then select the first using S0 and the second using S1. ',
-      notes:
-        ' Notes See Linear Advance for details on how to determine the K factor and a link to our calibration tool. ',
+        'This command sets and/or reports the Linear Advance K factors. Setting the K factor to 0 disables Linear Advance. With the EXTRA_LIN_ADVANCE_K option Marlin maintains two slots for each extruder. The first slot is set with K and the second slot is set with L, then select the first using S0 and the second using S1. ',
+      notes: 'See Linear Advance for details on how to determine the K factor and a link to our calibration tool. ',
       url: 'https://marlinfw.org/docs/gcode/M900.html',
     },
     params: [
@@ -5565,8 +5554,8 @@ export const commands: ICommand[] = [
     id: 'M906',
     name: 'M906',
     details: {
-      description: ' Description Set stepper motor currents in milliamps units. ',
-      notes: ' Notes Requires one or more compatible Trinamic or L64xx stepper drivers. ',
+      description: 'Set stepper motor currents in milliamps units. ',
+      notes: 'Requires one or more compatible Trinamic or L64xx stepper drivers. ',
       url: 'https://marlinfw.org/docs/gcode/M906.html',
     },
     params: [
@@ -5614,7 +5603,7 @@ export const commands: ICommand[] = [
     name: 'M907',
     details: {
       description:
-        ' Description Set digital trimpot motor current using axis codes X, Y, Z, E, plus B and S. The unit used for current depends on the type of stepper driver. ',
+        'Set digital trimpot motor current using axis codes X, Y, Z, E, plus B and S. The unit used for current depends on the type of stepper driver. ',
       url: 'https://marlinfw.org/docs/gcode/M907.html',
     },
     params: [
@@ -5674,8 +5663,8 @@ export const commands: ICommand[] = [
     name: 'M908',
     details: {
       description:
-        ' Description Set the digital trimpot current directly by address/channel/pin index. DAC_STEPPER_CURRENT pertains to the MCP4728. ',
-      notes: ' Notes Requires DAC_STEPPER_CURRENT or DIGIPOTSS_PIN. ',
+        'Set the digital trimpot current directly by address/channel/pin index. DAC_STEPPER_CURRENT pertains to the MCP4728. ',
+      notes: 'Requires DAC_STEPPER_CURRENT or DIGIPOTSS_PIN. ',
       url: 'https://marlinfw.org/docs/gcode/M908.html',
     },
     params: [
@@ -5698,8 +5687,8 @@ export const commands: ICommand[] = [
     id: 'M909',
     name: 'M909',
     details: {
-      description: ' Description Print the DAC stepper current values in the format “% (Amps)”. ',
-      notes: ' Notes Requires DAC_STEPPER_CURRENT. ',
+      description: 'Print the DAC stepper current values in the format “% (Amps)”. ',
+      notes: 'Requires DAC_STEPPER_CURRENT. ',
       url: 'https://marlinfw.org/docs/gcode/M909.html',
     },
     params: [],
@@ -5709,8 +5698,8 @@ export const commands: ICommand[] = [
     id: 'M910',
     name: 'M910',
     details: {
-      description: ' Description Commit digipot/DAC value to external EEPROM via I2C. ',
-      notes: ' Notes Requires DAC_STEPPER_CURRENT. ',
+      description: 'Commit digipot/DAC value to external EEPROM via I2C. ',
+      notes: 'Requires DAC_STEPPER_CURRENT. ',
       url: 'https://marlinfw.org/docs/gcode/M910.html',
     },
     params: [],
@@ -5720,8 +5709,8 @@ export const commands: ICommand[] = [
     id: 'M911',
     name: 'M911',
     details: {
-      description: ' Description Report the TMC stepper driver overtemperature pre-warn condition to the host. ',
-      notes: ' Notes Requires one or more TMC stepper drivers. ',
+      description: 'Report the TMC stepper driver overtemperature pre-warn condition to the host. ',
+      notes: 'Requires one or more TMC stepper drivers. ',
       url: 'https://marlinfw.org/docs/gcode/M911.html',
     },
     params: [],
@@ -5731,8 +5720,8 @@ export const commands: ICommand[] = [
     id: 'M912',
     name: 'M912',
     details: {
-      description: ' Description Clear the stepper driver overtemperature pre-warn condition flag. ',
-      notes: ' Notes Requires one or more TMC stepper drivers. ',
+      description: 'Clear the stepper driver overtemperature pre-warn condition flag. ',
+      notes: 'Requires one or more TMC stepper drivers. ',
       url: 'https://marlinfw.org/docs/gcode/M912.html',
     },
     params: [
@@ -5775,9 +5764,9 @@ export const commands: ICommand[] = [
     name: 'M913',
     details: {
       description:
-        ' Description When HYBRID_THRESHOLD is enabled, the TMC driver is switched from the quieter StealthChop to spreadCycle when the feed rate for a given stepper motor is over its _HYBRID_THRESHOLD. ',
+        'When HYBRID_THRESHOLD is enabled, the TMC driver is switched from the quieter StealthChop to spreadCycle when the feed rate for a given stepper motor is over its _HYBRID_THRESHOLD. ',
       notes:
-        ' Notes At least one parameter must be used. Setting X, Y, Z, or E will set the hybrid threshold for all motors that fall under that category that have the _IS_TRINAMIC flag set. See examples below. ',
+        'At least one parameter must be used. Setting X, Y, Z, or E will set the hybrid threshold for all motors that fall under that category that have the _IS_TRINAMIC flag set. See examples below. ',
       url: 'https://marlinfw.org/docs/gcode/M913.html',
     },
     params: [
@@ -5825,9 +5814,9 @@ export const commands: ICommand[] = [
     name: 'M914',
     details: {
       description:
-        ' Description Some TMC stepper drivers can detect when they bump into something that causes them to stop moving. This feature is so sensitive that it can actually take the place of traditional endstops. Use this command to set the bump sensitivity for the X, Y, and Z stepper drivers. ',
+        'Some TMC stepper drivers can detect when they bump into something that causes them to stop moving. This feature is so sensitive that it can actually take the place of traditional endstops. Use this command to set the bump sensitivity for the X, Y, and Z stepper drivers. ',
       notes:
-        ' Notes Set all *_HOME_BUMP_MM values to 0 for best results. Set the default stall thresholds with *_STALL_SENSITIVITY. Compatible with TMC2130 and TMC2209.    Sensitivity TMC2209 Others     LOWEST 0 +63   HIGHEST 255 -64    High sensitivity may produce false positives. Low sensitivity may fail to trigger. ',
+        'Set all *_HOME_BUMP_MM values to 0 for best results. Set the default stall thresholds with *_STALL_SENSITIVITY. Compatible with TMC2130 and TMC2209.    Sensitivity TMC2209 Others     LOWEST 0 +63   HIGHEST 255 -64    High sensitivity may produce false positives. Low sensitivity may fail to trigger. ',
       url: 'https://marlinfw.org/docs/gcode/M914.html',
     },
     params: [
@@ -5863,9 +5852,9 @@ export const commands: ICommand[] = [
     name: 'M915',
     details: {
       description:
-        ' Description The command aims to align the ends of the X gantry (for a Průša i3-style printer). See the video demonstration below. Using the given current, Marlin will move the Z axis (at homing speed) to the top plus a given extra distance. Since this intentionally stalls the Z steppers, you should use the minimum current required to move the axis. Z is then re-homed to correct the position. ',
+        'The command aims to align the ends of the X gantry (for a Průša i3-style printer). See the video demonstration below. Using the given current, Marlin will move the Z axis (at homing speed) to the top plus a given extra distance. Since this intentionally stalls the Z steppers, you should use the minimum current required to move the axis. Z is then re-homed to correct the position. ',
       notes:
-        ' Notes This command is deprecated. Use G34 (Z_STEPPER_AUTO_ALIGN or MECHANICAL_GANTRY_CALIBRATION) instead. Requires TMC_Z_CALIBRATION and at least one TMC driver for Z axis. If Z_DUAL_STEPPER_DRIVERS is used, both should be TMC drivers. ',
+        'This command is deprecated. Use G34 (Z_STEPPER_AUTO_ALIGN or MECHANICAL_GANTRY_CALIBRATION) instead. Requires TMC_Z_CALIBRATION and at least one TMC driver for Z axis. If Z_DUAL_STEPPER_DRIVERS is used, both should be TMC drivers. ',
       url: 'https://marlinfw.org/docs/gcode/M915.html',
     },
     params: [
@@ -5889,9 +5878,9 @@ export const commands: ICommand[] = [
     name: 'M916',
     details: {
       description:
-        ' Description M916: increase KVAL_HOLD until thermal warning. This routine is also useful for determining the approximate KVAL_HOLD where the stepper stops losing steps. The sound will get noticeably quieter as it stops losing steps. ',
+        'M916: increase KVAL_HOLD until thermal warning. This routine is also useful for determining the approximate KVAL_HOLD where the stepper stops losing steps. The sound will get noticeably quieter as it stops losing steps. ',
       notes:
-        ' Notes Requires MONITOR_L6470_DRIVER_STATUS. All tests assume each axis uses matching driver chips. On the L6474 the TVAL is used instead of KVAL. ',
+        'Requires MONITOR_L6470_DRIVER_STATUS. All tests assume each axis uses matching driver chips. On the L6474 the TVAL is used instead of KVAL. ',
       url: 'https://marlinfw.org/docs/gcode/M916.html',
     },
     params: [
@@ -5957,8 +5946,8 @@ export const commands: ICommand[] = [
     name: 'M917',
     details: {
       description:
-        ' Description The M917 command runs a test procedure to find the minimum stepper current thresholds.  Decrease OCD current until overcurrent error Increase OCD until overcurrent error goes away Decrease stall threshold until stall (not done on L6474) Increase stall until stall error goes away (not done on L6474)  ',
-      notes: ' Notes Requires MONITOR_L6470_DRIVER_STATUS. All tests assume each axis uses matching driver chips. ',
+        'The M917 command runs a test procedure to find the minimum stepper current thresholds.  Decrease OCD current until overcurrent error Increase OCD until overcurrent error goes away Decrease stall threshold until stall (not done on L6474) Increase stall until stall error goes away (not done on L6474)  ',
+      notes: 'Requires MONITOR_L6470_DRIVER_STATUS. All tests assume each axis uses matching driver chips. ',
       url: 'https://marlinfw.org/docs/gcode/M917.html',
     },
     params: [
@@ -6023,8 +6012,8 @@ export const commands: ICommand[] = [
     id: 'M918',
     name: 'M918',
     details: {
-      description: ' Description M918: Increase speed until error or max feedrate achieved. ',
-      notes: ' Notes Requires MONITOR_L6470_DRIVER_STATUS. All tests assume each axis uses matching driver chips. ',
+      description: 'M918: Increase speed until error or max feedrate achieved. ',
+      notes: 'Requires MONITOR_L6470_DRIVER_STATUS. All tests assume each axis uses matching driver chips. ',
       url: 'https://marlinfw.org/docs/gcode/M918.html',
     },
     params: [
@@ -6089,8 +6078,8 @@ export const commands: ICommand[] = [
     id: 'M919',
     name: 'M919',
     details: {
-      description: ' Description Set / report the TMC Chopper Timing values for one or more stepper drivers. ',
-      notes: ' Notes Requires one or more TMC stepper drivers supporting stealthChop™ mode. ',
+      description: 'Set / report the TMC Chopper Timing values for one or more stepper drivers. ',
+      notes: 'Requires one or more TMC stepper drivers supporting stealthChop™ mode. ',
       url: 'https://marlinfw.org/docs/gcode/M919.html',
     },
     params: [
@@ -6186,8 +6175,8 @@ export const commands: ICommand[] = [
     name: 'M928',
     details: {
       description:
-        ' Description Use this command to start logging all console and host input to an SD file while still operating the machine. ',
-      notes: ' Notes Stop logging with M29. ',
+        'Use this command to start logging all console and host input to an SD file while still operating the machine. ',
+      notes: 'Stop logging with M29. ',
       url: 'https://marlinfw.org/docs/gcode/M928.html',
     },
     params: [
@@ -6204,9 +6193,8 @@ export const commands: ICommand[] = [
     id: 'M951',
     name: 'M951',
     details: {
-      description:
-        ' Description Set MAGNETIC_PARKING_EXTRUDER settings. With no parameters, report the current settings. ',
-      notes: ' Notes Requires MAGNETIC_PARKING_EXTRUDER. ',
+      description: 'Set MAGNETIC_PARKING_EXTRUDER settings. With no parameters, report the current settings. ',
+      notes: 'Requires MAGNETIC_PARKING_EXTRUDER. ',
       url: 'https://marlinfw.org/docs/gcode/M951.html',
     },
     params: [
@@ -6259,8 +6247,8 @@ export const commands: ICommand[] = [
     id: 'M993-M994',
     name: 'M993-M994',
     details: {
-      description: ' Description M993: backup SPI Flash to SD M994: load a backup from SD to SPI Flash ',
-      notes: ' Notes Requires HAS_SPI_FLASH, SDSUPPORT, and MARLIN_DEV_MODE. ',
+      description: 'M993: backup SPI Flash to SD M994: load a backup from SD to SPI Flash ',
+      notes: 'Requires HAS_SPI_FLASH, SDSUPPORT, and MARLIN_DEV_MODE. ',
       url: 'https://marlinfw.org/docs/gcode/M993.html',
     },
     params: [],
@@ -6270,8 +6258,8 @@ export const commands: ICommand[] = [
     id: 'M995',
     name: 'M995',
     details: {
-      description: ' Description Trigger touch screen calibration menu on display ',
-      notes: ' Notes Requires touch screen display and TOUCH_SCREEN_CALIBRATION ',
+      description: 'Trigger touch screen calibration menu on display ',
+      notes: 'Requires touch screen display and TOUCH_SCREEN_CALIBRATION ',
       url: 'https://marlinfw.org/docs/gcode/M995.html',
     },
     params: [],
@@ -6282,9 +6270,9 @@ export const commands: ICommand[] = [
     name: 'M997',
     details: {
       description:
-        ' Description Can be used to trigger a firmware update from the SD card after the firmware binary has been uploaded remotely. ',
+        'Can be used to trigger a firmware update from the SD card after the firmware binary has been uploaded remotely. ',
       notes:
-        ' Notes M997 is not supported by all platforms! The following platforms will restart to trigger the update via bootloader:  LPC176x STM32 STM32F1  ',
+        'M997 is not supported by all platforms! The following platforms will restart to trigger the update via bootloader:  LPC176x STM32 STM32F1  ',
       url: 'https://marlinfw.org/docs/gcode/M997.html',
     },
     params: [],
@@ -6295,7 +6283,7 @@ export const commands: ICommand[] = [
     name: 'M999',
     details: {
       description:
-        ' Description If a STOP occurs you can use M999 to restart the “stopped” machine after resolving the issue. Marlin will call STOP if any error occurs that would make continuing the current process problematic. For example, if the probe fails to deploy, it will abort probing and STOP. Note that this disables all heaters. ',
+        'If a STOP occurs you can use M999 to restart the “stopped” machine after resolving the issue. Marlin will call STOP if any error occurs that would make continuing the current process problematic. For example, if the probe fails to deploy, it will abort probing and STOP. Note that this disables all heaters. ',
       url: 'https://marlinfw.org/docs/gcode/M999.html',
     },
     params: [
@@ -6312,8 +6300,8 @@ export const commands: ICommand[] = [
     id: 'M7219',
     name: 'M7219',
     details: {
-      description: ' Description Set the state of one or more Max7219 matrix displays or 7-segment digital displays. ',
-      notes: ' Notes Requires MAX7219_DEBUG. ',
+      description: 'Set the state of one or more Max7219 matrix displays or 7-segment digital displays. ',
+      notes: 'Requires MAX7219_DEBUG. ',
       url: 'https://marlinfw.org/docs/gcode/M7219.html',
     },
     params: [
@@ -6385,7 +6373,7 @@ export const commands: ICommand[] = [
     name: 'T0-T6',
     details: {
       description:
-        ' Description T0, T1, etc. switches to the respective physical/virtual tool head. See Universal Tool Change Settings in Configuration_adv.h for more details. ',
+        'T0, T1, etc. switches to the respective physical/virtual tool head. See Universal Tool Change Settings in Configuration_adv.h for more details. ',
       url: 'https://marlinfw.org/docs/gcode/T001-T002.html',
     },
     params: [],
@@ -6395,8 +6383,8 @@ export const commands: ICommand[] = [
     id: 'M107',
     name: 'M107',
     details: {
-      description: ' Description Turn off one of the fans. If no fan index is given, the print cooling fan. ',
-      notes: ' Notes Turn on fans with M106. ',
+      description: 'Turn off one of the fans. If no fan index is given, the print cooling fan. ',
+      notes: 'Turn on fans with M106. ',
       url: 'https://marlinfw.org/docs/gcode/M107.html',
     },
     params: [
@@ -6414,9 +6402,9 @@ export const commands: ICommand[] = [
     name: 'M109',
     details: {
       description:
-        ' Description This command optionally sets a new target hot end temperature and waits for the target temperature to be reached before proceeding. If the temperature is set with S then M109 waits only when heating. If the temperature is set with R then M109 will also wait for the temperature to go down. ',
+        'This command optionally sets a new target hot end temperature and waits for the target temperature to be reached before proceeding. If the temperature is set with S then M109 waits only when heating. If the temperature is set with R then M109 will also wait for the temperature to go down. ',
       notes:
-        ' Notes With PRINTJOB_TIMER_AUTOSTART this command will start the print job if heating, and stop the print job timer if the temperature is set at or below half of EXTRUDE_MINTEMP. This command (as well as M190) can block new commands from the host, preventing remote shutdown. However, if EMERGENCY_PARSER is enabled, a host can send M108 to break out of the wait loop. To set the hot end temperature and proceed without waiting, use M104. ',
+        'With PRINTJOB_TIMER_AUTOSTART this command will start the print job if heating, and stop the print job timer if the temperature is set at or below half of EXTRUDE_MINTEMP. This command (as well as M190) can block new commands from the host, preventing remote shutdown. However, if EMERGENCY_PARSER is enabled, a host can send M108 to break out of the wait loop. To set the hot end temperature and proceed without waiting, use M104. ',
       url: 'https://marlinfw.org/docs/gcode/M109.html',
     },
     params: [
@@ -6464,7 +6452,7 @@ export const commands: ICommand[] = [
     name: 'M111',
     details: {
       description:
-        ' Description Marlin has several debug bits that can be set, in combination, to help configure, troubleshoot, and debug the firmware. Add up the debug bits you need:    Mask Name Description   1 ECHO Echo all commands sent to the parser.   2 INFO Print extra informational messages.   4 ERRORS Print extra error messages.   8 DRYRUN Don’t extrude, don’t save leveling data, etc.   16 COMMUNICATION Not currently used.   32 LEVELING Detailed messages for homing, probing, and leveling. (Requires DEBUG_LEVELING_FEATURE.)   64 Reserved Reserved for future usage   128 Reserved Reserved for future usage    ',
+        'Marlin has several debug bits that can be set, in combination, to help configure, troubleshoot, and debug the firmware. Add up the debug bits you need:    Mask Name  1 ECHO Echo all commands sent to the parser.   2 INFO Print extra informational messages.   4 ERRORS Print extra error messages.   8 DRYRUN Don’t extrude, don’t save leveling data, etc.   16 COMMUNICATION Not currently used.   32 LEVELING Detailed messages for homing, probing, and leveling. (Requires DEBUG_LEVELING_FEATURE.)   64 Reserved Reserved for future usage   128 Reserved Reserved for future usage    ',
       url: 'https://marlinfw.org/docs/gcode/M111.html',
     },
     params: [
@@ -6482,8 +6470,8 @@ export const commands: ICommand[] = [
     name: 'M113',
     details: {
       description:
-        ' Description During some lengthy processes, such as G29, Marlin may appear to the host to have “gone away.” The “host keepalive” feature will send messages to the host when Marlin is busy or waiting for user response so the host won’t try to reconnect. Send M113 with no S parameter to get the current setting. ',
-      notes: ' Notes Requires HOST_KEEPALIVE_FEATURE. ',
+        'During some lengthy processes, such as G29, Marlin may appear to the host to have “gone away.” The “host keepalive” feature will send messages to the host when Marlin is busy or waiting for user response so the host won’t try to reconnect. Send M113 with no S parameter to get the current setting. ',
+      notes: 'Requires HOST_KEEPALIVE_FEATURE. ',
       url: 'https://marlinfw.org/docs/gcode/M113.html',
     },
     params: [
@@ -6501,7 +6489,7 @@ export const commands: ICommand[] = [
     name: 'M115',
     details: {
       description:
-        ' Description This command causes Marlin to output a string like this: FIRMWARE_NAME:Marlin 1.1.0 (Github) SOURCE_CODE_URL:https://github.com/MarlinFirmware/Marlin PROTOCOL_VERSION:1.0 MACHINE_TYPE:RepRap EXTRUDER_COUNT:1 UUID:cede2a2f-41a2-4748-9b12-c55c62f367ff\n When EXTENDED_CAPABILITIES_REPORT is enabled, Marlin also reports its capabilities: Cap:EEPROM:1\nCap:AUTOREPORT_TEMP:1\nCap:PROGRESS:0\nCap:AUTOLEVEL:1\nCap:Z_PROBE:1\nCap:SOFTWARE_POWER:0\nCap:TOGGLE_LIGHTS:0\nCap:EMERGENCY_PARSER:1\n Hosts use this information to improve interoperability, so it’s a good feature to enable. With EXTENDED_CAPABILITIES_REPORT and M115_GEOMETRY_REPORT enabled, Marlin will also report detailed printer geometry: area:{full:{min:{x:0,y:0,z:0,i:0,j:0,k:0,u:0,v:0,w:0},max:{x:200,y:200,z:200,i:0,j:0,k:0,u:0,v:0,w:0}},work:{min:{x:0,y:0,z:0,i:0,j:0,k:0},max:{x:200,y:200,z:200,i:0,j:0,k:0,u:0,v:0,w:0}}}\n Coordinates are only reported for declared linear axes. So for a classic cartesian printer, the geometry report will look like: area:{full:{min:{x:0,y:0,z:0},max:{x:200,y:200,z:200}},work:{min:{x:0,y:0,z:0},max:{x:200,y:200,z:200}}}\n ',
+        'This command causes Marlin to output a string like this: FIRMWARE_NAME:Marlin 1.1.0 (Github) SOURCE_CODE_URL:https://github.com/MarlinFirmware/Marlin PROTOCOL_VERSION:1.0 MACHINE_TYPE:RepRap EXTRUDER_COUNT:1 UUID:cede2a2f-41a2-4748-9b12-c55c62f367ff\n When EXTENDED_CAPABILITIES_REPORT is enabled, Marlin also reports its capabilities: Cap:EEPROM:1\nCap:AUTOREPORT_TEMP:1\nCap:PROGRESS:0\nCap:AUTOLEVEL:1\nCap:Z_PROBE:1\nCap:SOFTWARE_POWER:0\nCap:TOGGLE_LIGHTS:0\nCap:EMERGENCY_PARSER:1\n Hosts use this information to improve interoperability, so it’s a good feature to enable. With EXTENDED_CAPABILITIES_REPORT and M115_GEOMETRY_REPORT enabled, Marlin will also report detailed printer geometry: area:{full:{min:{x:0,y:0,z:0,i:0,j:0,k:0,u:0,v:0,w:0},max:{x:200,y:200,z:200,i:0,j:0,k:0,u:0,v:0,w:0}},work:{min:{x:0,y:0,z:0,i:0,j:0,k:0},max:{x:200,y:200,z:200,i:0,j:0,k:0,u:0,v:0,w:0}}}\n Coordinates are only reported for declared linear axes. So for a classic cartesian printer, the geometry report will look like: area:{full:{min:{x:0,y:0,z:0},max:{x:200,y:200,z:200}},work:{min:{x:0,y:0,z:0},max:{x:200,y:200,z:200}}}\n ',
       url: 'https://marlinfw.org/docs/gcode/M115.html',
     },
     params: [],
@@ -6511,9 +6499,8 @@ export const commands: ICommand[] = [
     id: 'M118',
     name: 'M118',
     details: {
-      description:
-        ' Description Send a message to the connected host for display in the host console or to perform a host action. ',
-      notes: ' Notes The E, A, and P parameters must precede the message. Can also send message to serial port. ',
+      description: 'Send a message to the connected host for display in the host console or to perform a host action. ',
+      notes: 'The E, A, and P parameters must precede the message. Can also send message to serial port. ',
       url: 'https://marlinfw.org/docs/gcode/M118.html',
     },
     params: [
@@ -6548,9 +6535,9 @@ export const commands: ICommand[] = [
     id: 'M120',
     name: 'M120',
     details: {
-      description: ' Description Enable endstops. ',
+      description: 'Enable endstops. ',
       notes:
-        ' Notes After this command endstops will be kept enabled when not homing. This may have side-effects if using SD_ABORT_ON_ENDSTOP_HIT. ',
+        'After this command endstops will be kept enabled when not homing. This may have side-effects if using SD_ABORT_ON_ENDSTOP_HIT. ',
       url: 'https://marlinfw.org/docs/gcode/M120.html',
     },
     params: [],
@@ -6561,9 +6548,9 @@ export const commands: ICommand[] = [
     name: 'M122',
     details: {
       description:
-        ' Description Do a communication check for configured TMC drivers. Trinamic drivers that support this feature are TMC2130, TMC2160, TMC2208, TMC2209, TMC2660, TMC5130, and TMC5160.  With no parameters, this command returns the current settings for all installed and supported Trinamic stepper drivers. Send M122 I to re-initialize drivers after a late power-on. Use S[0|1] to enable/disable continuous debugging output.  ',
+        'Do a communication check for configured TMC drivers. Trinamic drivers that support this feature are TMC2130, TMC2160, TMC2208, TMC2209, TMC2660, TMC5130, and TMC5160.  With no parameters, this command returns the current settings for all installed and supported Trinamic stepper drivers. Send M122 I to re-initialize drivers after a late power-on. Use S[0|1] to enable/disable continuous debugging output.  ',
       notes:
-        ' Notes TMC_DEBUG is no longer required to enable this G-code in Marlin 2.x, but enabling it produces an extended report. Responses of all LOW (00:00:00:00) or all HIGH (FF:FF:FF:FF) are signs of a communication problem. See TMC Troubleshooting for further information. ',
+        'TMC_DEBUG is no longer required to enable this G-code in Marlin 2.x, but enabling it produces an extended report. Responses of all LOW (00:00:00:00) or all HIGH (FF:FF:FF:FF) are signs of a communication problem. See TMC Troubleshooting for further information. ',
       url: 'https://marlinfw.org/docs/gcode/M122.html',
     },
     params: [
@@ -6619,8 +6606,8 @@ export const commands: ICommand[] = [
     id: 'M126',
     name: 'M126',
     details: {
-      description: ' Description Open the valve for Baricuda paste extruder 1. ',
-      notes: ' Notes Requires BARICUDA. ',
+      description: 'Open the valve for Baricuda paste extruder 1. ',
+      notes: 'Requires BARICUDA. ',
       url: 'https://marlinfw.org/docs/gcode/M126.html',
     },
     params: [
@@ -6637,8 +6624,8 @@ export const commands: ICommand[] = [
     id: 'M128',
     name: 'M128',
     details: {
-      description: ' Description Open the valve for Baricuda paste extruder 2. ',
-      notes: ' Notes Requires BARICUDA. ',
+      description: 'Open the valve for Baricuda paste extruder 2. ',
+      notes: 'Requires BARICUDA. ',
       url: 'https://marlinfw.org/docs/gcode/M128.html',
     },
     params: [
@@ -6656,7 +6643,7 @@ export const commands: ICommand[] = [
     name: 'M140',
     details: {
       description:
-        ' Description Set a new target temperature for the heated bed and continue without waiting. The firmware manages heating in the background. Use M190 to wait for the bed to reach the target temperature. ',
+        'Set a new target temperature for the heated bed and continue without waiting. The firmware manages heating in the background. Use M190 to wait for the bed to reach the target temperature. ',
       url: 'https://marlinfw.org/docs/gcode/M140.html',
     },
     params: [
@@ -6680,9 +6667,9 @@ export const commands: ICommand[] = [
     name: 'M143',
     details: {
       description:
-        ' Description Set a cooler target temperature and continue without waiting. The firmware manages cooling in the background. Any value greater than the COOLER_MAXTEMP (set in Configuratin_adv.h) will be set to the COOLER_MAXTEMP value. Use M193 if you want to wait for the cooler to reach the target temperature. ',
+        'Set a cooler target temperature and continue without waiting. The firmware manages cooling in the background. Any value greater than the COOLER_MAXTEMP (set in Configuratin_adv.h) will be set to the COOLER_MAXTEMP value. Use M193 if you want to wait for the cooler to reach the target temperature. ',
       notes:
-        ' Notes Configuration settings. COOLER_MINTEMP Provides a low end safe operating temperature, cannot be lower than 1°C. CO2 lasers tubes can be damaged with values less than 15°C. COOLER_MAXTEMP Provides a high end safe operating temperature, when breached the system will shutdown if THERMAL_PROTECTION_COOLER is defined. CO2 laser tube life degrades exponentially at temperatures above 24°C. COOLER_DEFAULT_TEMP LCD menu default value is 16°C. TEMP_COOLER_HYSTERESIS The accepatble temperature variance + or - to the target. COOLER_PIN Cooler on/off pin used to control power to the cooling element. COOLER_INVERTING Inverts the on value to 0. TEMP_COOLER_PIN Laser/Cooler temperature sensor pin. COOLER_FAN Enables a fan on the cooler. COOLER_FAN_INDEX Defines which fan to use 0,1,2 etc. COOLER_FAN_BASE Base cooler fan PWM (0-255); on when the cooler is enabled. COOLER_FAN_FACTOR PWM increase per °C above target. THERMAL_PROTECTION_COOLER Enables thermal shutdown protection. THERMAL_PROTECTION_COOLER_PERIOD Thermal protection check interval in seconds. THERMAL_PROTECTION_COOLER_HYSTERESIS Thermal variance +- limits check interval. WATCH_COOLER_TEMP_PERIOD Check interval in seconds before runaway condition shutdown. WATCH_COOLER_TEMP_INCREASE Allowable increase during check interval. ',
+        'Configuration settings. COOLER_MINTEMP Provides a low end safe operating temperature, cannot be lower than 1°C. CO2 lasers tubes can be damaged with values less than 15°C. COOLER_MAXTEMP Provides a high end safe operating temperature, when breached the system will shutdown if THERMAL_PROTECTION_COOLER is defined. CO2 laser tube life degrades exponentially at temperatures above 24°C. COOLER_DEFAULT_TEMP LCD menu default value is 16°C. TEMP_COOLER_HYSTERESIS The accepatble temperature variance + or - to the target. COOLER_PIN Cooler on/off pin used to control power to the cooling element. COOLER_INVERTING Inverts the on value to 0. TEMP_COOLER_PIN Laser/Cooler temperature sensor pin. COOLER_FAN Enables a fan on the cooler. COOLER_FAN_INDEX Defines which fan to use 0,1,2 etc. COOLER_FAN_BASE Base cooler fan PWM (0-255); on when the cooler is enabled. COOLER_FAN_FACTOR PWM increase per °C above target. THERMAL_PROTECTION_COOLER Enables thermal shutdown protection. THERMAL_PROTECTION_COOLER_PERIOD Thermal protection check interval in seconds. THERMAL_PROTECTION_COOLER_HYSTERESIS Thermal variance +- limits check interval. WATCH_COOLER_TEMP_PERIOD Check interval in seconds before runaway condition shutdown. WATCH_COOLER_TEMP_INCREASE Allowable increase during check interval. ',
       url: 'https://marlinfw.org/docs/gcode/M143.html',
     },
     params: [
@@ -6699,7 +6686,7 @@ export const commands: ICommand[] = [
     id: 'M149',
     name: 'M149',
     details: {
-      description: ' Description Set temperature units to Celsius, Fahrenheit, or Kelvin. Celsius is the default. ',
+      description: 'Set temperature units to Celsius, Fahrenheit, or Kelvin. Celsius is the default. ',
       url: 'https://marlinfw.org/docs/gcode/M149.html',
     },
     params: [
@@ -6729,9 +6716,9 @@ export const commands: ICommand[] = [
     name: 'M154',
     details: {
       description:
-        ' Description Some host software and serial controllers use M114 to get the current position, but polling with M114 is less than optimal, and in older versions of Marlin it would cause print stuttering. With M154 hosts can simply set an interval and Marlin will keep sending reports automatically. This method is preferred over polling with M114. ',
+        'Some host software and serial controllers use M114 to get the current position, but polling with M114 is less than optimal, and in older versions of Marlin it would cause print stuttering. With M154 hosts can simply set an interval and Marlin will keep sending reports automatically. This method is preferred over polling with M114. ',
       notes:
-        ' Notes Requires AUTO_REPORT_POSITION. Also enable EXTENDED_CAPABILITIES_REPORT to notify hosts about this capability. ',
+        'Requires AUTO_REPORT_POSITION. Also enable EXTENDED_CAPABILITIES_REPORT to notify hosts about this capability. ',
       url: 'https://marlinfw.org/docs/gcode/M154.html',
     },
     params: [
@@ -6749,8 +6736,8 @@ export const commands: ICommand[] = [
     name: 'M163',
     details: {
       description:
-        ' Description Set a single mix factor (in proportion to the sum total of all mix factors). The mix must be committed to a virtual tool by M164 before it takes effect. ',
-      notes: ' Notes Requires MIXING_EXTRUDER. ',
+        'Set a single mix factor (in proportion to the sum total of all mix factors). The mix must be committed to a virtual tool by M164 before it takes effect. ',
+      notes: 'Requires MIXING_EXTRUDER. ',
       url: 'https://marlinfw.org/docs/gcode/M163.html',
     },
     params: [
@@ -6774,8 +6761,8 @@ export const commands: ICommand[] = [
     name: 'M165',
     details: {
       description:
-        ' Description Set the mix for the active virtual extruder all at once. Any factors left out are set to 0.0. This is based on a reference implementation by Pìa Taubert. ',
-      notes: ' Notes Requires MIXING_EXTRUDER and DIRECT_MIXING_IN_G1. ',
+        'Set the mix for the active virtual extruder all at once. Any factors left out are set to 0.0. This is based on a reference implementation by Pìa Taubert. ',
+      notes: 'Requires MIXING_EXTRUDER and DIRECT_MIXING_IN_G1. ',
       url: 'https://marlinfw.org/docs/gcode/M165.html',
     },
     params: [
@@ -6823,9 +6810,9 @@ export const commands: ICommand[] = [
     name: 'M190',
     details: {
       description:
-        ' Description This command optionally sets a new target temperature for the heated bed and waits for the target temperature to be reached before proceeding. If the temperature is set with S then it waits only when heating. ',
+        'This command optionally sets a new target temperature for the heated bed and waits for the target temperature to be reached before proceeding. If the temperature is set with S then it waits only when heating. ',
       notes:
-        ' Notes This command may block the command queue. Enable EMERGENCY_PARSER so that hosts can break in using M108. Use M140 to set the bed temperature and proceed without waiting. Requires one (1) of the parameters listed below. ',
+        'This command may block the command queue. Enable EMERGENCY_PARSER so that hosts can break in using M108. Use M140 to set the bed temperature and proceed without waiting. Requires one (1) of the parameters listed below. ',
       url: 'https://marlinfw.org/docs/gcode/M190.html',
     },
     params: [
@@ -6855,9 +6842,9 @@ export const commands: ICommand[] = [
     name: 'M191',
     details: {
       description:
-        ' Description This command optionally sets a new target chamber temperature and waits for the target temperature to be reached before proceeding. If the temperature is set with S then it waits only when heating. ',
+        'This command optionally sets a new target chamber temperature and waits for the target temperature to be reached before proceeding. If the temperature is set with S then it waits only when heating. ',
       notes:
-        ' Notes This command (as well as M109 and M190) can block new commands from the host. To break out of wait for temperature using M108 from the host, enable EMERGENCY_PARSER. Use M141 to set the chamber temperature and proceed without waiting. ',
+        'This command (as well as M109 and M190) can block new commands from the host. To break out of wait for temperature using M108 from the host, enable EMERGENCY_PARSER. Use M141 to set the chamber temperature and proceed without waiting. ',
       url: 'https://marlinfw.org/docs/gcode/M191.html',
     },
     params: [
@@ -6881,9 +6868,9 @@ export const commands: ICommand[] = [
     name: 'M193',
     details: {
       description:
-        ' Description M193 optionally sets the cooler target temperature and dwells until the cooler temperature is equal to or below the target. Any value greater than the COOLER_MAXTEMP (set in Configuratin_adv.h) will be set to the COOLER_MAXTEMP value. Use M143 if you want to set the target temperature without waiting or to turn the cooler off. ',
+        'M193 optionally sets the cooler target temperature and dwells until the cooler temperature is equal to or below the target. Any value greater than the COOLER_MAXTEMP (set in Configuratin_adv.h) will be set to the COOLER_MAXTEMP value. Use M143 if you want to set the target temperature without waiting or to turn the cooler off. ',
       notes:
-        ' Notes This command may block the command queue. Enable EMERGENCY_PARSER so that hosts can break in using M108. Use M143 to set the cooler temperature and proceed without waiting. Configuration settings. COOLER_MINTEMP Provides a low end safe operating temperature, cannot be lower than 1°C. CO2 lasers tubes can be damaged with values less than 15°C. COOLER_MAXTEMP Provides a high end safe operating temperature, when breached the system will shutdown if THERMAL_PROTECTION_COOLER is defined. CO2 laser tube life degrades exponentially at temperatures above 24°C. COOLER_DEFAULT_TEMP LCD menu default value is 16°C. TEMP_COOLER_HYSTERESIS The accepatble temperature variance + or - to the target. COOLER_PIN Cooler on/off pin used to control power to the cooling element. COOLER_INVERTING Inverts the on value to 0. TEMP_COOLER_PIN Laser/Cooler temperature sensor pin. COOLER_FAN Enables a fan on the cooler. COOLER_FAN_INDEX Defines which fan to use 0,1,2 etc. COOLER_FAN_BASE Base cooler fan PWM (0-255); on when the cooler is enabled. COOLER_FAN_FACTOR PWM increase per °C above target. THERMAL_PROTECTION_COOLER Enables thermal shutdown protection. THERMAL_PROTECTION_COOLER_PERIOD Thermal protection check interval in seconds. THERMAL_PROTECTION_COOLER_HYSTERESIS Thermal variance +- limits check interval. WATCH_COOLER_TEMP_PERIOD Check interval in seconds before runaway condition shutdown. WATCH_COOLER_TEMP_INCREASE Allowable increase during check interval. ',
+        'This command may block the command queue. Enable EMERGENCY_PARSER so that hosts can break in using M108. Use M143 to set the cooler temperature and proceed without waiting. Configuration settings. COOLER_MINTEMP Provides a low end safe operating temperature, cannot be lower than 1°C. CO2 lasers tubes can be damaged with values less than 15°C. COOLER_MAXTEMP Provides a high end safe operating temperature, when breached the system will shutdown if THERMAL_PROTECTION_COOLER is defined. CO2 laser tube life degrades exponentially at temperatures above 24°C. COOLER_DEFAULT_TEMP LCD menu default value is 16°C. TEMP_COOLER_HYSTERESIS The accepatble temperature variance + or - to the target. COOLER_PIN Cooler on/off pin used to control power to the cooling element. COOLER_INVERTING Inverts the on value to 0. TEMP_COOLER_PIN Laser/Cooler temperature sensor pin. COOLER_FAN Enables a fan on the cooler. COOLER_FAN_INDEX Defines which fan to use 0,1,2 etc. COOLER_FAN_BASE Base cooler fan PWM (0-255); on when the cooler is enabled. COOLER_FAN_FACTOR PWM increase per °C above target. THERMAL_PROTECTION_COOLER Enables thermal shutdown protection. THERMAL_PROTECTION_COOLER_PERIOD Thermal protection check interval in seconds. THERMAL_PROTECTION_COOLER_HYSTERESIS Thermal variance +- limits check interval. WATCH_COOLER_TEMP_PERIOD Check interval in seconds before runaway condition shutdown. WATCH_COOLER_TEMP_INCREASE Allowable increase during check interval. ',
       url: 'https://marlinfw.org/docs/gcode/M193.html',
     },
     params: [
@@ -6901,7 +6888,7 @@ export const commands: ICommand[] = [
     name: 'M200',
     details: {
       description:
-        ' Description Set the filament’s current diameter and enable volumetric extrusion. In volumetric extrusion mode the E axis specifies cubic mm instead of linear mm, and the firmware calculates how much length to extrude for the given volume based on the filament diameter. ',
+        'Set the filament’s current diameter and enable volumetric extrusion. In volumetric extrusion mode the E axis specifies cubic mm instead of linear mm, and the firmware calculates how much length to extrude for the given volume based on the filament diameter. ',
       url: 'https://marlinfw.org/docs/gcode/M200.html',
     },
     params: [
@@ -6936,9 +6923,9 @@ export const commands: ICommand[] = [
     id: 'M203',
     name: 'M203',
     details: {
-      description: ' Description Set the max feedrate for one or more axes (in current units-per-second). ',
+      description: 'Set the max feedrate for one or more axes (in current units-per-second). ',
       notes:
-        ' Notes View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. ',
+        'View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. ',
       url: 'https://marlinfw.org/docs/gcode/M203.html',
     },
     params: [
@@ -6980,9 +6967,9 @@ export const commands: ICommand[] = [
     name: 'M204',
     details: {
       description:
-        ' Description Set the preferred starting acceleration (in units/s/s) for moves of different types. Send M204 with no parameters to get current settings. ',
+        'Set the preferred starting acceleration (in units/s/s) for moves of different types. Send M204 with no parameters to get current settings. ',
       notes:
-        ' Notes View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. Legacy M204 S<accel> is deprecated. Use separate paremeters M204 P<accel> T<accel> instead. ',
+        'View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. Legacy M204 S<accel> is deprecated. Use separate paremeters M204 P<accel> T<accel> instead. ',
       url: 'https://marlinfw.org/docs/gcode/M204.html',
     },
     params: [
@@ -7017,9 +7004,9 @@ export const commands: ICommand[] = [
     id: 'M205',
     name: 'M205',
     details: {
-      description: ' Description Set various motion settings. See parameters for details. ',
+      description: 'Set various motion settings. See parameters for details. ',
       notes:
-        ' Notes View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. ',
+        'View the current setting with M503. If EEPROM_SETTINGS is enabled, these are saved with M500, loaded with M501, and reset with M502. ',
       url: 'https://marlinfw.org/docs/gcode/M205.html',
     },
     params: [
@@ -7079,9 +7066,9 @@ export const commands: ICommand[] = [
     name: 'M206',
     details: {
       description:
-        ' Description Use M206 to apply a persistent offset to the native home position and coordinate space. This effectively shifts the coordinate space in the negative direction. See examples below.  The current position is adjusted to align to the new home offset values. The home offset is persistent — added to the current position until changed. Some uses include fine adjustment of Z position (without moving endstops) and shifting the coordinate space to print on a different part of the bed.  ',
+        'Use M206 to apply a persistent offset to the native home position and coordinate space. This effectively shifts the coordinate space in the negative direction. See examples below.  The current position is adjusted to align to the new home offset values. The home offset is persistent — added to the current position until changed. Some uses include fine adjustment of Z position (without moving endstops) and shifting the coordinate space to print on a different part of the bed.  ',
       notes:
-        ' Notes  This command isn’t available on DELTA. (For delta use M665 H.) This G-code can be disabled with NO_WORKSPACE_OFFSETS to optimize movement. Changing the home offsets will not invalidate bed leveling or other saved data. View the current offsets with M503. If EEPROM_SETTINGS is enabled, the home offsets are saved with M500, loaded with M501, and reset with M502.  M428 sets home offsets so the current position aligns to the native home position.  ',
+        ' This command isn’t available on DELTA. (For delta use M665 H.) This G-code can be disabled with NO_WORKSPACE_OFFSETS to optimize movement. Changing the home offsets will not invalidate bed leveling or other saved data. View the current offsets with M503. If EEPROM_SETTINGS is enabled, the home offsets are saved with M500, loaded with M501, and reset with M502.  M428 sets home offsets so the current position aligns to the native home position.  ',
       url: 'https://marlinfw.org/docs/gcode/M206.html',
     },
     params: [

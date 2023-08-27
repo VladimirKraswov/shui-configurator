@@ -2256,7 +2256,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'S',
-        label: '[S<power>]2.1.1LASER_FEATURESetthelaserpowerforthemove.',
+        label: '[S<power>]',
         hint: '',
         value: 0,
       },
@@ -2329,7 +2329,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'S',
-        label: '[S<power>]2.0.8SettheLaserpowerforthemove.',
+        label: '[S<power>]',
         hint: '',
         value: 0,
       },
@@ -2430,7 +2430,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'S',
-        label: '[S<power>]2.0.8SettheLaserpowerforthemove.',
+        label: '[S<power>]',
         hint: '',
         value: 0,
       },
@@ -2665,7 +2665,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'I',
-        label: '[I<index>]2.0.6Materialpresettouseforthetestprint.OverridesS.',
+        label: '[I<index>]',
         hint: '',
         value: 0,
       },
@@ -2771,12 +2771,12 @@ export const commands: ICommand[] = [
       },
       {
         name: 'O',
-        label: '[O]1.1.9Flagtoskiphomingifthepositionisalreadytrusted',
+        label: '[O]',
         value: 0,
       },
       {
         name: 'R',
-        label: '[R]1.1.9Thedistancetoraisethenozzlebeforehoming',
+        label: '[R]',
         value: 0,
       },
       {
@@ -2868,8 +2868,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'K',
-        label:
-          '[K<index>]UBL_DEVEL_DEBUGGINGKompare:Subtract(diff)thestoredmeshwiththisindexfromthecurrentmesh.Thisdestructivelyoperatesontheactivemesh,andtheresultshouldnotbeusedforprinting.(RequiresUBL_DEVEL_DEBUGGING)',
+        label: '[K<index>]',
         hint: '',
         value: 0,
       },
@@ -2923,7 +2922,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'W',
-        label: '[W]UBL_DEVEL_DEBUGGINGWhat?:DisplayvaluableUBLdata.(RequiresUBL_DEVEL_DEBUGGING)',
+        label: '[W]',
         hint: '',
         value: 0,
       },
@@ -3032,7 +3031,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'O',
-        label: '[O<bool>]2.0.9.2Probeatprobe-offset-relativepositionsinsteadoftherequiredkinematicpoints.',
+        label: '[O<bool>]',
         hint: '',
         value: 0,
       },
@@ -3044,7 +3043,7 @@ export const commands: ICommand[] = [
       },
       {
         name: 'R',
-        label: '[R<float>]2.0.9.2Temporarilyreducethesizeoftheprobegridbythespecifiedamount.',
+        label: '[R<float>]',
         hint: '',
         value: 0,
       },

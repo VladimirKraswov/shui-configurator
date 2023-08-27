@@ -1,3 +1,4 @@
+// Объединить дубликаты
 export function mergeObjectsWithSameName(arr: any[]): any[] {
   const mergedMap: Record<string, any> = {}
 

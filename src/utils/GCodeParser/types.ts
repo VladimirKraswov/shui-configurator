@@ -22,6 +22,8 @@ export interface ICommand {
   name?: string
   description?: string
   details?: {
+    description?: string
+    notes?: string
     text?: string
     url?: string
   }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -22,7 +22,18 @@ export const CommandDetails = ({command}: ICommandDetails) => {
           height: '75vh',
         }}>
         <Typography variant="h4">{command.name}</Typography>
-        <Typography whiteSpace="pre-wrap">{command.details?.text}</Typography>
+        {!!command.details?.description && (
+          <Box mt={2}>
+            <Typography variant="h6">Description</Typography>
+            <Typography whiteSpace="pre-wrap">{command.details?.description}</Typography>
+          </Box>
+        )}
+        {!!command.details?.notes && (
+          <Box mt={2}>
+            <Typography variant="h6">Notes</Typography>
+            <Typography whiteSpace="pre-wrap">{command.details?.notes}</Typography>
+          </Box>
+        )}
       </Box>
       <Box display="flex" flexDirection="row" width="100%" justifyContent="flex-end">
         {!!command.details?.url && (

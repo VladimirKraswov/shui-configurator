@@ -7,6 +7,8 @@ import '@fontsource/roboto/700.css'
 import './App.css'
 import {StepperWindow} from './modules/installer/components/stepper-window'
 import {GCodeUiConstructor} from './modules/g-code-ui-constructor/GCodeUiConstructor'
+import {Route, Routes} from 'react-router-dom'
+import {Auth} from './pages'
 
 function App() {
   return (
@@ -16,7 +18,11 @@ function App() {
         width: '100%' /* Растягиваем на всю ширину родителя */,
         height: '100%' /* Растягиваем на всю высоту родителя */,
       }}>
-      <GCodeUiConstructor />
+      <Routes>
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/config" element={<GCodeUiConstructor />} />
+        <Route path="/install" element={<StepperWindow />} />
+      </Routes>
     </div>
   )
 }

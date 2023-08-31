@@ -30,8 +30,7 @@ interface INavigator {
 function Navigator({config, activeStep, handleChangeConfig, changeBackupFolder, onOpenConfig}: INavigator) {
   return (
     <Box sx={{display: 'flex', flex: 1, height: '100%'}}>
-      {/* {activeStep === Step.Intro && <IntroScreen />} */}
-      {activeStep === Step.Intro && <GCodeUiConstructor />}
+      {activeStep === Step.Intro && <IntroScreen />}
       {activeStep === Step.SelectProfile && <SelectProfileScreen onOpenConfig={onOpenConfig} />}
       {activeStep === Step.Configuration && <EditConfigScreen config={config} onChangeConfig={handleChangeConfig} />}
       {activeStep === Step.Save && <SaveScreen onChangeMotherboard={changeBackupFolder} />}

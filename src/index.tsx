@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals'
 const theme = createTheme({
   // direction: 'rtl',
   // other theme properties
+  spacing: 4,
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)

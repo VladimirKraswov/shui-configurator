@@ -8,92 +8,92 @@ export const Login = ({onSigninSubmit, email, onEmailChange, password, onPasswor
   const classes = useStyles()
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Box className={classes.centerContainer}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}></Avatar>
-          <Typography component="h1" variant="h5">
-            Заходите на сайт, всегда Вам рады!
-          </Typography>
-          <form className={classes.form} onSubmit={onSigninSubmit} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Электронная почта"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={onEmailChange}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Пароль"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={onPasswordChange}
-            />
-            <Button fullWidth type="submit" variant="contained" color="primary" className={classes.submit}>
-              Войти
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Забыли пароль?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Нет учетной записи? Регистрация
-                </Link>
-              </Grid>
+      <Box className={classes.paper}>
+        <Avatar className={classes.avatar} />
+        <Typography component="h1" variant="h5">
+          Вход
+        </Typography>
+        <form className={classes.form} onSubmit={onSigninSubmit} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Электронная почта"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            value={email}
+            onChange={onEmailChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Пароль"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={onPasswordChange}
+          />
+          <Button fullWidth type="submit" variant="contained" color="primary" className={classes.submit}>
+            Войти
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                Забыли пароль?
+              </Link>
             </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
+            <Grid item>
+              <Link href="#" variant="body2">
+                Нет учетной записи? Регистрация
+              </Link>
+            </Grid>
+          </Grid>
+          <Box mt={5}>
+            <Copyright />
+          </Box>
+        </form>
+      </Box>
+    </Box>
   )
 }
 
 const useStyles = makeStyles((theme: any) => ({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+  centerContainer: {
+    display: 'flex',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
   paper: {
-    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    maxWidth: '40%',
+    padding: 20,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    margin: 'auto',
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    margin: 1,
+    backgroundColor: '#ff0',
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    width: '100%',
+    marginTop: 1,
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: 3,
   },
 }))

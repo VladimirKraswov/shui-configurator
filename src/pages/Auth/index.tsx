@@ -1,18 +1,9 @@
 import React, {useState} from 'react'
 
-import Lottie from 'react-lottie'
+import {Player, Controls} from '@lottiefiles/react-lottie-player'
 import animationData from '../../assets/lotties/auth-background.json'
 
 import {Login} from './Login'
-
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-}
 
 export const Auth = () => {
   const [email, setEmail] = useState('')
@@ -32,13 +23,21 @@ export const Auth = () => {
   }
 
   return (
-    <Lottie options={defaultOptions} height={400} width={400} />
-    // <Login
-    //   onSigninSubmit={handleSigninSubmit}
-    //   onEmailChange={handleEmailChange}
-    //   email={email}
-    //   password={handlePasswordChahge}
-    //   onPasswordChange={password}
-    // />
+    <>
+      <Player
+        style={{flex: 1}}
+        autoplay
+        loop
+        src={animationData}
+        rendererSettings={{preserveAspectRatio: 'xMidYMid slice'}}
+      />
+      <Login
+        onSigninSubmit={handleSigninSubmit}
+        onEmailChange={handleEmailChange}
+        email={email}
+        password={handlePasswordChahge}
+        onPasswordChange={password}
+      />
+    </>
   )
 }

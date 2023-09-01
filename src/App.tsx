@@ -12,18 +12,11 @@ import {Auth} from './pages'
 
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        width: '100%' /* Растягиваем на всю ширину родителя */,
-        height: '100%' /* Растягиваем на всю высоту родителя */,
-      }}>
-      <Routes>
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/config" element={<GCodeUiConstructor />} />
-        <Route path="/install" element={<StepperWindow />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/config" element={<GCodeUiConstructor />} />
+      <Route path="/install" element={<StepperWindow />} />
+    </Routes>
   )
 }
 

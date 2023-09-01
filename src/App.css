@@ -2,8 +2,6 @@
   width: 100vw; /* Растягиваем на всю ширину экрана */
   height: 100vh; /* Растягиваем на всю высоту экрана */
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 * {

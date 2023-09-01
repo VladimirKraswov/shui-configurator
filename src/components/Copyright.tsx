@@ -6,7 +6,7 @@ export const Copyright = () => {
     <Typography variant="body2" color="textSecondary" align="center">
       {' © '}
       <Link color="inherit" href="krasov-vcc@mail.ru">
-        Владимир Красов
+        ITRUM
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

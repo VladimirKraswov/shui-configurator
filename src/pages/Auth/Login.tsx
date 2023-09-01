@@ -3,8 +3,27 @@ import React from 'react'
 import {Button, Avatar, Box, CssBaseline, Grid, Paper, TextField, Typography, Link} from '@mui/material'
 import {makeStyles} from '@mui/styles'
 import {Copyright} from '../../components'
+import {FormControl} from '@mui/base'
 
-export const Login = ({onSigninSubmit, email, onEmailChange, password, onPasswordChange}: any) => {
+interface IProps {
+  isRegistration: boolean
+  email: string
+  password: string
+  onSubmit: (e: any) => void
+  onEmailChange: (e: any) => void
+  onPasswordChange: (e: any) => void
+  onChangeToRegistration: () => void
+}
+
+export const Login = ({
+  isRegistration,
+  email,
+  password,
+  onSubmit,
+  onEmailChange,
+  onPasswordChange,
+  onChangeToRegistration,
+}: IProps) => {
   const classes = useStyles()
 
   return (
@@ -13,9 +32,9 @@ export const Login = ({onSigninSubmit, email, onEmailChange, password, onPasswor
       <Box className={classes.paper}>
         <Avatar className={classes.avatar} />
         <Typography component="h1" variant="h5">
-          Вход
+          {isRegistration ? 'Регистрация' : 'Вход'}
         </Typography>
-        <form className={classes.form} onSubmit={onSigninSubmit} noValidate>
+        <FormControl className={classes.form} onSubmit={onSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -43,24 +62,26 @@ export const Login = ({onSigninSubmit, email, onEmailChange, password, onPasswor
             onChange={onPasswordChange}
           />
           <Button fullWidth type="submit" variant="contained" color="primary" className={classes.submit}>
-            Войти
+            {isRegistration ? 'Зарегистрироваться' : 'Войти'}
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                Забыли пароль?
-              </Link>
+              {!isRegistration && (
+                <Link href="#" variant="body2">
+                  Забыли пароль?
+                </Link>
+              )}
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                Нет учетной записи? Регистрация
+              <Link onClick={onChangeToRegistration} variant="body2">
+                {isRegistration ? 'Вход' : 'Регистрация'}
               </Link>
             </Grid>
           </Grid>
           <Box mt={5}>
             <Copyright />
           </Box>
-        </form>
+        </FormControl>
       </Box>
     </Box>
   )
@@ -79,11 +100,12 @@ const useStyles = makeStyles((theme: any) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    maxWidth: '40%',
+    width: '40%',
     padding: 20,
     backgroundColor: '#fff',
-    borderRadius: 5,
+    borderRadius: 8,
     margin: 'auto',
+    opacity: 0.9,
   },
   avatar: {
     margin: 1,
